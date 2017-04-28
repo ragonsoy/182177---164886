@@ -4,11 +4,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BoardApplicationTest
 {
     [TestClass]
-    public class UnitTest1
+    public class UserUnitTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void UserCreateTest()
         {
+            User user = new User();
+            Assert.AreEqual(user.getName() == "");
         }
     }
 }
