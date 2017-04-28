@@ -17,5 +17,7 @@ namespace BoardApplicationBusinessLogic
         {
             return this.name;
         }
+
+        
     }
 }

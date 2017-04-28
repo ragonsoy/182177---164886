@@ -10,8 +10,16 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetNameTest()
         {
-            User user = new User("");            
-            Assert.AreEqual(user.getName(), "");
+            User user = new User("Nombre");            
+            Assert.AreEqual(user.getName(), "Nombre");
+        }
+
+        [TestMethod]
+        public void UserSetNameTest()
+        {
+            User user = new User("NombreACambiar");
+            user.setName("NombreCambiado");
+            Assert.AreEqual(user.getName(), "NombreCambiado");
         }
     }
 }
