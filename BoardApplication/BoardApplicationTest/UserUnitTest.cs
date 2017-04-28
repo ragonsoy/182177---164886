@@ -8,9 +8,9 @@ namespace BoardApplicationTest
     public class UserUnitTest
     {
         [TestMethod]
-        public void UserCreateTest()
+        public void UserGetNameTest()
         {
-            User user = new User();
+            User user = new User("");            
             Assert.AreEqual(user.getName(), "");
         }
     }
