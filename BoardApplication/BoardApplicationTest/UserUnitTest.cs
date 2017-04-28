@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BoardApplicationBusinessLogic;
 
 namespace BoardApplicationTest
 {
@@ -10,7 +11,7 @@ namespace BoardApplicationTest
         public void UserCreateTest()
         {
             User user = new User();
-            Assert.AreEqual(user.getName() == "");
+            Assert.AreEqual(user.getName(), "");
         }
     }
 }

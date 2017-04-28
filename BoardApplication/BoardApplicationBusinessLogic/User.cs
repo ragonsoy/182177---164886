@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BoardApplicationBusinessLogic
 {
-    public class Class1
+    public class User
     {
+        public string getName()
+        {
+            return "";
+        }
     }
 }
