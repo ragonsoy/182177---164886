@@ -66,5 +66,10 @@ namespace BoardApplicationBusinessLogic
         {
             return this.password;
         }
+
+        public void setPassword(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -87,7 +87,10 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserSetPassword()
         {
-            
+            String birthDate = "1/1/2000";
+            User user = new User("Nombrer", "Apellido", "Email", birthDate, "PasswordACambiar");
+            user.setPassword("PasswordCambiado");
+            Assert.AreEqual(user.getEmail(), "PasswordCambiado");
         }
 
 
