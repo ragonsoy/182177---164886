@@ -84,6 +84,12 @@ namespace BoardApplicationTest
             Assert.AreEqual(user.getPassword(), "Password");
         }
 
+        [TestMethod]
+        public void UserSetPassword()
+        {
+            
+        }
+
 
     }
 }
