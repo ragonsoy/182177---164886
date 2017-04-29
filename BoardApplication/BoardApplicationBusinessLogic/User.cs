@@ -62,7 +62,7 @@ namespace BoardApplicationBusinessLogic
 
         public string getPassword()
         {
-            throw new NotImplementedException();
+            return "";
         }
     }
 }
