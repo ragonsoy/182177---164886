@@ -37,6 +37,13 @@ namespace BoardApplicationTest
             Assert.AreEqual(user.getLastName(), "ApellidoCambiado");
         }
 
+        [TestMethod]
+        public void UserGetEmailTest()
+        {
+            User user = new User("Nombre", "Apellido");
+            Assert.AreEqual(user.getEmail(), "");
+        }
+
 
     }
 }

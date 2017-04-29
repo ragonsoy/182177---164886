@@ -35,5 +35,10 @@ namespace BoardApplicationBusinessLogic
         {
             this.lastName = lastName;
         }
+
+        public string getEmail()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
