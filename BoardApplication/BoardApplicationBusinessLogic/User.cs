@@ -69,7 +69,7 @@ namespace BoardApplicationBusinessLogic
 
         public void setPassword(string v)
         {
-            throw new NotImplementedException();
+            this.password = "PasswordCambiado";
         }
     }
 }
