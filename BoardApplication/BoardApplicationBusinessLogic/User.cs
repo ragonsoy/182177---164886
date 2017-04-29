@@ -31,9 +31,9 @@ namespace BoardApplicationBusinessLogic
             return this.lastName;
         }
 
-        public void setLastName(string v)
+        public void setLastName(string lastName)
         {
-            this.lastName = "ApellidoCambiado";
+            this.lastName = lastName;
         }
     }
 }
