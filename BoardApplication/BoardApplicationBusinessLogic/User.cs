@@ -9,10 +9,12 @@ namespace BoardApplicationBusinessLogic
     public class User
     {
         private string name;
+        private string lastName;
 
-        public User(string name)
+        public User(string name, string lastName)
         {
             this.name = name;
+            this.lastName = lastName;
         }
         public string getName()
         {
@@ -26,7 +28,7 @@ namespace BoardApplicationBusinessLogic
 
         public string getLastName()
         {
-            return "";
+            return this.lastName;
         }
     }
 }
