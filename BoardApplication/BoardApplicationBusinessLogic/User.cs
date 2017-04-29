@@ -30,5 +30,10 @@ namespace BoardApplicationBusinessLogic
         {
             return this.lastName;
         }
+
+        public void setLastName(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
