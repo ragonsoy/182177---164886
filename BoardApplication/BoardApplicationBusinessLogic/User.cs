@@ -11,12 +11,14 @@ namespace BoardApplicationBusinessLogic
         private string name;
         private string lastName;
         private string email;
+        private string birthDate;
 
-        public User(string name, string lastName, string email)
+        public User(string name, string lastName, string email, string birthDate)
         {
             this.name = name;
             this.lastName = lastName;
             this.email = email;
+            this.birthDate = birthDate;
         }
         public string getName()
         {
@@ -50,7 +52,7 @@ namespace BoardApplicationBusinessLogic
 
         public string getBirthDate()
         {
-            return "";
+            return this.birthDate;
         }
     }
 }

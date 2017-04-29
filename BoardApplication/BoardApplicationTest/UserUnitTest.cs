@@ -10,14 +10,16 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetNameTest()
         {
-            User user = new User("Nombre", "Apellido", "Email");            
+            String birthDate = "1/1/2000";
+            User user = new User("Nombre", "Apellido", "Email", birthDate);            
             Assert.AreEqual(user.getName(), "Nombre");
         }
 
         [TestMethod]
         public void UserSetNameTest()
         {
-            User user = new User("NombreACambiar", "Apellido", "Email");
+            String birthDate = "1/1/2000";
+            User user = new User("NombreACambiar", "Apellido", "Email", birthDate);
             user.setName("NombreCambiado");
             Assert.AreEqual(user.getName(), "NombreCambiado");
         }
@@ -25,14 +27,16 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetLastNameTest()
         {
-            User user = new User("Nombre", "Apellido", "Email");
+            String birthDate = "1/1/2000";
+            User user = new User("Nombre", "Apellido", "Email", birthDate);
             Assert.AreEqual(user.getLastName(), "Apellido");
         }
 
         [TestMethod]
         public void UserSetLastNameTest()
         {
-            User user = new User("Nombrer", "ApellidoACambiar", "Email");
+            String birthDate = "1/1/2000";
+            User user = new User("Nombrer", "ApellidoACambiar", "Email", birthDate);
             user.setLastName("ApellidoCambiado");
             Assert.AreEqual(user.getLastName(), "ApellidoCambiado");
         }
@@ -40,14 +44,16 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetEmailTest()
         {
-            User user = new User("Nombre", "Apellido", "Email");
+            String birthDate = "1/1/2000";
+            User user = new User("Nombre", "Apellido", "Email", birthDate);
             Assert.AreEqual(user.getEmail(), "Email");
         }
 
         [TestMethod]
         public void UserSetEmailTest()
         {
-            User user = new User("Nombrer", "Apellido", "EmailACambiar");
+            String birthDate = "1/1/2000";
+            User user = new User("Nombrer", "Apellido", "EmailACambiar", birthDate);
             user.setEmail("EmailCambiado");
             Assert.AreEqual(user.getEmail(), "EmailCambiado");
         }
@@ -55,8 +61,9 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetBirthDateTest()
         {
-            User user = new User("Nombre", "Apellido", "Email");
-            Assert.AreEqual(user.getBirthDate(), "");
+            String birthDate = "1/1/2000";
+            User user = new User("Nombre", "Apellido", "Email", birthDate);
+            Assert.AreEqual(user.getBirthDate(), birthDate);
         }
 
 
