@@ -54,5 +54,10 @@ namespace BoardApplicationBusinessLogic
         {
             return this.birthDate;
         }
+
+        public void setBirthDate(string birthDateAcambiar)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

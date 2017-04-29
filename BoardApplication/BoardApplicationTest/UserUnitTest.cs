@@ -66,6 +66,16 @@ namespace BoardApplicationTest
             Assert.AreEqual(user.getBirthDate(), birthDate);
         }
 
+        [TestMethod]
+        public void UserSetBirthDateTest()
+        {
+            String birthDate = "1/1/2000";
+            String birthDateAcambiar = "1/1/2000";
+            User user = new User("Nombrer", "Apellido", "Email", birthDate);
+            user.setBirthDate(birthDateAcambiar);
+            Assert.AreEqual(user.getBirthDate(), birthDateAcambiar);
+        }
+
 
     }
 }
