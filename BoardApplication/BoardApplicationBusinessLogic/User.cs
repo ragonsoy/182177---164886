@@ -47,5 +47,10 @@ namespace BoardApplicationBusinessLogic
         {
             this.email = email;
         }
+
+        public string getBirthDate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
