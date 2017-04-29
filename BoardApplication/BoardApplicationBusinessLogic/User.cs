@@ -26,7 +26,7 @@ namespace BoardApplicationBusinessLogic
 
         public string getLastName()
         {
-            return "0";
+            return "";
         }
     }
 }
