@@ -8,9 +8,14 @@ namespace BoardApplicationBusinessLogic
 {
     public class Team
     {
+        private string name;
+        public Team(string name)
+        {
+            this.name = name;
+        }
         public string getName()
         {
-            return "Nombre";
+            return this.name;
         }
     }
 }
