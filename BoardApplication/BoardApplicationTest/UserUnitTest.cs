@@ -10,14 +10,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetNameTest()
         {
-            User user = new User("Nombre", "Apellido");            
+            User user = new User("Nombre", "Apellido", "Email");            
             Assert.AreEqual(user.getName(), "Nombre");
         }
 
         [TestMethod]
         public void UserSetNameTest()
         {
-            User user = new User("NombreACambiar", "Apellido");
+            User user = new User("NombreACambiar", "Apellido", "Email");
             user.setName("NombreCambiado");
             Assert.AreEqual(user.getName(), "NombreCambiado");
         }
@@ -25,14 +25,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetLastNameTest()
         {
-            User user = new User("Nombre", "Apellido");
+            User user = new User("Nombre", "Apellido", "Email");
             Assert.AreEqual(user.getLastName(), "Apellido");
         }
 
         [TestMethod]
         public void UserSetLastNameTest()
         {
-            User user = new User("NombreACambiar", "ApellidoACambiar");
+            User user = new User("Nombrer", "ApellidoACambiar", "Email");
             user.setLastName("ApellidoCambiado");
             Assert.AreEqual(user.getLastName(), "ApellidoCambiado");
         }
@@ -40,8 +40,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetEmailTest()
         {
-            User user = new User("Nombre", "Apellido");
-            Assert.AreEqual(user.getEmail(), "");
+            User user = new User("Nombre", "Apellido", "Email");
+            Assert.AreEqual(user.getEmail(), "Email");
         }
 
 
