@@ -38,7 +38,7 @@ namespace BoardApplicationBusinessLogic
 
         public string getEmail()
         {
-            throw new NotImplementedException();
+            return "";
         }
     }
 }
