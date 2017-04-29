@@ -55,9 +55,9 @@ namespace BoardApplicationBusinessLogic
             return this.birthDate;
         }
 
-        public void setBirthDate(string birthDateAcambiar)
+        public void setBirthDate(string birthDate)
         {
-            throw new NotImplementedException();
+            this.birthDate = "2/2/2000";
         }
     }
 }

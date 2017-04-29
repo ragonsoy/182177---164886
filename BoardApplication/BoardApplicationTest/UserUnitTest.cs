@@ -70,7 +70,7 @@ namespace BoardApplicationTest
         public void UserSetBirthDateTest()
         {
             String birthDate = "1/1/2000";
-            String birthDateAcambiar = "1/1/2000";
+            String birthDateAcambiar = "2/2/2000";
             User user = new User("Nombrer", "Apellido", "Email", birthDate);
             user.setBirthDate(birthDateAcambiar);
             Assert.AreEqual(user.getBirthDate(), birthDateAcambiar);
