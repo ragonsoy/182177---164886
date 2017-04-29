@@ -45,7 +45,7 @@ namespace BoardApplicationBusinessLogic
 
         public void setEmail(string v)
         {
-            throw new NotImplementedException();
+            this.email = "EmailCambiado";
         }
     }
 }
