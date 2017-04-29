@@ -42,5 +42,10 @@ namespace BoardApplicationBusinessLogic
         {
             return this.email;
         }
+
+        public void setEmail(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
