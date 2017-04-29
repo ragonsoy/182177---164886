@@ -67,9 +67,9 @@ namespace BoardApplicationBusinessLogic
             return this.password;
         }
 
-        public void setPassword(string v)
+        public void setPassword(string password)
         {
-            this.password = "PasswordCambiado";
+            this.password = password;
         }
     }
 }
