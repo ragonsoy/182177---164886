@@ -12,13 +12,15 @@ namespace BoardApplicationBusinessLogic
         private string lastName;
         private string email;
         private string birthDate;
+        private string password;
 
-        public User(string name, string lastName, string email, string birthDate)
+        public User(string name, string lastName, string email, string birthDate, string password)
         {
             this.name = name;
             this.lastName = lastName;
             this.email = email;
             this.birthDate = birthDate;
+            this.password = password;
         }
         public string getName()
         {
@@ -62,7 +64,7 @@ namespace BoardApplicationBusinessLogic
 
         public string getPassword()
         {
-            return "";
+            return this.password;
         }
     }
 }
