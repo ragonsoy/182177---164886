@@ -50,7 +50,7 @@ namespace BoardApplicationBusinessLogic
 
         public string getBirthDate()
         {
-            throw new NotImplementedException();
+            return "";
         }
     }
 }
