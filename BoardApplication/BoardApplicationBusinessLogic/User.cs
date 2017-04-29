@@ -33,7 +33,7 @@ namespace BoardApplicationBusinessLogic
 
         public void setLastName(string v)
         {
-            throw new NotImplementedException();
+            this.lastName = "ApellidoCambiado";
         }
     }
 }

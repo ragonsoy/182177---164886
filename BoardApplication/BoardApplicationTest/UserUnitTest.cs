@@ -34,7 +34,7 @@ namespace BoardApplicationTest
         {
             User user = new User("NombreACambiar", "ApellidoACambiar");
             user.setLastName("ApellidoCambiado");
-            Assert.AreEqual(user.getName(), "ApellidoCambiado");
+            Assert.AreEqual(user.getLastName(), "ApellidoCambiado");
         }
 
 
