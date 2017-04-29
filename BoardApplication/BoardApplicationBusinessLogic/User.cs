@@ -59,5 +59,10 @@ namespace BoardApplicationBusinessLogic
         {
             this.birthDate = birthDate;
         }
+
+        public string getPassword()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
