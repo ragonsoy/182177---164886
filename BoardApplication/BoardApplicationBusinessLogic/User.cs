@@ -57,7 +57,7 @@ namespace BoardApplicationBusinessLogic
 
         public void setBirthDate(string birthDate)
         {
-            this.birthDate = "2/2/2000";
+            this.birthDate = birthDate;
         }
     }
 }
