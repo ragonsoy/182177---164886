@@ -43,9 +43,9 @@ namespace BoardApplicationBusinessLogic
             return this.email;
         }
 
-        public void setEmail(string v)
+        public void setEmail(string email)
         {
-            this.email = "EmailCambiado";
+            this.email = email;
         }
     }
 }
