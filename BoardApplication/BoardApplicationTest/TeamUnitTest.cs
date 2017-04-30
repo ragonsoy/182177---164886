@@ -12,7 +12,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime);
+            Team team = new Team("Nombre", dateTime, "Descripcion");
             Assert.AreEqual(team.getName(), "Nombre");
         }
 
@@ -21,7 +21,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("NombreACambiar", dateTime);
+            Team team = new Team("NombreACambiar", dateTime, "Descripcion");
             team.setName("NombreCambiado");
             Assert.AreEqual(team.getName(), "NombreCambiado");
         }
@@ -31,7 +31,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("NombreACambiar", dateTime);
+            Team team = new Team("NombreACambiar", dateTime, "Descripcion");
             team.setName("");
             Assert.AreEqual(team.getName(), "NombreACambiar");
         }
@@ -41,7 +41,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime);
+            Team team = new Team("Nombre", dateTime, "Descripcion");
             Assert.AreEqual(team.getCreationDate(), dateTime);
         }
 
@@ -50,11 +50,20 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime);
+            Team team = new Team("Nombre", dateTime, "Descripcion");
             DateTime dateTimeNew = new DateTime();
             DateTime.TryParse("2/1/2000", out dateTimeNew);
             team.setCreationDate(dateTimeNew);
             Assert.AreEqual(team.getCreationDate(), dateTimeNew);
+        }
+
+        [TestMethod]
+        public void TeamGetDescriptionTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("Nombre", dateTime, "Descripcion");
+            Assert.AreEqual(team.getDescription(), "Descripcion");
         }
     }
 }

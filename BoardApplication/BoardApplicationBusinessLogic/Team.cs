@@ -10,10 +10,12 @@ namespace BoardApplicationBusinessLogic
     {
         private string name;
         private DateTime creationDate;
-        public Team(string name, DateTime creationDate)
+        private string description;
+        public Team(string name, DateTime creationDate, string description)
         {
             this.name = name;
             this.creationDate = creationDate;
+            this.description = description;
         }
 
         public string getName()
@@ -40,6 +42,11 @@ namespace BoardApplicationBusinessLogic
         public void setCreationDate(DateTime dateTime)
         {
             this.creationDate = dateTime;
+        }
+
+        public string getDescription()
+        {
+            return this.description;
         }
     }
 }
