@@ -20,8 +20,13 @@ namespace BoardApplicationBusinessLogic
 
         public void setName(string name)
         {
-            if (name.Length > 0)
+            if (isEmpty(name))
                 this.name = name;
+        }
+
+        private bool isEmpty(string str)
+        {
+            return (str.Trim().Length > 0);
         }
     }
 }
