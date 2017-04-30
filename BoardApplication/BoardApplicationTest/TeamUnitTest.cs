@@ -21,5 +21,13 @@ namespace BoardApplicationTest
             team.setName("NombreCambiado");
             Assert.AreEqual(team.getName(), "NombreCambiado");
         }
+
+        [TestMethod]
+        public void TeamSetNameEmptyTest()
+        {
+            Team team = new Team("NombreACambiar");
+            team.setName("");
+            Assert.AreEqual(team.getName(), "NombreACambiar");
+        }
     }
 }
