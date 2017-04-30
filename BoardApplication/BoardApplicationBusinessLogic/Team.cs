@@ -20,7 +20,8 @@ namespace BoardApplicationBusinessLogic
 
         public void setName(string name)
         {
-            this.name = name;
+            if (name.Length > 0)
+                this.name = name;
         }
     }
 }
