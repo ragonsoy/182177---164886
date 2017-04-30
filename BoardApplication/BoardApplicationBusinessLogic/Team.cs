@@ -17,5 +17,10 @@ namespace BoardApplicationBusinessLogic
         {
             return this.name;
         }
+
+        public void setName(string name)
+        {
+            this.name = name;
+        }
     }
 }
