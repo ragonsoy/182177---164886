@@ -36,5 +36,10 @@ namespace BoardApplicationBusinessLogic
         {
             return this.creationDate;
         }
+
+        public void setCreationDate(DateTime dateTime)
+        {
+            this.creationDate = dateTime;
+        }
     }
 }

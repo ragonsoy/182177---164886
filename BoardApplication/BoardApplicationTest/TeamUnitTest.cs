@@ -41,8 +41,20 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("NombreACambiar", dateTime);
+            Team team = new Team("Nombre", dateTime);
             Assert.AreEqual(team.getCreationDate(), dateTime);
+        }
+
+        [TestMethod]
+        public void TeamSetCreationDateTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("Nombre", dateTime);
+            DateTime dateTimeNew = new DateTime();
+            DateTime.TryParse("2/1/2000", out dateTimeNew);
+            team.setCreationDate(dateTimeNew);
+            Assert.AreEqual(team.getCreationDate(), dateTimeNew);
         }
     }
 }
