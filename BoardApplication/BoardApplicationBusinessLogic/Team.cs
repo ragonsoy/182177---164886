@@ -9,10 +9,13 @@ namespace BoardApplicationBusinessLogic
     public class Team
     {
         private string name;
-        public Team(string name)
+        private DateTime creationDate;
+        public Team(string name, DateTime creationDate)
         {
             this.name = name;
+            this.creationDate = creationDate;
         }
+
         public string getName()
         {
             return this.name;
@@ -27,6 +30,11 @@ namespace BoardApplicationBusinessLogic
         private bool isEmpty(string str)
         {
             return (str.Trim().Length > 0);
+        }
+
+        public DateTime getCreationDate()
+        {
+            return this.creationDate;
         }
     }
 }

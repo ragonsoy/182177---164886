@@ -10,14 +10,18 @@ namespace BoardApplicationTest
         [TestMethod]
         public void TeamGetNameTest()
         {
-            Team team = new Team("Nombre");
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("Nombre", dateTime);
             Assert.AreEqual(team.getName(), "Nombre");
         }
 
         [TestMethod]
         public void TeamSetNameTest()
         {
-            Team team = new Team("NombreACambiar");
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("NombreACambiar", dateTime);
             team.setName("NombreCambiado");
             Assert.AreEqual(team.getName(), "NombreCambiado");
         }
@@ -25,9 +29,20 @@ namespace BoardApplicationTest
         [TestMethod]
         public void TeamSetNameEmptyTest()
         {
-            Team team = new Team("NombreACambiar");
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("NombreACambiar", dateTime);
             team.setName("");
             Assert.AreEqual(team.getName(), "NombreACambiar");
+        }
+
+        [TestMethod]
+        public void TeamGetCreationDateTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("NombreACambiar", dateTime);
+            Assert.AreEqual(team.getCreationDate(), dateTime);
         }
     }
 }
