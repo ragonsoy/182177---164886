@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BoardApplicationBusinessLogic;
+using System.Collections.Generic;
 
 namespace BoardApplicationTest
 {
@@ -12,7 +13,9 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             Assert.AreEqual(team.getName(), "Nombre");
         }
 
@@ -21,7 +24,9 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("NombreACambiar", dateTime, "Descripcion", 1);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             team.setName("NombreCambiado");
             Assert.AreEqual(team.getName(), "NombreCambiado");
         }
@@ -31,8 +36,10 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("NombreACambiar", dateTime, "Descripcion", 1);
-            team.setName("");
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            team.setName("NombreACambiar");
             Assert.AreEqual(team.getName(), "NombreACambiar");
         }
 
@@ -41,7 +48,9 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             Assert.AreEqual(team.getCreationDate(), dateTime);
         }
 
@@ -50,7 +59,9 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             DateTime dateTimeNew = new DateTime();
             DateTime.TryParse("2/1/2000", out dateTimeNew);
             team.setCreationDate(dateTimeNew);
@@ -62,7 +73,9 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             Assert.AreEqual(team.getDescription(), "Descripcion");
         }
 
@@ -71,7 +84,9 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion a cambiar", 1);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             team.setDescription("Descripcion cambiada");
             Assert.AreEqual(team.getDescription(), "Descripcion cambiada");
         }
@@ -81,7 +96,9 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             Assert.AreEqual(team.getMaxUserCount(), 1);
         }
 
@@ -90,9 +107,31 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             team.setMaxUserCount(2);
             Assert.AreEqual(team.getMaxUserCount(), 2);
+        }
+
+        [TestMethod]
+        public void TeamAddNewUserTest()
+        {
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+
+            List<User> teamUsers = new List<User>();
+            
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+
+            int maxUserCount = 2;
+
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            team.AddNewUser(user);
+
+            Assert.IsTrue(teamUsers.Contains(user));
         }
 
     }

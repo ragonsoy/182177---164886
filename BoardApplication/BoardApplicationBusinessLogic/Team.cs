@@ -12,15 +12,17 @@ namespace BoardApplicationBusinessLogic
         private DateTime creationDate;
         private string description;
         private int maxUserCount;
+        private List<User> teamUsers = new List<User>();
 
         public Team() { }
 
-        public Team(string name, DateTime creationDate, string description, int maxUserCount)
+        public Team(string name, DateTime creationDate, string description, int maxUserCount, List<User> teamUsers)
         {
             this.name = name;
             this.creationDate = creationDate;
             this.description = description;
             this.maxUserCount = maxUserCount;
+            this.teamUsers = teamUsers;       
         }
 
         public string getName()
@@ -68,6 +70,11 @@ namespace BoardApplicationBusinessLogic
         public void setMaxUserCount(int maxUserCount)
         {
             this.maxUserCount = maxUserCount;
+        }
+
+        public void AddNewUser(User user)
+        {
+            
         }
 
     }
