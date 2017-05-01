@@ -11,10 +11,10 @@ namespace BoardApplicationBusinessLogic
         private string name;
         private string lastName;
         private string email;
-        private string birthDate;
+        private DateTime birthDate;
         private string password;
 
-        public User(string name, string lastName, string email, string birthDate, string password)
+        public User(string name, string lastName, string email, DateTime birthDate, string password)
         {
             this.name = name;
             this.lastName = lastName;
@@ -52,12 +52,12 @@ namespace BoardApplicationBusinessLogic
             this.email = email;
         }
 
-        public string getBirthDate()
+        public DateTime getBirthDate()
         {
             return this.birthDate;
         }
 
-        public void setBirthDate(string birthDate)
+        public void setBirthDate(DateTime birthDate)
         {
             this.birthDate = birthDate;
         }

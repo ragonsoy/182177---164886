@@ -10,7 +10,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetNameTest()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");            
             Assert.AreEqual(user.getName(), "Nombre");
         }
@@ -18,7 +19,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserSetNameTest()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("NombreACambiar", "Apellido", "Email", birthDate, "Password");
             user.setName("NombreCambiado");
             Assert.AreEqual(user.getName(), "NombreCambiado");
@@ -27,7 +29,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetLastNameTest()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
             Assert.AreEqual(user.getLastName(), "Apellido");
         }
@@ -35,7 +38,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserSetLastNameTest()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("Nombrer", "ApellidoACambiar", "Email", birthDate, "Password");
             user.setLastName("ApellidoCambiado");
             Assert.AreEqual(user.getLastName(), "ApellidoCambiado");
@@ -44,7 +48,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetEmailTest()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
             Assert.AreEqual(user.getEmail(), "Email");
         }
@@ -52,7 +57,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserSetEmailTest()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("Nombrer", "Apellido", "EmailACambiar", birthDate, "Password");
             user.setEmail("EmailCambiado");
             Assert.AreEqual(user.getEmail(), "EmailCambiado");
@@ -61,7 +67,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetBirthDateTest()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
             Assert.AreEqual(user.getBirthDate(), birthDate);
         }
@@ -69,8 +76,10 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserSetBirthDateTest()
         {
-            String birthDate = "1/1/2000";
-            String birthDateAcambiar = "2/2/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            DateTime birthDateAcambiar = new DateTime();
+            DateTime.TryParse("2/2/2000", out birthDateAcambiar);
             User user = new User("Nombrer", "Apellido", "Email", birthDate, "Password");
             user.setBirthDate(birthDateAcambiar);
             Assert.AreEqual(user.getBirthDate(), birthDateAcambiar);
@@ -79,7 +88,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetPasswordTest()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
             Assert.AreEqual(user.getPassword(), "Password");
         }
@@ -87,7 +97,8 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserSetPassword()
         {
-            String birthDate = "1/1/2000";
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
             User user = new User("Nombrer", "Apellido", "Email", birthDate, "PasswordACambiar");
             user.setPassword("PasswordCambiado");
             Assert.AreEqual(user.getPassword(), "PasswordCambiado");
