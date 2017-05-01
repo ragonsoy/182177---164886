@@ -136,5 +136,27 @@ namespace BoardApplicationTest
             Assert.IsTrue(teamUsers.Contains(secondUser));
         }
 
+        [TestMethod]
+        public void TeamAddMoreUsersThanAlowed()
+        {
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User firstUser = new User("first ", "firstLastName", "firstEmail", birthDate, "firstPassword");
+            User secondUser = new User("second", "secondLastName", "secondEmail", birthDate, "secondPassword");
+
+            List<User> teamUsers = new List<User>();
+
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+
+            int maxUserCount = 1;
+
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            team.AddNewUser(firstUser);
+            team.AddNewUser(secondUser);
+
+            Assert.IsFalse(teamUsers.Contains(secondUser));
+        }
+
     }
 }
