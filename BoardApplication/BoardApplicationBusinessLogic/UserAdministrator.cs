@@ -14,5 +14,10 @@ namespace BoardApplicationBusinessLogic
         {
         
         }
+
+        public void ChangePassword(User user, string password)
+        {
+            user.setPassword(password);
+        }
     }
 }

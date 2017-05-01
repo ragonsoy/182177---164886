@@ -5,7 +5,7 @@ using BoardApplicationBusinessLogic;
 namespace BoardApplicationTest
 {
     [TestClass]
-    public class UserAdminUnitTest
+    public class UserAdministratorUnitTest
     {
         [TestMethod]
         public void UserAdministratorGetNameTest()
@@ -103,6 +103,18 @@ namespace BoardApplicationTest
             userAdministrator.setPassword("PasswordCambiado");
             Assert.AreEqual(userAdministrator.getPassword(), "PasswordCambiado");
         }
+
+        [TestMethod]
+        public void UserAdministratorChangePasswordTest()
+        {
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User user = new User("NombreUser", "ApellidoUser", "EmailUser", birthDate, "PasswordACambiar");
+            UserAdministrator userAdministrator = new UserAdministrator("NombreAdmin", "ApellidoAdmin", "EmailAdmin", birthDate, "Password");
+            userAdministrator.ChangePassword(user, "PasswordCambiado");
+            Assert.AreEqual(user.getPassword(), "PasswordCambiado");
+        }
+
 
     }
 }
