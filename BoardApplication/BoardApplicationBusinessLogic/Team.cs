@@ -11,11 +11,16 @@ namespace BoardApplicationBusinessLogic
         private string name;
         private DateTime creationDate;
         private string description;
-        public Team(string name, DateTime creationDate, string description)
+        private int maxUserCount;
+
+        public Team() { }
+
+        public Team(string name, DateTime creationDate, string description, int maxUserCount)
         {
             this.name = name;
             this.creationDate = creationDate;
             this.description = description;
+            this.maxUserCount = maxUserCount;
         }
 
         public string getName()
@@ -25,13 +30,13 @@ namespace BoardApplicationBusinessLogic
 
         public void setName(string name)
         {
-            if (isEmpty(name))
+            if (!isEmpty(name))
                 this.name = name;
         }
 
         private bool isEmpty(string str)
         {
-            return (str.Trim().Length > 0);
+            return (str.Trim().Length == 0);
         }
 
         public DateTime getCreationDate()
@@ -48,5 +53,18 @@ namespace BoardApplicationBusinessLogic
         {
             return this.description;
         }
+
+        public void setDescription(string description)
+        {
+            if(!isEmpty(description))
+                this.description = description;
+        }
+
+        public int getMaxUserCount()
+        {
+            return this.maxUserCount;
+        }
+
+
     }
 }

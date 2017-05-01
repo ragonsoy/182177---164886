@@ -12,7 +12,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion");
+            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
             Assert.AreEqual(team.getName(), "Nombre");
         }
 
@@ -21,7 +21,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("NombreACambiar", dateTime, "Descripcion");
+            Team team = new Team("NombreACambiar", dateTime, "Descripcion", 1);
             team.setName("NombreCambiado");
             Assert.AreEqual(team.getName(), "NombreCambiado");
         }
@@ -31,7 +31,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("NombreACambiar", dateTime, "Descripcion");
+            Team team = new Team("NombreACambiar", dateTime, "Descripcion", 1);
             team.setName("");
             Assert.AreEqual(team.getName(), "NombreACambiar");
         }
@@ -41,7 +41,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion");
+            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
             Assert.AreEqual(team.getCreationDate(), dateTime);
         }
 
@@ -50,7 +50,7 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion");
+            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
             DateTime dateTimeNew = new DateTime();
             DateTime.TryParse("2/1/2000", out dateTimeNew);
             team.setCreationDate(dateTimeNew);
@@ -62,8 +62,28 @@ namespace BoardApplicationTest
         {
             DateTime dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
-            Team team = new Team("Nombre", dateTime, "Descripcion");
+            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
             Assert.AreEqual(team.getDescription(), "Descripcion");
         }
+
+        [TestMethod]
+        public void TeamSetDescriptionTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("Nombre", dateTime, "Descripcion a cambiar", 1);
+            team.setDescription("Descripcion cambiada");
+            Assert.AreEqual(team.getDescription(), "Descripcion cambiada");
+        }
+
+        [TestMethod]
+        public void TeamGetMaxUserCountTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
+            Assert.AreEqual(team.getMaxUserCount(), 1);
+        }
+
     }
 }
