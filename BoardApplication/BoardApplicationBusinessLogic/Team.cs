@@ -74,6 +74,7 @@ namespace BoardApplicationBusinessLogic
 
         public void AddNewUser(User user)
         {
+            if (this.teamUsers.Count < this.maxUserCount)
                 this.teamUsers.Add(user);
         }
 

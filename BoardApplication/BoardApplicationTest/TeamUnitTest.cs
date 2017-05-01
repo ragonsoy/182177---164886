@@ -119,7 +119,8 @@ namespace BoardApplicationTest
         {
             DateTime birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            User firstUser = new User("first ", "firstLastName", "firstEmail", birthDate, "firstPassword");
+            User secondUser = new User("second", "secondLastName", "secondEmail", birthDate, "secondPassword");
 
             List<User> teamUsers = new List<User>();
             
@@ -129,9 +130,10 @@ namespace BoardApplicationTest
             int maxUserCount = 2;
 
             Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            team.AddNewUser(user);
+            team.AddNewUser(firstUser);
+            team.AddNewUser(secondUser);
 
-            Assert.IsTrue(teamUsers.Contains(user));
+            Assert.IsTrue(teamUsers.Contains(secondUser));
         }
 
     }
