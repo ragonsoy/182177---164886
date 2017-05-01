@@ -78,5 +78,9 @@ namespace BoardApplicationBusinessLogic
                 this.teamUsers.Add(user);
         }
 
+        public List<User> getTeamUsers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

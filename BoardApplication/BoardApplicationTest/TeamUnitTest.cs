@@ -158,5 +158,16 @@ namespace BoardApplicationTest
             Assert.IsFalse(teamUsers.Contains(secondUser));
         }
 
+        [TestMethod]
+        public void TeamGetTeamUsersTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            Assert.AreEqual(team.getTeamUsers().Count, 0);
+        }
+
     }
 }
