@@ -65,6 +65,10 @@ namespace BoardApplicationBusinessLogic
             return this.maxUserCount;
         }
 
+        public void setMaxUserCount(int maxUserCount)
+        {
+            this.maxUserCount = maxUserCount;
+        }
 
     }
 }

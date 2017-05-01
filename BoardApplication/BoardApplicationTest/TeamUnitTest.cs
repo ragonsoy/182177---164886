@@ -85,5 +85,15 @@ namespace BoardApplicationTest
             Assert.AreEqual(team.getMaxUserCount(), 1);
         }
 
+        [TestMethod]
+        public void TeamSetMaxUserCountTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            Team team = new Team("Nombre", dateTime, "Descripcion", 1);
+            team.setMaxUserCount(2);
+            Assert.AreEqual(team.getMaxUserCount(), 2);
+        }
+
     }
 }
