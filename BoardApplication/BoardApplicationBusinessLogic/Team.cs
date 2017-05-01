@@ -80,7 +80,7 @@ namespace BoardApplicationBusinessLogic
 
         public List<User> getTeamUsers()
         {
-            throw new NotImplementedException();
+            return this.teamUsers;
         }
     }
 }
