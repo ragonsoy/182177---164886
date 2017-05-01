@@ -74,7 +74,7 @@ namespace BoardApplicationBusinessLogic
 
         public void AddNewUser(User user)
         {
-            
+                this.teamUsers.Add(user);
         }
 
     }
