@@ -11,12 +11,16 @@ namespace BoardApplicationBusinessLogic
         private string name;
         private Team team;
         private string description;
+        private int height;
+        private int wide;
 
-        public Board(string name, Team team, string description)
+        public Board(string name, Team team, string description, int height, int wide)
         {
             this.name = name;
             this.team = team;
             this.description = description;
+            this.height = height;
+            this.wide = wide;
         }
 
         public string getName()
@@ -49,5 +53,26 @@ namespace BoardApplicationBusinessLogic
         {
             this.description = description;
         }
+
+        public int getHeight()
+        {
+            return this.height;
+        }
+
+        public void setHeight(int height)
+        {
+            this.height = height;
+        }
+
+        public int getWide()
+        {
+            return this.wide;
+        }
+
+        public void setWide(int wide)
+        {
+            this.wide = wide;
+        }
+        
     }
 }

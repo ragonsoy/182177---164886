@@ -18,7 +18,9 @@ namespace BoardApplicationTest
             int maxUserCount = 1;
             List<User> teamUsers = new List<User>();
             Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion");
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
             Assert.AreEqual(board.getName(), "NombreBoard");
         }
 
@@ -30,7 +32,9 @@ namespace BoardApplicationTest
             int maxUserCount = 1;
             List<User> teamUsers = new List<User>();
             Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion");
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
             board.setName("NombreCambiado");
             Assert.AreEqual(board.getName(), "NombreCambiado");
         }
@@ -43,7 +47,9 @@ namespace BoardApplicationTest
             int maxUserCount = 1;
             List<User> teamUsers = new List<User>();
             Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion");
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
             Assert.AreEqual(board.getBoardTeam().getName(), "NombreTeam");
         }
 
@@ -56,7 +62,9 @@ namespace BoardApplicationTest
             List<User> teamUsers = new List<User>();
             Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
             Team boardNewTeam = new Team("NombreNewTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion");
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
             board.SetBoardTeam(boardNewTeam);
             Assert.AreEqual(board.getBoardTeam().getName(), "NombreNewTeam");
         }
@@ -69,7 +77,9 @@ namespace BoardApplicationTest
             int maxUserCount = 1;
             List<User> teamUsers = new List<User>();
             Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion");
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
             Assert.AreEqual(board.getDescription(), "BoardDescripcion");
         }
 
@@ -81,9 +91,69 @@ namespace BoardApplicationTest
             int maxUserCount = 1;
             List<User> teamUsers = new List<User>();
             Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion");
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
             board.setDescripcion("BoardDescripcionCambiada");
             Assert.AreEqual(board.getDescription(), "BoardDescripcionCambiada");
+        }
+
+        [TestMethod]
+        public void BoardGetHeightTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
+            Assert.AreEqual(board.getHeight(), 10);
+        }
+
+        [TestMethod]
+        public void BoardSetHeightTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
+            board.setHeight(6);
+            Assert.AreEqual(board.getHeight(), 6);
+        }
+
+        [TestMethod]
+        public void BoardGetWideTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
+            Assert.AreEqual(board.getWide(), 10);
+        }
+
+        [TestMethod]
+        public void BoardSetWideTest()
+        {
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
+            int height = 10;
+            int wide = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide);
+            board.setWide(5);
+            Assert.AreEqual(board.getWide(), 5);
         }
 
 
