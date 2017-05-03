@@ -9,34 +9,54 @@ namespace BoardApplicationTest
     [TestClass]
     public class BoardUnitTest
     {
+        List<BoardElement> boardElements;
+        DateTime dateTime;
+        int maxUserCount;
+        List<User> teamUsers;
+        Team boardTeam;
+        int height;
+        int width;
+        Team boardNewTeam;
+        List<Commentary> comentarysElement;
+        int originPointX;
+        int originPointY;
+        int heightElement;
+        int widthElement;
+        BoardElement element;
+
+        [TestInitialize]
+        public void Init()
+        {
+            boardElements = new List<BoardElement>();
+            dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            maxUserCount = 1;
+            teamUsers = new List<User>();
+            boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
+            height = 10;
+            width = 10;
+            boardNewTeam = new Team("NombreNewTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
+
+            comentarysElement = new List<Commentary>();
+            originPointX = 10;
+            originPointY = 9;
+            heightElement = 8;
+            widthElement = 7;
+            element = new BoardElement(originPointX, originPointY, heightElement, widthElement, comentarysElement);
+
+        }
 
         [TestMethod]
         public void BoardGetNameTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             Assert.AreEqual(board.getName(), "NombreBoard");
         }
 
         [TestMethod]
         public void BoardSetNameTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             board.setName("NombreCambiado");
             Assert.AreEqual(board.getName(), "NombreCambiado");
         }
@@ -44,31 +64,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetBoardTeamTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             Assert.AreEqual(board.getBoardTeam().getName(), "NombreTeam");
         }
 
         [TestMethod]
         public void BoardSetBoardTeamTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Team boardNewTeam = new Team("NombreNewTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             board.SetBoardTeam(boardNewTeam);
             Assert.AreEqual(board.getBoardTeam().getName(), "NombreNewTeam");
         }
@@ -76,30 +79,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetDescriptionTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             Assert.AreEqual(board.getDescription(), "BoardDescripcion");
         }
 
         [TestMethod]
         public void BoardSetDescriptionTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             board.setDescripcion("BoardDescripcionCambiada");
             Assert.AreEqual(board.getDescription(), "BoardDescripcionCambiada");
         }
@@ -107,101 +94,64 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetHeightTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             Assert.AreEqual(board.getHeight(), 10);
         }
 
         [TestMethod]
         public void BoardSetHeightTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             board.setHeight(6);
             Assert.AreEqual(board.getHeight(), 6);
         }
 
         [TestMethod]
-        public void BoardGetWideTest()
+        public void BoardGetWidthTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
-            Assert.AreEqual(board.getWide(), 10);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
+            Assert.AreEqual(board.getWidth(), 10);
         }
 
         [TestMethod]
-        public void BoardSetWideTest()
+        public void BoardSetWidthTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
-            board.setWide(5);
-            Assert.AreEqual(board.getWide(), 5);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
+            board.setWidth(5);
+            Assert.AreEqual(board.getWidth(), 5);
         }
 
         [TestMethod]
         public void BoardGetBoardElementsTest()
         {
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int height = 10;
-            int wide = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, wide, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             Assert.AreEqual(board.getBoardElements().Count, 0);
         }
 
         [TestMethod]
         public void BoardAddBoardElementTest()
         {
-            List<Commentary> comentarysElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int heightElement = 8;
-            int wideElement = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, heightElement, wideElement, comentarysElement);
-            List<BoardElement> boardElements = new List<BoardElement>();
-            DateTime dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
-            int maxUserCount = 1;
-            List<User> teamUsers = new List<User>();
-            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            int heightBoard = 10;
-            int wideBoard = 10;
-            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", heightBoard, wideBoard, boardElements);
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
             board.AddBoardElements(element);
             Assert.IsTrue(board.getBoardElements().Contains(element));
         }
 
+        [TestMethod]
+        public void BoardRemoveBoardElementTest()
+        {
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
+            board.AddBoardElements(element);
+            board.RemoveBoardElements(element);
+            Assert.IsFalse(board.getBoardElements().Contains(element));
+        }
+
+        [TestMethod]
+        public void BoardRemoveBoardElementNotExistTest()
+        {
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
+            board.RemoveBoardElements(element);
+            Assert.IsFalse(board.getBoardElements().Contains(element));
+        }
+        
     }
 }

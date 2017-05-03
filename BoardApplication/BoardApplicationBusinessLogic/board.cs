@@ -12,16 +12,16 @@ namespace BoardApplicationBusinessLogic
         private Team team;
         private string description;
         private int height;
-        private int wide;
+        private int width;
         private List<BoardElement> boardElements;
 
-        public Board(string name, Team team, string description, int height, int wide, List<BoardElement> boardElements)
+        public Board(string name, Team team, string description, int height, int width, List<BoardElement> boardElements)
         {
             this.name = name;
             this.team = team;
             this.description = description;
             this.height = height;
-            this.wide = wide;
+            this.width = width;
             this.boardElements = boardElements;
         }
 
@@ -66,14 +66,14 @@ namespace BoardApplicationBusinessLogic
             this.height = height;
         }
 
-        public int getWide()
+        public int getWidth()
         {
-            return this.wide;
+            return this.width;
         }
 
-        public void setWide(int wide)
+        public void setWidth(int width)
         {
-            this.wide = wide;
+            this.width = width;
         }
 
         public List<BoardElement> getBoardElements()
@@ -84,6 +84,11 @@ namespace BoardApplicationBusinessLogic
         public void AddBoardElements(BoardElement element)
         {
             this.boardElements.Add(element);
+        }
+
+        public void RemoveBoardElements(BoardElement element)
+        {
+            this.boardElements.Remove(element);
         }
     }
 }

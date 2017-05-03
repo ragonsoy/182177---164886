@@ -43,6 +43,9 @@
     <Compile Include="Board.cs" />
     <Compile Include="BoardElement.cs" />
     <Compile Include="Commentary.cs" />
+    <Compile Include="ElementImage.cs" />
+    <Compile Include="ElementText.cs" />
+    <Compile Include="EndCommentary.cs" />
     <Compile Include="Team.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,14 +12,14 @@ namespace BoardApplicationBusinessLogic
         private int height;
         private int originPointX;
         private int originPointY;
-        private int wide;
+        private int width;
 
-        public BoardElement(int originPointX, int originPointY, int height, int wide, List<Commentary> comentarysBoardElement)
+        public BoardElement(int originPointX, int originPointY, int height, int width, List<Commentary> comentarysBoardElement)
         {
             this.originPointX = originPointX;
             this.originPointY = originPointY;
             this.height = height;
-            this.wide = wide;
+            this.width = width;
             this.comentarysBoardElement = comentarysBoardElement;
         }
 
@@ -53,14 +53,14 @@ namespace BoardApplicationBusinessLogic
             this.height = height;
         }
 
-        public int getGetWide()
+        public int getGetWidth()
         {
-            return this.wide;
+            return this.width;
         }
 
-        public void SetWide(int wide)
+        public void SetWidth(int width)
         {
-            this.wide = wide;
+            this.width = width;
         }
 
         public void AddCommentary(Commentary commentary)

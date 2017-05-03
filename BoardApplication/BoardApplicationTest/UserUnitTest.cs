@@ -7,101 +7,103 @@ namespace BoardApplicationTest
     [TestClass]
     public class UserUnitTest
     {
+        DateTime birthDate;
+        string nameUser;
+        string lastNameUser;
+        string emailUser;
+        string passwordUser;
+
+        [TestInitialize]
+        public void Init()
+        {
+            birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            nameUser = "Nombre";
+            lastNameUser = "Apellido";
+            emailUser = "Email";
+            passwordUser = "Password";
+        }
+
+
         [TestMethod]
         public void UserGetNameTest()
-        {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");            
-            Assert.AreEqual(user.getName(), "Nombre");
+        {            
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);            
+            Assert.AreEqual(user.getName(), nameUser);
         }
 
         [TestMethod]
         public void UserSetNameTest()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("NombreACambiar", "Apellido", "Email", birthDate, "Password");
-            user.setName("NombreCambiado");
-            Assert.AreEqual(user.getName(), "NombreCambiado");
+            string changeNameUser = "NombreCambiado";
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
+            user.setName(changeNameUser);
+            Assert.AreEqual(user.getName(), changeNameUser);
         }
 
         [TestMethod]
         public void UserGetLastNameTest()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
-            Assert.AreEqual(user.getLastName(), "Apellido");
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
+            Assert.AreEqual(user.getLastName(), lastNameUser);
         }
 
         [TestMethod]
         public void UserSetLastNameTest()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombrer", "ApellidoACambiar", "Email", birthDate, "Password");
-            user.setLastName("ApellidoCambiado");
-            Assert.AreEqual(user.getLastName(), "ApellidoCambiado");
+            string changeLastNameUser = "ApellidoCambiado";
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
+            user.setLastName(changeLastNameUser);
+            Assert.AreEqual(user.getLastName(), changeLastNameUser);
         }
 
         [TestMethod]
         public void UserGetEmailTest()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
-            Assert.AreEqual(user.getEmail(), "Email");
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
+            Assert.AreEqual(user.getEmail(), emailUser);
         }
 
         [TestMethod]
         public void UserSetEmailTest()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombrer", "Apellido", "EmailACambiar", birthDate, "Password");
-            user.setEmail("EmailCambiado");
-            Assert.AreEqual(user.getEmail(), "EmailCambiado");
+            string changeEmail = "EmailCambiado";
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
+            user.setEmail(changeEmail);
+            Assert.AreEqual(user.getEmail(), changeEmail);
         }
 
         [TestMethod]
         public void UserGetBirthDateTest()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
             Assert.AreEqual(user.getBirthDate(), birthDate);
         }
 
         [TestMethod]
         public void UserSetBirthDateTest()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            DateTime birthDateAcambiar = new DateTime();
-            DateTime.TryParse("2/2/2000", out birthDateAcambiar);
-            User user = new User("Nombrer", "Apellido", "Email", birthDate, "Password");
-            user.setBirthDate(birthDateAcambiar);
-            Assert.AreEqual(user.getBirthDate(), birthDateAcambiar);
+            DateTime changeBirthDate = new DateTime();
+            DateTime.TryParse("2/2/2000", out changeBirthDate);
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
+            user.setBirthDate(changeBirthDate);
+            Assert.AreEqual(user.getBirthDate(), changeBirthDate);
         }
 
         [TestMethod]
         public void UserGetPasswordTest()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombre", "Apellido", "Email", birthDate, "Password");
-            Assert.AreEqual(user.getPassword(), "Password");
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
+            Assert.AreEqual(user.getPassword(), passwordUser);
         }
 
         [TestMethod]
         public void UserSetPassword()
         {
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User user = new User("Nombrer", "Apellido", "Email", birthDate, "PasswordACambiar");
-            user.setPassword("PasswordCambiado");
-            Assert.AreEqual(user.getPassword(), "PasswordCambiado");
+            string changePassword = "PasswordCambiado";
+            User user = new User(nameUser, lastNameUser, emailUser, birthDate, passwordUser);
+            user.setPassword(changePassword);
+            Assert.AreEqual(user.getPassword(), changePassword);
         }
 
 

@@ -8,28 +8,45 @@ namespace BoardApplicationTest
     [TestClass]
     public class BoardElementUnitTest
     {
+        List<Commentary> comentarysBoardElement;
+        int originPointX;
+        int originPointY;
+        int height;
+        int width;
+        DateTime creationDateTime;
+        DateTime birthDate;
+        User creatorUser;
+        Commentary commentary;
+
+
+        [TestInitialize]
+        public void Init()
+        {
+            comentarysBoardElement = new List<Commentary>();
+            originPointX = 10;
+            originPointY = 9;
+            height = 8;
+            width = 7;
+            creationDateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out creationDateTime);
+            birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
+            commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
+
+        }
 
         [TestMethod]
         public void BoardElementGetOriginPointXTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             Assert.AreEqual(element.getGetOriginPointX(), originPointX);
         }
 
         [TestMethod]
         public void BoardElementSetOriginPointXTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             int newOriginPointX = 5;
             element.SetOriginPointX(newOriginPointX);
             Assert.AreEqual(element.getGetOriginPointX(), newOriginPointX);
@@ -38,24 +55,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardElementGetOriginPointYTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             Assert.AreEqual(element.getGetOriginPointY(), originPointY);
         }
 
         [TestMethod]
         public void BoardElementSetOriginPointYTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             int newOriginPointY = 5;
             element.SetOriginPointY(newOriginPointY);
             Assert.AreEqual(element.getGetOriginPointY(), newOriginPointY);
@@ -64,85 +71,46 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardElementGetHeightTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             Assert.AreEqual(element.getGetHeigh(), height);
         }
 
         [TestMethod]
         public void BoardElementSetHeighTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             int newHeight = 5;
             element.SetHeigh(newHeight);
             Assert.AreEqual(element.getGetHeigh(), newHeight);
         }
 
         [TestMethod]
-        public void BoardElementGetWideTest()
+        public void BoardElementGetWidthTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
-            Assert.AreEqual(element.getGetWide(), wide);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
+            Assert.AreEqual(element.getGetWidth(), width);
         }
 
         [TestMethod]
-        public void BoardElementSetWideTest()
+        public void BoardElementSetWidthTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
-            int newWide = 5;
-            element.SetWide(newWide);
-            Assert.AreEqual(element.getGetWide(), newWide);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
+            int newwidth = 5;
+            element.SetWidth(newwidth);
+            Assert.AreEqual(element.getGetWidth(), newwidth);
         }
 
         [TestMethod]
         public void BoardElementGetComentarysTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             Assert.AreEqual(element.getComentarys().Count, 0);
         }
 
         [TestMethod]
         public void BoardElementAddComentaryTest()
         {
-            List<Commentary> comentarysBoardElement = new List<Commentary>();
-            int originPointX = 10;
-            int originPointY = 9;
-            int height = 8;
-            int wide = 7;
-            DateTime creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
-            DateTime resolutionDateTime = new DateTime();
-            DateTime.TryParse("2/1/2000", out creationDateTime);
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
-            User resolutionUser = new User("NombreResolutor", "Apellido", "Email", birthDate, "Password");
-            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser, "Comentario");
-            BoardElement element = new BoardElement(originPointX, originPointY, height, wide, comentarysBoardElement);
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             element.AddCommentary(commentary);
             Assert.IsTrue(comentarysBoardElement.Contains(commentary));
         }
