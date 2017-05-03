@@ -17,7 +17,7 @@ namespace BoardApplicationBusinessLogic
 
         public string getName()
         {
-            throw new NotImplementedException();
+            return this.name;
         }
     }
 }
