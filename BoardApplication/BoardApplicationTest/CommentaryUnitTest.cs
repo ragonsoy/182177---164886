@@ -9,6 +9,11 @@ namespace BoardApplicationTest
     [TestClass]
     public class CommentaryUnitTest
     {
+        [TestInitialize]
+        public void Init()
+        {
+            
+        }
 
         [TestMethod]
         public void CommentaryGetCreationDateTest()

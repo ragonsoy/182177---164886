@@ -43,7 +43,6 @@ namespace BoardApplicationTest
             heightElement = 8;
             widthElement = 7;
             element = new BoardElement(originPointX, originPointY, heightElement, widthElement, comentarysElement);
-
         }
 
         [TestMethod]
