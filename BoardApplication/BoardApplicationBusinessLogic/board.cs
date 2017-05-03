@@ -80,5 +80,10 @@ namespace BoardApplicationBusinessLogic
         {
             return this.boardElements;
         }
+
+        public void AddBoardElements(BoardElement element)
+        {
+            this.boardElements.Add(element);
+        }
     }
 }

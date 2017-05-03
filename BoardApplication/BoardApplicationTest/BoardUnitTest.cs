@@ -181,5 +181,27 @@ namespace BoardApplicationTest
             Assert.AreEqual(board.getBoardElements().Count, 0);
         }
 
+        [TestMethod]
+        public void BoardAddBoardElementTest()
+        {
+            List<Commentary> comentarysElement = new List<Commentary>();
+            int originPointX = 10;
+            int originPointY = 9;
+            int heightElement = 8;
+            int wideElement = 7;
+            BoardElement element = new BoardElement(originPointX, originPointY, heightElement, wideElement, comentarysElement);
+            List<BoardElement> boardElements = new List<BoardElement>();
+            DateTime dateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateTime);
+            int maxUserCount = 1;
+            List<User> teamUsers = new List<User>();
+            Team boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
+            int heightBoard = 10;
+            int wideBoard = 10;
+            Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", heightBoard, wideBoard, boardElements);
+            board.AddBoardElements(element);
+            Assert.IsTrue(board.getBoardElements().Contains(element));
+        }
+
     }
 }
