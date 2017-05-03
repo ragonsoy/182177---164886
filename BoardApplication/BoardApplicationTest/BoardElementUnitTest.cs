@@ -33,14 +33,13 @@ namespace BoardApplicationTest
             DateTime.TryParse("1/1/2000", out birthDate);
             creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
             commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
-
         }
 
         [TestMethod]
         public void BoardElementGetOriginPointXTest()
         {
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.getGetOriginPointX(), originPointX);
+            Assert.AreEqual(element.GetOriginPointX(), originPointX);
         }
 
         [TestMethod]
@@ -49,14 +48,14 @@ namespace BoardApplicationTest
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             int newOriginPointX = 5;
             element.SetOriginPointX(newOriginPointX);
-            Assert.AreEqual(element.getGetOriginPointX(), newOriginPointX);
+            Assert.AreEqual(element.GetOriginPointX(), newOriginPointX);
         }
 
         [TestMethod]
         public void BoardElementGetOriginPointYTest()
         {
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.getGetOriginPointY(), originPointY);
+            Assert.AreEqual(element.GetOriginPointY(), originPointY);
         }
 
         [TestMethod]
@@ -65,14 +64,14 @@ namespace BoardApplicationTest
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             int newOriginPointY = 5;
             element.SetOriginPointY(newOriginPointY);
-            Assert.AreEqual(element.getGetOriginPointY(), newOriginPointY);
+            Assert.AreEqual(element.GetOriginPointY(), newOriginPointY);
         }
 
         [TestMethod]
         public void BoardElementGetHeightTest()
         {
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.getGetHeigh(), height);
+            Assert.AreEqual(element.GetHeigh(), height);
         }
 
         [TestMethod]
@@ -81,14 +80,14 @@ namespace BoardApplicationTest
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             int newHeight = 5;
             element.SetHeigh(newHeight);
-            Assert.AreEqual(element.getGetHeigh(), newHeight);
+            Assert.AreEqual(element.GetHeigh(), newHeight);
         }
 
         [TestMethod]
         public void BoardElementGetWidthTest()
         {
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.getGetWidth(), width);
+            Assert.AreEqual(element.GetWidth(), width);
         }
 
         [TestMethod]
@@ -97,14 +96,14 @@ namespace BoardApplicationTest
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             int newwidth = 5;
             element.SetWidth(newwidth);
-            Assert.AreEqual(element.getGetWidth(), newwidth);
+            Assert.AreEqual(element.GetWidth(), newwidth);
         }
 
         [TestMethod]
         public void BoardElementGetComentarysTest()
         {
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.getComentarys().Count, 0);
+            Assert.AreEqual(element.GetComentarys().Count, 0);
         }
 
         [TestMethod]
@@ -112,7 +111,7 @@ namespace BoardApplicationTest
         {
             BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
             element.AddCommentary(commentary);
-            Assert.IsTrue(comentarysBoardElement.Contains(commentary));
+            Assert.IsTrue(element.GetComentarys().Contains(commentary));
         }
 
 

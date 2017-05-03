@@ -6,20 +6,30 @@ using System.Threading.Tasks;
 
 namespace BoardApplicationBusinessLogic
 {
-    class ElementImage : BoardElement
+    public class ElementImage : BoardElement
     {
         private List<Commentary> comentarysBoardElement;
         private int height;
         private int originPointX;
         private int originPointY;
         private int width;
-
-        private string url { get; set; }
+        private string url;
 
         public ElementImage(string url, int originPointX, int originPointY, int height, int width, List<Commentary> comentarysBoardElement) :
             base (originPointX, originPointY, height, width, comentarysBoardElement)
         {
             this.url = url;
         }
+
+        public string GetUrl()
+        {
+            return this.url;
+        }
+
+        public void SetUrl(string url)
+        {
+            this.url = url;
+        }
+
     }
 }

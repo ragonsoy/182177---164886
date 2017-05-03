@@ -23,7 +23,7 @@ namespace BoardApplicationBusinessLogic
             this.comentarysBoardElement = comentarysBoardElement;
         }
 
-        public int getGetOriginPointX()
+        public int GetOriginPointX()
         {
             return this.originPointX;
         }
@@ -33,7 +33,7 @@ namespace BoardApplicationBusinessLogic
             this.originPointX = originPointX;
         }
 
-        public int getGetOriginPointY()
+        public int GetOriginPointY()
         {
             return this.originPointY;
         }
@@ -43,7 +43,7 @@ namespace BoardApplicationBusinessLogic
             this.originPointY = originPointY;
         }
 
-        public int getGetHeigh()
+        public int GetHeigh()
         {
             return this.height;
         }
@@ -53,7 +53,7 @@ namespace BoardApplicationBusinessLogic
             this.height = height;
         }
 
-        public int getGetWidth()
+        public int GetWidth()
         {
             return this.width;
         }
@@ -68,7 +68,7 @@ namespace BoardApplicationBusinessLogic
             this.comentarysBoardElement.Add(commentary);
         }
 
-        public List<Commentary> getComentarys()
+        public List<Commentary> GetComentarys()
         {
             return this.comentarysBoardElement;
         }
