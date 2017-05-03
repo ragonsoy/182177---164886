@@ -17,7 +17,11 @@ namespace BoardApplicationTest
             DateTime.TryParse("1/1/2000", out creationDateTime);
             DateTime resolutionDateTime = new DateTime();
             DateTime.TryParse("2/1/2000", out creationDateTime);
-            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime);
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            User resolutionUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser);
             Assert.AreEqual(commentary.getCreationDate(), creationDateTime);
         }
 
@@ -28,7 +32,11 @@ namespace BoardApplicationTest
             DateTime.TryParse("1/1/2000", out creationDateTime);
             DateTime resolutionDateTime = new DateTime();
             DateTime.TryParse("2/1/2000", out creationDateTime);
-            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime);
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            User resolutionUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser);
             DateTime creationDateTimeNew = new DateTime();
             DateTime.TryParse("2/1/2000", out creationDateTimeNew);
             commentary.setCreationDate(creationDateTimeNew);
@@ -42,7 +50,11 @@ namespace BoardApplicationTest
             DateTime.TryParse("1/1/2000", out creationDateTime);
             DateTime resolutionDateTime = new DateTime();
             DateTime.TryParse("2/1/2000", out creationDateTime);
-            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime);
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            User resolutionUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser);
             Assert.AreEqual(commentary.getResolutionDate(), resolutionDateTime);
         }
 
@@ -53,11 +65,80 @@ namespace BoardApplicationTest
             DateTime.TryParse("1/1/2000", out creationDateTime);
             DateTime resolutionDateTime = new DateTime();
             DateTime.TryParse("2/1/2000", out creationDateTime);
-            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime);
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            User resolutionUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser);
             DateTime resolutionDateTimeNew = new DateTime();
             DateTime.TryParse("2/2/2000", out resolutionDateTimeNew);
             commentary.setResolutionDate(resolutionDateTimeNew);
             Assert.AreEqual(commentary.getResolutionDate(), resolutionDateTimeNew);
         }
+
+        [TestMethod]
+        public void CommentaryGetCreatorUserTest()
+        {
+            DateTime creationDateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out creationDateTime);
+            DateTime resolutionDateTime = new DateTime();
+            DateTime.TryParse("2/1/2000", out creationDateTime);
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            User resolutionUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser);
+            Assert.AreEqual(commentary.getCreatorUser().getName(), "Nombre");
+        }
+
+        [TestMethod]
+        public void CommentarySetCreatorUserTest()
+        {
+            DateTime creationDateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out creationDateTime);
+            DateTime resolutionDateTime = new DateTime();
+            DateTime.TryParse("2/1/2000", out creationDateTime);
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            User resolutionUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
+            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser);
+            User creatorUserNew = new User("NombreNew", "ApellidoNew", "EmailNew", birthDate, "PasswordNew");
+            commentary.setCreatorUser(creatorUserNew);
+            Assert.AreEqual(commentary.getCreatorUser(), creatorUserNew);
+        }
+
+        [TestMethod]
+        public void CommentaryGetResolutionUserTest()
+        {
+            DateTime creationDateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out creationDateTime);
+            DateTime resolutionDateTime = new DateTime();
+            DateTime.TryParse("2/1/2000", out creationDateTime);
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
+            User resolutionUser = new User("NombreResolutor", "Apellido", "Email", birthDate, "Password");
+            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser);
+            Assert.AreEqual(commentary.getResolutionUser().getName(), "NombreResolutor");
+        }
+
+        [TestMethod]
+        public void CommentarySetResolutionUserTest()
+        {
+            DateTime creationDateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out creationDateTime);
+            DateTime resolutionDateTime = new DateTime();
+            DateTime.TryParse("2/1/2000", out creationDateTime);
+            DateTime birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            User creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
+            User resolutionUser = new User("NombreResolutor", "Apellido", "Email", birthDate, "Password");
+            Commentary commentary = new Commentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser);
+            User resolutionUserNew = new User("NombreResolutorNew", "ApellidoNew", "EmailNew", birthDate, "PasswordNew");
+            commentary.setResolutionUser(resolutionUserNew);
+            Assert.AreEqual(commentary.getResolutionUser().getName(), "NombreResolutorNew");
+        }
+
     }
 }

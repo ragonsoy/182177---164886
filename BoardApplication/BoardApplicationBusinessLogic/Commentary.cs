@@ -10,11 +10,15 @@ namespace BoardApplicationBusinessLogic
     {
         private DateTime creationDateTime;
         private DateTime resolutionDateTime;
+        private User creatorUser;
+        private User resolutionUser;
 
-        public Commentary(DateTime creationDateTime, DateTime resolutionDateTime)
+        public Commentary(DateTime creationDateTime, DateTime resolutionDateTime, User creatorUser, User resolutionUser)
         {
             this.creationDateTime = creationDateTime;
             this.resolutionDateTime = resolutionDateTime;
+            this.creatorUser = creatorUser;
+            this.resolutionUser = resolutionUser;
         }
 
         public DateTime getCreationDate()
@@ -36,6 +40,26 @@ namespace BoardApplicationBusinessLogic
         public void setResolutionDate(DateTime resolutionDateTime)
         {
             this.resolutionDateTime = resolutionDateTime;
+        }
+
+        public User getCreatorUser()
+        {
+            return this.creatorUser;
+        }
+
+        public void setCreatorUser(User creatorUser)
+        {
+            this.creatorUser = creatorUser;
+        }
+
+        public User getResolutionUser()
+        {
+            return this.resolutionUser;
+        }
+
+        public void setResolutionUser(User resolutionUser)
+        {
+            this.resolutionUser = resolutionUser;
         }
     }
 }
