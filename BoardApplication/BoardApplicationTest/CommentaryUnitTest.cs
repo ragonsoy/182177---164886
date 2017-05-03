@@ -9,20 +9,23 @@ namespace BoardApplicationTest
     [TestClass]
     public class CommentaryUnitTest
     {
+        DateTime creationDateTime;
+        DateTime birthDate;
+        User creatorUser;
+
         [TestInitialize]
         public void Init()
         {
-            
+            creationDateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out creationDateTime);
+            birthDate = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDate);
+            creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
         }
 
         [TestMethod]
         public void CommentaryGetCreationDateTest()
-        {
-            DateTime creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");            
+        {         
             Commentary commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
             Assert.AreEqual(commentary.getCreationDate(), creationDateTime);
         }
@@ -30,11 +33,6 @@ namespace BoardApplicationTest
         [TestMethod]
         public void CommentarySetCreationDateTest()
         {
-            DateTime creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
             Commentary commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
             DateTime creationDateTimeNew = new DateTime();
             DateTime.TryParse("2/1/2000", out creationDateTimeNew);
@@ -45,10 +43,6 @@ namespace BoardApplicationTest
         [TestMethod]
         public void CommentaryGetCreatorUserTest()
         {
-            DateTime creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
             User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
             Commentary commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
             Assert.AreEqual(commentary.getCreatorUser().getName(), "Nombre");
@@ -57,27 +51,15 @@ namespace BoardApplicationTest
         [TestMethod]
         public void CommentarySetCreatorUserTest()
         {
-            DateTime creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");
             Commentary commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
             User creatorUserNew = new User("NombreNew", "ApellidoNew", "EmailNew", birthDate, "PasswordNew");
             commentary.setCreatorUser(creatorUserNew);
             Assert.AreEqual(commentary.getCreatorUser(), creatorUserNew);
         }
 
-        
-
         [TestMethod]
         public void CommentaryGetCommentaryTest()
         {
-            DateTime creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
             Commentary commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
             Assert.AreEqual(commentary.getCommentary(), "Comentario");
         }
@@ -85,11 +67,6 @@ namespace BoardApplicationTest
         [TestMethod]
         public void CommentarySetCommentaryTest()
         {
-            DateTime creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
-            DateTime birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            User creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
             Commentary commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
             commentary.SetCommentary("NewComentario");
             Assert.AreEqual(commentary.getCommentary(), "NewComentario");
