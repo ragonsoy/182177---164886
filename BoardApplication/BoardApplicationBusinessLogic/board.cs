@@ -10,11 +10,13 @@ namespace BoardApplicationBusinessLogic
     {
         private string name;
         private Team team;
+        private string description;
 
-        public Board(string name, Team team)
+        public Board(string name, Team team, string description)
         {
             this.name = name;
             this.team = team;
+            this.description = description;
         }
 
         public string getName()
@@ -36,6 +38,16 @@ namespace BoardApplicationBusinessLogic
         public void SetBoardTeam(Team boardNewTeam)
         {
             this.team = boardNewTeam;
+        }
+
+        public string getDescription()
+        {
+            return this.description;
+        }
+
+        public void setDescripcion(string description)
+        {
+            this.description = description;
         }
     }
 }
