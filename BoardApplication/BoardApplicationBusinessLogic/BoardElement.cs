@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BoardApplicationBusinessLogic
+{
+    public class BoardElement
+    {
+        private List<Commentary> comentarysBoardElement;
+        private int height;
+        private int originPointX;
+        private int originPointY;
+        private int wide;
+
+        public BoardElement(int originPointX, int originPointY, int height, int wide, List<Commentary> comentarysBoardElement)
+        {
+            this.originPointX = originPointX;
+            this.originPointY = originPointY;
+            this.height = height;
+            this.wide = wide;
+            this.comentarysBoardElement = comentarysBoardElement;
+        }
+
+        public int getGetOriginPointX()
+        {
+            return this.originPointX;
+        }
+
+        public void SetOriginPointX(int originPointX)
+        {
+            this.originPointX = originPointX;
+        }
+
+        public int getGetOriginPointY()
+        {
+            return this.originPointY;
+        }
+
+        public void SetOriginPointY(int originPointY)
+        {
+            this.originPointY = originPointY;
+        }
+
+        public int getGetHeigh()
+        {
+            return this.height;
+        }
+
+        public void SetHeigh(int height)
+        {
+            this.height = height;
+        }
+
+        public int getGetWide()
+        {
+            return this.wide;
+        }
+
+        public void SetWide(int wide)
+        {
+            this.wide = wide;
+        }
+
+        public void AddCommentary(Commentary commentary)
+        {
+            this.comentarysBoardElement.Add(commentary);
+        }
+
+        public List<Commentary> getComentarys()
+        {
+            return this.comentarysBoardElement;
+        }
+
+        
+    }
+}
