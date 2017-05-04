@@ -114,6 +114,21 @@ namespace BoardApplicationTest
             Assert.IsTrue(element.GetComentarys().Contains(commentary));
         }
 
+        [TestMethod]
+        public void BoardElementRemoveComentarysTest()
+        {
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
+            element.AddCommentary(commentary);
+            element.RemoveComentary(commentary);
+            Assert.IsFalse(element.GetComentarys().Contains(commentary));
+        }
 
+        [TestMethod]
+        public void BoardElementRemoveComentarysNotExistTest()
+        {
+            BoardElement element = new BoardElement(originPointX, originPointY, height, width, comentarysBoardElement);
+            element.RemoveComentary(commentary);
+            Assert.IsFalse(element.GetComentarys().Contains(commentary));
+        }
     }
 }

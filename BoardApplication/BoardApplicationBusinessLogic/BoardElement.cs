@@ -73,6 +73,11 @@ namespace BoardApplicationBusinessLogic
             return this.comentarysBoardElement;
         }
 
-        
+        public void RemoveComentary(Commentary element)
+        {
+            this.comentarysBoardElement.Remove(element);
+        }
+
+
     }
 }

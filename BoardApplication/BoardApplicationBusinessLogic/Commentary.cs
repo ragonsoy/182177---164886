@@ -12,12 +12,10 @@ namespace BoardApplicationBusinessLogic
         private User creatorUser;
         private string commentary;
         
-        public Commentary(DateTime creationDateTime, /*DateTime resolutionDateTime,*/ User creatorUser,/* User resolutionUser,*/ string commentary)
+        public Commentary(DateTime creationDateTime, User creatorUser, string commentary)
         {
             this.creationDateTime = creationDateTime;
-            //this.resolutionDateTime = resolutionDateTime;
             this.creatorUser = creatorUser;
-            //this.resolutionUser = resolutionUser;
             this.commentary = commentary;
         }
 
@@ -31,8 +29,7 @@ namespace BoardApplicationBusinessLogic
             this.creationDateTime = creationDateTime;
 
         }
-               
-
+              
         public User getCreatorUser()
         {
             return this.creatorUser;
