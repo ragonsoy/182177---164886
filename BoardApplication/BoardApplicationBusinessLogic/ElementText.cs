@@ -26,32 +26,32 @@ namespace BoardApplicationBusinessLogic
             this.font = font;
         }
 
-        public string GetText()
+        public string getText()
         {
             return this.text;
         }
 
-        public void SetText(string text)
+        public void setText(string text)
         {
             this.text = text;
         }
 
-        public int GetFontSize()
+        public int getFontSize()
         {
             return this.fontSize;
         }
 
-        public void SetFontSize(int fontSize)
+        public void setFontSize(int fontSize)
         {
             this.fontSize = fontSize;
         }
 
-        public string GetFont()
+        public string getFont()
         {
             return this.font;
         }
 
-        public void SetFont(string font)
+        public void setFont(string font)
         {
             this.font = font;
         }

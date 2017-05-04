@@ -44,7 +44,7 @@ namespace BoardApplicationTest
         public void ElementImageGetTextTest()
         {
             ElementText element = new ElementText(text, fontSize, font, originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.GetText(), text);
+            Assert.AreEqual(element.getText(), text);
         }
 
         [TestMethod]
@@ -52,15 +52,15 @@ namespace BoardApplicationTest
         {
             ElementText element = new ElementText(text, fontSize, font, originPointX, originPointY, height, width, comentarysBoardElement);
             string newText = "twoText";
-            element.SetText(newText);
-            Assert.AreEqual(element.GetText(), newText);
+            element.setText(newText);
+            Assert.AreEqual(element.getText(), newText);
         }
 
         [TestMethod]
         public void ElementImageGetFontSizeTest()
         {
             ElementText element = new ElementText(text, fontSize, font, originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.GetFontSize(), fontSize);
+            Assert.AreEqual(element.getFontSize(), fontSize);
         }
 
         [TestMethod]
@@ -68,15 +68,15 @@ namespace BoardApplicationTest
         {
             ElementText element = new ElementText(text, fontSize, font, originPointX, originPointY, height, width, comentarysBoardElement);
             int newFontSize = 12;
-            element.SetFontSize(newFontSize);
-            Assert.AreEqual(element.GetFontSize(), newFontSize);
+            element.setFontSize(newFontSize);
+            Assert.AreEqual(element.getFontSize(), newFontSize);
         }
 
         [TestMethod]
         public void ElementImageGetFontTest()
         {
             ElementText element = new ElementText(text, fontSize, font, originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.GetFont(), font);
+            Assert.AreEqual(element.getFont(), font);
         }
 
         [TestMethod]
@@ -84,8 +84,8 @@ namespace BoardApplicationTest
         {
             ElementText element = new ElementText(text, fontSize, font, originPointX, originPointY, height, width, comentarysBoardElement);
             string newFont = "TimesNewRoman";
-            element.SetFont(newFont);
-            Assert.AreEqual(element.GetFont(), newFont);
+            element.setFont(newFont);
+            Assert.AreEqual(element.getFont(), newFont);
         }
     }
 }

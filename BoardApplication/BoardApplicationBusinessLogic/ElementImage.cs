@@ -21,12 +21,12 @@ namespace BoardApplicationBusinessLogic
             this.url = url;
         }
 
-        public string GetUrl()
+        public string getUrl()
         {
             return this.url;
         }
 
-        public void SetUrl(string url)
+        public void setUrl(string url)
         {
             this.url = url;
         }

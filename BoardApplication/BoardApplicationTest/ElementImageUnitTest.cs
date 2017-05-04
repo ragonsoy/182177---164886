@@ -40,7 +40,7 @@ namespace BoardApplicationTest
         public void ElementImageGetUrlTest()
         {
             ElementImage element = new ElementImage(url, originPointX, originPointY, height, width, comentarysBoardElement);
-            Assert.AreEqual(element.GetUrl(), url);
+            Assert.AreEqual(element.getUrl(), url);
         }
 
         [TestMethod]
@@ -48,8 +48,8 @@ namespace BoardApplicationTest
         {
             ElementImage element = new ElementImage(url, originPointX, originPointY, height, width, comentarysBoardElement);
             string newUrl = "d:/mis documentos";
-            element.SetUrl(newUrl);
-            Assert.AreEqual(element.GetUrl(), newUrl);
+            element.setUrl(newUrl);
+            Assert.AreEqual(element.getUrl(), newUrl);
         }
     }
 }
