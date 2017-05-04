@@ -18,20 +18,34 @@ namespace BoardApplicationTest
         User creatorUser;
         Commentary commentary;
 
-
         [TestInitialize]
         public void Init()
+        {
+            dataForUserTest();
+            dataForCommentaryTest();
+            dataForBoardElementTest();
+        }
+
+        public void dataForBoardElementTest()
         {
             comentarysBoardElement = new List<Commentary>();
             originPointX = 10;
             originPointY = 9;
             height = 8;
             width = 7;
-            creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
+        }
+
+        public void dataForUserTest()
+        {
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
+        }
+
+        public void dataForCommentaryTest()
+        {
+            creationDateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out creationDateTime);
             commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
         }
 

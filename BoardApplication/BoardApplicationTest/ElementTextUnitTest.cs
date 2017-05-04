@@ -24,6 +24,12 @@ namespace BoardApplicationTest
         [TestInitialize]
         public void Init()
         {
+            dataForElementTextTest();
+            dataForCommentaryTest();
+        }
+
+        public void dataForElementTextTest()
+        {
             text = "oneText";
             fontSize = 11;
             font = "Arial";
@@ -32,11 +38,20 @@ namespace BoardApplicationTest
             originPointY = 9;
             height = 8;
             width = 7;
-            creationDateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out creationDateTime);
+        }
+
+        public void dataForUserTest()
+        {
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
+        }
+
+        public void dataForCommentaryTest()
+        {
+            dataForUserTest();
+            creationDateTime = new DateTime();
+            DateTime.TryParse("1/1/2000", out creationDateTime);            
             commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
         }
 

@@ -16,6 +16,10 @@ namespace BoardApplicationTest
         [TestInitialize]
         public void Init()
         {
+            dataForUserTest();
+        }
+        public void dataForUserTest()
+        {
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             nameUser = "Nombre";
@@ -23,7 +27,6 @@ namespace BoardApplicationTest
             emailUser = "Email";
             passwordUser = "Password";
         }
-
 
         [TestMethod]
         public void UserGetNameTest()
@@ -105,7 +108,5 @@ namespace BoardApplicationTest
             user.setPassword(changePassword);
             Assert.AreEqual(user.getPassword(), changePassword);
         }
-
-
     }
 }

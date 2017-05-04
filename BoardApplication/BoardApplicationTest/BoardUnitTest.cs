@@ -27,16 +27,30 @@ namespace BoardApplicationTest
         [TestInitialize]
         public void Init()
         {
+            dataForBoardTest();
+            dataForTeamTest();
+            dataForBoardElementTest();
+        }
+
+        public void dataForBoardTest()
+        {
             boardElements = new List<BoardElement>();
+            height = 10;
+            width = 10;
+        }
+
+        public void dataForTeamTest()
+        {
             dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
             maxUserCount = 1;
             teamUsers = new List<User>();
             boardTeam = new Team("NombreTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
-            height = 10;
-            width = 10;
-            boardNewTeam = new Team("NombreNewTeam", dateTime, "Descripcion", maxUserCount, teamUsers);
+            boardNewTeam = new Team("NombreNewTeam", dateTime, "Descripcion", maxUserCount, teamUsers);               
+        }
 
+        public void dataForBoardElementTest()
+        {
             comentarysElement = new List<Commentary>();
             originPointX = 10;
             originPointY = 9;
@@ -94,7 +108,7 @@ namespace BoardApplicationTest
         public void BoardGetHeightTest()
         {
             Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
-            Assert.AreEqual(board.getHeight(), 10);
+            Assert.AreEqual(board.getHeight(), height);
         }
 
         [TestMethod]
@@ -109,7 +123,7 @@ namespace BoardApplicationTest
         public void BoardGetWidthTest()
         {
             Board board = new Board("NombreBoard", boardTeam, "BoardDescripcion", height, width, boardElements);
-            Assert.AreEqual(board.getWidth(), 10);
+            Assert.AreEqual(board.getWidth(), width);
         }
 
         [TestMethod]

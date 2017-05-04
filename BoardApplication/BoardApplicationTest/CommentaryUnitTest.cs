@@ -16,8 +16,18 @@ namespace BoardApplicationTest
         [TestInitialize]
         public void Init()
         {
+            dataForCommentaryTest();
+            dataForUserTest();
+        }
+
+        public void dataForCommentaryTest()
+        {
             creationDateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out creationDateTime);
+        }
+
+        public void dataForUserTest()
+        {
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password");

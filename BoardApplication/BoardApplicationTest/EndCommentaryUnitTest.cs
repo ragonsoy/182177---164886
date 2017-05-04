@@ -17,10 +17,20 @@ namespace BoardApplicationTest
         [TestInitialize]
         public void Init()
         {
+            dataForEndCommentaryTest();
+            dataForUserTest();
+        }
+
+        public void dataForEndCommentaryTest()
+        {
             creationDateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out creationDateTime);
             resolutionDateTime = new DateTime();
             DateTime.TryParse("2/1/2000", out creationDateTime);
+        }
+
+        public void dataForUserTest()
+        {
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
@@ -29,15 +39,15 @@ namespace BoardApplicationTest
 
         [TestMethod]
         public void EndCommentaryGetResolutionDateTest()
-        {
-           
+        {           
             EndCommentary commentary = new EndCommentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser, "Comentario");
             Assert.AreEqual(commentary.getResolutionDate(), resolutionDateTime);
         }
 
         [TestMethod]
         public void EndCommentarySetResolutionDateTest()
-        {EndCommentary commentary = new EndCommentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser, "Comentario");
+        {
+            EndCommentary commentary = new EndCommentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser, "Comentario");
             DateTime resolutionDateTimeNew = new DateTime();
             DateTime.TryParse("2/2/2000", out resolutionDateTimeNew);
             commentary.setResolutionDate(resolutionDateTimeNew);

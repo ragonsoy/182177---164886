@@ -18,10 +18,20 @@ namespace BoardApplicationTest
         [TestInitialize]
         public void Init()
         {
+            dataForTeamTest();
+            dataForUserTest();
+        }
+
+        public void dataForTeamTest()
+        {
             dateTime = new DateTime();
             DateTime.TryParse("1/1/2000", out dateTime);
             maxUserCount = 1;
             teamUsers = new List<User>();
+        }
+
+        public void dataForUserTest()
+        {
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             firstUser = new User("first ", "firstLastName", "firstEmail", birthDate, "firstPassword");
