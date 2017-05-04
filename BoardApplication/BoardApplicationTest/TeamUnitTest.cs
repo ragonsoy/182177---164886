@@ -105,7 +105,7 @@ namespace BoardApplicationTest
             Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             team.AddNewUser(firstUser);
             team.AddNewUser(secondUser);
-            Assert.IsTrue(teamUsers.Contains(secondUser));
+            Assert.IsTrue(team.getTeamUsers().Contains(secondUser));
         }
 
         [TestMethod]
@@ -114,7 +114,7 @@ namespace BoardApplicationTest
             Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             team.AddNewUser(firstUser);
             team.AddNewUser(secondUser);
-            Assert.IsFalse(teamUsers.Contains(secondUser));
+            Assert.IsFalse(team.getTeamUsers().Contains(secondUser));
         }
 
         [TestMethod]
@@ -122,6 +122,26 @@ namespace BoardApplicationTest
         {
             Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
             Assert.AreEqual(team.getTeamUsers().Count, 0);
+        }
+
+        [TestMethod]
+        public void TeamRemoveUserTest()
+        {
+            maxUserCount = 2;
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            team.AddNewUser(firstUser);
+            team.AddNewUser(secondUser);
+            team.RemoveTeamUsers(secondUser);
+            Assert.IsFalse(team.getTeamUsers().Contains(secondUser));
+        }
+
+        [TestMethod]
+        public void TeamNotRemoveMoreUserThanAlowedTest()
+        {
+            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            team.AddNewUser(firstUser);
+            team.RemoveTeamUsers(firstUser);
+            Assert.IsTrue(team.getTeamUsers().Contains(firstUser));
         }
 
     }

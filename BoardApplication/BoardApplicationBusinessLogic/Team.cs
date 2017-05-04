@@ -82,5 +82,11 @@ namespace BoardApplicationBusinessLogic
         {
             return this.teamUsers;
         }
+
+        public void RemoveTeamUsers(User user)
+        {
+            if(this.teamUsers.Count > 1)
+                this.teamUsers.Remove(user);
+        }
     }
 }
