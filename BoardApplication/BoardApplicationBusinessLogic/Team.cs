@@ -15,6 +15,8 @@ namespace BoardApplicationBusinessLogic
         private List<Board> teamBoards = new List<Board>();
         private int countUser;
 
+        private int minimunUser = 1;
+
         public Team() { }
 
         public Team(string name, DateTime creationDate, string description, int maxUserCount, List<Board> teamBoards)
@@ -74,19 +76,33 @@ namespace BoardApplicationBusinessLogic
             this.maxUserCount = maxUserCount;
         }
         
-        public bool TeamFull()
+        private bool TeamFull()
         {
             return (countUser == maxUserCount);
         }
 
-        public void AddUserToTeam()
+        public bool AddUserToTeam()
         {
+            if (TeamFull())
+                return false;
             countUser++;
+            return true;
         }
 
-        public void RemoveUserToTeam()
+        public bool RemoveUserTeam()
         {
-            countUser--;
+            if (!UniqueUser())
+            {
+                countUser--;
+                return true;
+            }
+            return false;
         }
+
+        private bool UniqueUser()
+        {
+            return countUser == minimunUser;
+        }
+
     }
 }

@@ -20,9 +20,27 @@ namespace BoardApplicationBusinessLogic
             user.setPassword(password);
         }
 
-        public void AddUserToTeamTest(User user, Team team)
+        public void ChangePasswordDefault(User user)
         {
-            user.AddToTeam(team);
+            user.setPassword(user.getName());
+        }
+
+        public bool AddUserToTeam(User user, Team team)
+        {
+            if(team.AddUserToTeam())
+            {
+                return user.AddToTeam(team);
+            }
+            return false;            
+        }
+
+        public bool RemoveUserTeam(User user, Team team)
+        {
+            if (team.RemoveUserTeam())
+            {
+                return user.RemoveFromTeam(team);
+            }
+            return false;
         }
     }
 }

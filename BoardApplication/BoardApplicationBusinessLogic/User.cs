@@ -93,8 +93,16 @@ namespace BoardApplicationBusinessLogic
             }
             return false;
         }
-
-        public bool UserIsOnTeam(Team team)
+        public bool RemoveFromTeam(Team team)
+        {
+            if (UserIsOnTeam(team))
+            {
+                this.teams.Remove(team);
+                return true;
+            }
+            return false;
+        }
+        private bool UserIsOnTeam(Team team)
         {
             return this.teams.Contains(team);
         }
