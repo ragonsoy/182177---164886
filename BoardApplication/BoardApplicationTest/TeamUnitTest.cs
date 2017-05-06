@@ -8,70 +8,65 @@ namespace BoardApplicationTest
     [TestClass]
     public class TeamUnitTest
     {
-        DateTime dateTime;
+        DateTime dateCreationTeam;
         int maxUserCount;
-        List<User> teamUsers;
-        DateTime birthDate;
-        User firstUser;
-        User secondUser;
+        List<Board> teamBoards;
+        string nameTeam;
+        string description;
+
 
         [TestInitialize]
         public void Init()
         {
             dataForTeamTest();
-            dataForUserTest();
         }
 
         public void dataForTeamTest()
         {
-            dateTime = new DateTime();
-            DateTime.TryParse("1/1/2000", out dateTime);
+            nameTeam = "Nombre";
+            description = "Descripcion";
+            dateCreationTeam = new DateTime();
+            DateTime.TryParse("1/1/2000", out dateCreationTeam);
             maxUserCount = 1;
-            teamUsers = new List<User>();
-        }
-
-        public void dataForUserTest()
-        {
-            birthDate = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDate);
-            firstUser = new User("first ", "firstLastName", "firstEmail", birthDate, "firstPassword");
-            secondUser = new User("second", "secondLastName", "secondEmail", birthDate, "secondPassword");
+            teamBoards = new List<Board>();
         }
 
         [TestMethod]
         public void TeamGetNameTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Assert.AreEqual(team.getName(), "Nombre");
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
+            Assert.AreEqual(team.getName(), nameTeam);
         }
 
         [TestMethod]
         public void TeamSetNameTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            team.setName("NombreCambiado");
-            Assert.AreEqual(team.getName(), "NombreCambiado");
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
+            string changeNameTeam = "NombreCambiado";
+            team.setName(changeNameTeam);
+            Assert.AreEqual(team.getName(), changeNameTeam);
         }
 
         [TestMethod]
         public void TeamSetNameEmptyTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            team.setName("NombreACambiar");
-            Assert.AreEqual(team.getName(), "NombreACambiar");
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
+            string changeNameEmptyTeam = "";
+            team.setName(changeNameEmptyTeam);
+            Assert.AreEqual(team.getName(), nameTeam);
         }
 
         [TestMethod]
         public void TeamGetCreationDateTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Assert.AreEqual(team.getCreationDate(), dateTime);
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
+            Assert.AreEqual(team.getCreationDate(), dateCreationTeam);
         }
 
         [TestMethod]
         public void TeamSetCreationDateTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
             DateTime dateTimeNew = new DateTime();
             DateTime.TryParse("2/1/2000", out dateTimeNew);
             team.setCreationDate(dateTimeNew);
@@ -81,78 +76,33 @@ namespace BoardApplicationTest
         [TestMethod]
         public void TeamGetDescriptionTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Assert.AreEqual(team.getDescription(), "Descripcion");
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
+            Assert.AreEqual(team.getDescription(), description);
         }
 
         [TestMethod]
         public void TeamSetDescriptionTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            team.setDescription("Descripcion cambiada");
-            Assert.AreEqual(team.getDescription(), "Descripcion cambiada");
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
+            string changeDescription = "Descripcion cambiada";
+            team.setDescription(changeDescription);
+            Assert.AreEqual(team.getDescription(), changeDescription);
         }
 
         [TestMethod]
         public void TeamGetMaxUserCountTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
             Assert.AreEqual(team.getMaxUserCount(), 1);
         }
 
         [TestMethod]
         public void TeamSetMaxUserCountTest()
         {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
+            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
             team.setMaxUserCount(2);
             Assert.AreEqual(team.getMaxUserCount(), 2);
-        }
-
-        [TestMethod]
-        public void TeamAddNewUserTest()
-        {
-            maxUserCount = 2;
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            team.AddNewUser(firstUser);
-            team.AddNewUser(secondUser);
-            Assert.IsTrue(team.getTeamUsers().Contains(secondUser));
-        }
-
-        [TestMethod]
-        public void TeamAddMoreUsersThanAlowed()
-        {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            team.AddNewUser(firstUser);
-            team.AddNewUser(secondUser);
-            Assert.IsFalse(team.getTeamUsers().Contains(secondUser));
-        }
-
-        [TestMethod]
-        public void TeamGetTeamUsersTest()
-        {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            Assert.AreEqual(team.getTeamUsers().Count, 0);
-        }
-
-        [TestMethod]
-        public void TeamRemoveUserTest()
-        {
-            maxUserCount = 2;
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            team.AddNewUser(firstUser);
-            team.AddNewUser(secondUser);
-            team.RemoveTeamUsers(secondUser);
-            Assert.IsFalse(team.getTeamUsers().Contains(secondUser));
-        }
-
-        [TestMethod]
-        public void TeamNotRemoveMoreUserThanAlowedTest()
-        {
-            Team team = new Team("Nombre", dateTime, "Descripcion", maxUserCount, teamUsers);
-            team.AddNewUser(firstUser);
-            team.RemoveTeamUsers(firstUser);
-            Assert.IsTrue(team.getTeamUsers().Contains(firstUser));
-        }
+        }              
 
     }
 }

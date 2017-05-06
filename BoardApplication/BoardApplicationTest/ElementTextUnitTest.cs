@@ -13,6 +13,7 @@ namespace BoardApplicationTest
         int originPointY;
         int height;
         int width;
+        List<Team> teamsUser;
         DateTime creationDateTime;
         DateTime birthDate;
         User creatorUser;
@@ -44,7 +45,8 @@ namespace BoardApplicationTest
         {
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
-            creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
+            teamsUser = new List<Team>();
+            creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password", teamsUser);
         }
 
         public void dataForCommentaryTest()

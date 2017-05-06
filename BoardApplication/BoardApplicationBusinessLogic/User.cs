@@ -13,14 +13,16 @@ namespace BoardApplicationBusinessLogic
         private string email;
         private DateTime birthDate;
         private string password;
+        private List<Team> teams;
 
-        public User(string name, string lastName, string email, DateTime birthDate, string password)
+        public User(string name, string lastName, string email, DateTime birthDate, string password, List<Team> teams)
         {
             this.name = name;
             this.lastName = lastName;
             this.email = email;
             this.birthDate = birthDate;
             this.password = password;
+            this.teams = teams;
         }
         public string getName()
         {
@@ -70,6 +72,31 @@ namespace BoardApplicationBusinessLogic
         public void setPassword(string password)
         {
             this.password = password;
+        }
+
+        public List<Team> getTeams()
+        {
+            return teams;
+        }
+
+        public void setTeams(List<Team> teams)
+        {
+            this.teams = teams;
+        }
+
+        public bool AddToTeam(Team team)
+        {
+            if (!UserIsOnTeam(team))
+            {
+                this.teams.Add(team);
+                return true;
+            }
+            return false;
+        }
+
+        public bool UserIsOnTeam(Team team)
+        {
+            return this.teams.Contains(team);
         }
     }
 }

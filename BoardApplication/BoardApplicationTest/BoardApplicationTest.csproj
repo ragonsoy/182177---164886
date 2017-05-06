@@ -59,6 +59,7 @@
     <Compile Include="CommentaryUnitTest.cs" />
     <Compile Include="ElementTextUnitTest.cs" />
     <Compile Include="ElementImageUnitTest.cs" />
+    <Compile Include="UserAdministratorUnitTest.cs" />
     <Compile Include="UserUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

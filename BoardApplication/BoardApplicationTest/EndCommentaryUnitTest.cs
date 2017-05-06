@@ -13,6 +13,7 @@ namespace BoardApplicationTest
         DateTime birthDate;
         User creatorUser;
         User resolutionUser;
+        List<Team> teamsUser;
 
         [TestInitialize]
         public void Init()
@@ -33,8 +34,9 @@ namespace BoardApplicationTest
         {
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
-            creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password");
-            resolutionUser = new User("NombreResolutor", "Apellido", "Email", birthDate, "Password");
+            teamsUser = new List<Team>();
+            creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password", teamsUser);
+            resolutionUser = new User("NombreResolutor", "Apellido", "Email", birthDate, "Password", teamsUser);
         }
 
         [TestMethod]
@@ -64,7 +66,7 @@ namespace BoardApplicationTest
         public void EndCommentarySetResolutionUserTest()
         {
             EndCommentary commentary = new EndCommentary(creationDateTime, resolutionDateTime, creatorUser, resolutionUser, "Comentario");
-            User resolutionUserNew = new User("NombreResolutorNew", "ApellidoNew", "EmailNew", birthDate, "PasswordNew");
+            User resolutionUserNew = new User("NombreResolutorNew", "ApellidoNew", "EmailNew", birthDate, "PasswordNew", teamsUser);
             commentary.setResolutionUser(resolutionUserNew);
             Assert.AreEqual(commentary.getResolutionUser().getName(), "NombreResolutorNew");
         }
