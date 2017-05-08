@@ -106,5 +106,38 @@ namespace BoardApplicationBusinessLogic
         {
             return this.teams.Contains(team);
         }
+
+        public bool CreationBoard(Team team, string nameBoard, string boardDescripcion, int height, int width)
+        {
+            if(this.teams.Contains(team))
+            {
+                Team userTeam = this.GetTeam(team);
+                Board board = new Board(nameBoard, boardDescripcion, height, width);
+                userTeam.AddBoard(board);
+                return true;
+            }
+            return false;
+        }
+
+        private Team GetTeam(Team team)
+        {
+            foreach (Team teamWanted in this.teams)
+            {
+                if (teamWanted.Equals(team))
+                    return teamWanted;
+            }
+            return team;
+        }
+
+        //public bool ModifyBoard(Team team, Board board)
+        //{
+        //    if (this.teams.Contains(team))
+        //    {
+        //        Team userTeam = this.GetTeam(team);
+        //        userTeam.ModifyBoard(board);
+        //        return true;
+        //    }
+        //    return false;
+        //}
     }
 }

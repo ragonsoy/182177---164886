@@ -14,13 +14,13 @@ namespace BoardApplicationBusinessLogic
         private int width;
         private List<BoardElement> boardElements;
 
-        public Board(string name, string description, int height, int width, List<BoardElement> boardElements)
+        public Board(string name, string description, int height, int width)
         {
             this.name = name;
             this.description = description;
             this.height = height;
             this.width = width;
-            this.boardElements = boardElements;
+            this.boardElements = new List<BoardElement>();
         }
 
         public string getName()
@@ -76,6 +76,13 @@ namespace BoardApplicationBusinessLogic
         public void RemoveBoardElements(BoardElement element)
         {
             this.boardElements.Remove(element);
+        }
+
+        public void ModifyBoard(Board board)
+        {
+            this.description = board.getDescription();
+            this.height = board.getHeight();
+            this.width = board.getWidth();
         }
     }
 }

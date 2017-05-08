@@ -50,14 +50,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetNameTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getName(), "NombreBoard");
         }
 
         [TestMethod]
         public void BoardSetNameTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.setName("NombreCambiado");
             Assert.AreEqual(board.getName(), "NombreCambiado");
         }
@@ -65,14 +65,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetDescriptionTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getDescription(), "BoardDescripcion");
         }
 
         [TestMethod]
         public void BoardSetDescriptionTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.setDescripcion("BoardDescripcionCambiada");
             Assert.AreEqual(board.getDescription(), "BoardDescripcionCambiada");
         }
@@ -80,14 +80,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetHeightTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getHeight(), height);
         }
 
         [TestMethod]
         public void BoardSetHeightTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.setHeight(6);
             Assert.AreEqual(board.getHeight(), 6);
         }
@@ -95,14 +95,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetWidthTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getWidth(), width);
         }
 
         [TestMethod]
         public void BoardSetWidthTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.setWidth(5);
             Assert.AreEqual(board.getWidth(), 5);
         }
@@ -110,14 +110,14 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetBoardElementsTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getBoardElements().Count, 0);
         }
 
         [TestMethod]
         public void BoardAddBoardElementTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.AddBoardElements(element);
             Assert.IsTrue(board.getBoardElements().Contains(element));
         }
@@ -125,7 +125,7 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardRemoveBoardElementTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.AddBoardElements(element);
             board.RemoveBoardElements(element);
             Assert.IsFalse(board.getBoardElements().Contains(element));
@@ -134,7 +134,7 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardRemoveBoardElementNotExistTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width, boardElements);
+            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.RemoveBoardElements(element);
             Assert.IsFalse(board.getBoardElements().Contains(element));
         }

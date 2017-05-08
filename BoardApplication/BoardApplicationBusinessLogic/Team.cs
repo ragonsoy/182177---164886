@@ -104,5 +104,28 @@ namespace BoardApplicationBusinessLogic
             return countUser == minimunUser;
         }
 
+        public void AddBoard(Board board)
+        {
+            this.teamBoards.Add(board);   
+        }
+
+        //public void ModifyBoard(Board board)
+        //{
+        //    if (this.teamBoards.Contains(board))
+        //    {
+        //        Board teamBoard = this.GetBoard(board);
+        //        teamBoard.ModifyBoard(board);
+        //    }
+        //}
+
+        //private Board GetBoard(Board board)
+        //{
+        //    foreach (Board boardWanted in this.teamBoards)
+        //    {
+        //        if (boardWanted.Equals(board))
+        //            return boardWanted;
+        //    }
+        //    return board;
+        //}
     }
 }

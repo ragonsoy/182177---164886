@@ -111,5 +111,33 @@ namespace BoardApplicationTest
             user.setPassword(changePassword);
             Assert.AreEqual(user.getPassword(), changePassword);
         }
+
+        //[TestMethod]
+        //public void UserCreationBoardTest()
+        //{
+        //    DateTime dateCreationTeam = new DateTime();
+        //    DateTime.TryParse("1/1/2000", out dateCreationTeam);
+        //    List<Board> teamBoards = new List<Board>();
+        //    Team team = new Team("Nombre", dateCreationTeam, "Descripcion", 1, teamBoards);
+        //    teamsUser.Add(team);
+        //    User user = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
+        //    Assert.IsTrue(user.CreationBoard(team, "NombreBoard", "BoardDescripcion", 1, 1));
+        //}
+
+        //[TestMethod]
+        //public void UserModifyBoardTest()
+        //{
+        //    DateTime dateCreationTeam = new DateTime();
+        //    DateTime.TryParse("1/1/2000", out dateCreationTeam);
+        //    List<Board> teamBoards = new List<Board>();
+        //    Team team = new Team("Nombre", dateCreationTeam, "Descripcion", 1, teamBoards);
+        //    teamsUser.Add(team);
+        //    //List<BoardElement> boardElements = new List<BoardElement>();
+        //    //Board board = new Board("NombreBoard", "BoardDescripcion", 1, 1, boardElements);
+        //    User user = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
+        //    user.CreationBoard(team, "NombreBoard", "BoardDescripcion", 1);
+        //    Assert.IsTrue(user.ModifyBoard(team, board));
+        //}
+
     }
 }
