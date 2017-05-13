@@ -34,7 +34,7 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserGetNameTest()
         {            
-            User user = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
+            User user = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             Assert.AreEqual(user.getName(), nameUser);
         }
 

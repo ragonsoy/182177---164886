@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoardApplicationBusinessLogic
 {
-    public class User
+    public abstract class User
     {
         private string name;
         private string lastName;
@@ -15,15 +15,30 @@ namespace BoardApplicationBusinessLogic
         private string password;
         private List<Team> teams;
 
-        public User(string name, string lastName, string email, DateTime birthDate, string password, List<Team> teams)
+        public User(string name, string lastName, string email, DateTime birthDate, string password)
         {
             this.name = name;
             this.lastName = lastName;
             this.email = email;
             this.birthDate = birthDate;
             this.password = password;
-            this.teams = teams;
+            this.teams = new List<Team>();
         }
+
+        public bool Equals(User user)
+        {
+            return (this.getEmail() == user.getEmail());
+        }
+
+
+
+
+
+
+
+
+
+
         public string getName()
         {
             return this.name;

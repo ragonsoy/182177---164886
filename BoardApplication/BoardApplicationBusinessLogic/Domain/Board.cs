@@ -23,6 +23,15 @@ namespace BoardApplicationBusinessLogic
             this.boardElements = new List<BoardElement>();
         }
 
+        public bool Equals(Board board)
+        {
+            return (this.name == board.name);
+        }
+
+
+
+
+
         public string getName()
         {
             return this.name;
