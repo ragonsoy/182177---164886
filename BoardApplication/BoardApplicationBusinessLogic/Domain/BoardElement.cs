@@ -23,6 +23,10 @@ namespace BoardApplicationBusinessLogic
             this.comentarysBoardElement = comentarysBoardElement;
         }
 
+       
+
+
+
         public int GetOriginPointX()
         {
             return this.originPointX;

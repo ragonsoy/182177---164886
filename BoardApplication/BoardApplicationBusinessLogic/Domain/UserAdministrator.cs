@@ -9,11 +9,61 @@ namespace BoardApplicationBusinessLogic
     public class UserAdministrator : User
     {
         
-        public UserAdministrator(string name, string lastName, string email, DateTime birthDate, string password, List<Team> teams) 
-            : base (name, lastName, email, birthDate, password, teams)
+        public UserAdministrator(string name, string lastName, string email, DateTime birthDate, string password) 
+            : base (name, lastName, email, birthDate, password)
         {
         
         }
+
+        public UserCollaborator CreationUserCollaborator(string name, string lastName, string email, DateTime birthDate, string password)
+        {
+            return new UserCollaborator(name,lastName,email,birthDate,password);
+        }
+
+        public UserAdministrator CreationUserAdministrator(string name, string lastName, string email, DateTime birthDate, string password)
+        {
+            return new UserAdministrator(name, lastName, email, birthDate, password);
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public void ChangePassword(User user, string password)
         {

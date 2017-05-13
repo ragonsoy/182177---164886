@@ -19,15 +19,25 @@ namespace BoardApplicationBusinessLogic
 
         public Team() { }
 
-        public Team(string name, DateTime creationDate, string description, int maxUserCount, List<Board> teamBoards)
+        public Team(string name, DateTime creationDate, string description, int maxUserCount)
         {
             this.name = name;
             this.creationDate = creationDate;
             this.description = description;
             this.maxUserCount = maxUserCount;
-            this.teamBoards = teamBoards;
+            this.teamBoards = new List<Board>();
             this.countUser = 0;
         }
+
+        public bool Equals(Team team)
+        {
+            return (this.name == team.name);
+        }
+
+
+
+
+
 
         public string getName()
         {
