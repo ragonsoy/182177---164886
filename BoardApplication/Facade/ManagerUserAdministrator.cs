@@ -64,5 +64,15 @@ namespace BoardApplicationFacade.Interface
             persistenceUserCollaborator.Add(user);
             persistenceUserAdministrator.Add(user);
         }
+
+        public void RemoveUserToTeam(User user, Team team)
+        {
+            if (userAdministrator.RemoveUserTeam(user, team))
+                user.RemoveFromTeam(team);
+            persistenceUserCollaborator.Remove(user);
+            persistenceUserAdministrator.Remove(user);
+            persistenceUserCollaborator.Add(user);
+            persistenceUserAdministrator.Add(user);
+        }
     }
 }
