@@ -24,6 +24,7 @@ namespace BoardApplicationBusinessLogic
         {
             return new UserAdministrator(name, lastName, email, birthDate, password);
         }
+<<<<<<< HEAD:BoardApplication/BoardApplicationBusinessLogic/Domain/UserAdministrator.cs
 
         
 
@@ -65,6 +66,9 @@ namespace BoardApplicationBusinessLogic
 
 
 
+=======
+                
+>>>>>>> b36a2f9a40b318acededeb3ab4a31027b6db7def:BoardApplication/BoardApplicationBusinessLogic/Domain/UserAdministrator.cs
         public void ChangePassword(User user, string password)
         {
             user.setPassword(password);
@@ -74,6 +78,9 @@ namespace BoardApplicationBusinessLogic
         {
             user.setPassword(user.getName());
         }
+
+
+
 
         public bool AddUserToTeam(User user, Team team)
         {
