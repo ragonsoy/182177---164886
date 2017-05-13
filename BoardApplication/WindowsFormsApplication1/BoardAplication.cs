@@ -10,14 +10,18 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class BoardAplication : Form
     {
-        public Form1()
+        public BoardAplication()
         {
             InitializeComponent();
-            //radioButtonInfor.Hide(); ejemplo de esconder boton (dependeria del usuario)
+            radioButtonHome.Hide();
+            radioButtonNewBoard.Hide();
+            radioButtonUser.Hide();
+            radioButtonTeam.Hide();
+            radioButtonBoards.Hide();
+            radioButtonInfor.Hide();
         }
-
         
         private void tabPage4_Click(object sender, EventArgs e)
         {
@@ -36,7 +40,7 @@ namespace WindowsFormsApplication1
 
         private void radioButtonHome_CheckedChanged(object sender, EventArgs e)
         {
-            tabControlPrincipal.SelectedTab = tabPage1;
+            tabControlPrincipal.SelectedTab = tabPage14;
         }
 
         private void radioButtonUser_CheckedChanged(object sender, EventArgs e)
@@ -115,11 +119,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioButtonNewTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlTeams.SelectedTab = tabPage9;
@@ -128,11 +127,6 @@ namespace WindowsFormsApplication1
         private void radioButtonModifyTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlTeams.SelectedTab = tabPage10;
-        }
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tabPage9_Click(object sender, EventArgs e)
@@ -168,6 +162,35 @@ namespace WindowsFormsApplication1
         private void radioButtonCommentartResovedByUser_CheckedChanged(object sender, EventArgs e)
         {
             tabControlInforms.SelectedTab = tabPage13;
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            // if admin
+            radioButtonHome.Show();
+            radioButtonNewBoard.Show();
+            radioButtonUser.Show();
+            radioButtonTeam.Show();
+            radioButtonBoards.Show();
+            radioButtonInfor.Show();
+            tabControlPrincipal.SelectedTab = tabPage14;
+
+            //if colaborator
+            /*
+            radioButtonHome.Show();
+            radioButtonNewBoard.Show();
+            tabControlInforms.SelectedTab = tabPage14;
+            */
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

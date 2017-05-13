@@ -30,15 +30,6 @@ namespace BoardApplicationBusinessLogic
             return (this.getEmail() == user.getEmail());
         }
 
-
-
-
-
-
-
-
-
-
         public string getName()
         {
             return this.name;
@@ -108,6 +99,7 @@ namespace BoardApplicationBusinessLogic
             }
             return false;
         }
+
         public bool RemoveFromTeam(Team team)
         {
             if (UserIsOnTeam(team))
@@ -117,6 +109,7 @@ namespace BoardApplicationBusinessLogic
             }
             return false;
         }
+
         private bool UserIsOnTeam(Team team)
         {
             return this.teams.Contains(team);

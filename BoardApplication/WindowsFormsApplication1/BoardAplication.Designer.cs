@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Form1
+    partial class BoardAplication
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -30,11 +30,6 @@
         {
             this.tabControlPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listBoxTeamBoards = new System.Windows.Forms.ListBox();
-            this.buttonEnterBoard = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBoxUserTeams = new System.Windows.Forms.ListBox();
-            this.buttonSelectTeam = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButtonAddUserToTeam = new System.Windows.Forms.RadioButton();
@@ -42,12 +37,14 @@
             this.radioButtonNewUser = new System.Windows.Forms.RadioButton();
             this.tabControlUsers = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
+            this.radioButtonNewUserTypeColaborator = new System.Windows.Forms.RadioButton();
+            this.radioButtonNewUserTypeAdministrator = new System.Windows.Forms.RadioButton();
             this.buttonAddNewUser = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPasswordNewUser = new System.Windows.Forms.TextBox();
+            this.textBoxEmailNewUser = new System.Windows.Forms.TextBox();
+            this.textBoxLastNameNewUser = new System.Windows.Forms.TextBox();
+            this.textBoxNameNewUser = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,7 +54,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.listBoxAllUserToModifyList = new System.Windows.Forms.ListBox();
             this.buttonSelectUserToModify = new System.Windows.Forms.Button();
-            this.labelUserBirthDate = new System.Windows.Forms.Label();
             this.buttonModifyUser = new System.Windows.Forms.Button();
             this.textBoxPasswordUserToModify = new System.Windows.Forms.TextBox();
             this.textBoxEmailUserToModify = new System.Windows.Forms.TextBox();
@@ -69,6 +65,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.listBoxAllSystemTeams = new System.Windows.Forms.ListBox();
+            this.buttonRemoveUserOfModifyList = new System.Windows.Forms.Button();
+            this.listBoxSelectedUserTeams = new System.Windows.Forms.ListBox();
+            this.buttonAddUserToModifyTeam = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.listBoxAllSystemUsers = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -78,6 +82,8 @@
             this.radioButtonNewTeam = new System.Windows.Forms.RadioButton();
             this.tabControlTeams = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.listBoxUsersForNewTeam = new System.Windows.Forms.ListBox();
@@ -110,27 +116,16 @@
             this.listBoxOfAllSystemTeams = new System.Windows.Forms.ListBox();
             this.button11 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.listBoxAllSystemTeams = new System.Windows.Forms.ListBox();
-            this.buttonRemoveUserOfModifyList = new System.Windows.Forms.Button();
-            this.listBoxSelectedUserTeams = new System.Windows.Forms.ListBox();
-            this.buttonAddUserToModifyTeam = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.radioButtonCommentartResovedByUser = new System.Windows.Forms.RadioButton();
+            this.radioButtonBoardCreatedByTeam = new System.Windows.Forms.RadioButton();
+            this.tabControlInforms = new System.Windows.Forms.TabControl();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.label37 = new System.Windows.Forms.Label();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.label38 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.radioButtonHome = new System.Windows.Forms.RadioButton();
-            this.radioButtonUser = new System.Windows.Forms.RadioButton();
-            this.radioButtonTeam = new System.Windows.Forms.RadioButton();
-            this.radioButtonBoards = new System.Windows.Forms.RadioButton();
-            this.radioButtonInfor = new System.Windows.Forms.RadioButton();
-            this.radioButtonNewBoard = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonCreateNewBoard = new System.Windows.Forms.Button();
-            this.listBoxTeamsNewBoard = new System.Windows.Forms.ListBox();
-            this.button13 = new System.Windows.Forms.Button();
+            this.label35 = new System.Windows.Forms.Label();
             this.textBoxWidthNewBoard = new System.Windows.Forms.TextBox();
             this.textBoxHeightNewBoard = new System.Windows.Forms.TextBox();
             this.textBoxDescriptionNewBoard = new System.Windows.Forms.TextBox();
@@ -139,18 +134,29 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label36 = new System.Windows.Forms.Label();
-            this.radioButtonBoardCreatedByTeam = new System.Windows.Forms.RadioButton();
-            this.tabControlInforms = new System.Windows.Forms.TabControl();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.radioButtonCommentartResovedByUser = new System.Windows.Forms.RadioButton();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
+            this.buttonCreateNewBoard = new System.Windows.Forms.Button();
+            this.listBoxTeamsNewBoard = new System.Windows.Forms.ListBox();
+            this.button13 = new System.Windows.Forms.Button();
+            this.radioButtonUser = new System.Windows.Forms.RadioButton();
+            this.radioButtonTeam = new System.Windows.Forms.RadioButton();
+            this.radioButtonBoards = new System.Windows.Forms.RadioButton();
+            this.radioButtonInfor = new System.Windows.Forms.RadioButton();
+            this.radioButtonNewBoard = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.listBoxTeamBoards = new System.Windows.Forms.ListBox();
+            this.buttonEnterBoard = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBoxUserTeams = new System.Windows.Forms.ListBox();
+            this.buttonSelectTeam = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
+            this.textBoxLoginPassword = new System.Windows.Forms.TextBox();
+            this.textBoxLoginEmail = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.radioButtonHome = new System.Windows.Forms.RadioButton();
+            this.dateTimePickerNewUser = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerModifyUser = new System.Windows.Forms.DateTimePicker();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -166,12 +172,13 @@
             this.tabPage10.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tabControlInforms.SuspendLayout();
+            this.tabPage12.SuspendLayout();
+            this.tabPage13.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabControlInforms.SuspendLayout();
-            this.tabPage13.SuspendLayout();
-            this.tabPage12.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.tabPage14.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlPrincipal
@@ -182,6 +189,7 @@
             this.tabControlPrincipal.Controls.Add(this.tabPage4);
             this.tabControlPrincipal.Controls.Add(this.tabPage5);
             this.tabControlPrincipal.Controls.Add(this.tabPage11);
+            this.tabControlPrincipal.Controls.Add(this.tabPage14);
             this.tabControlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tabControlPrincipal.Name = "tabControlPrincipal";
@@ -191,11 +199,11 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listBoxTeamBoards);
-            this.tabPage1.Controls.Add(this.buttonEnterBoard);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.listBoxUserTeams);
-            this.tabPage1.Controls.Add(this.buttonSelectTeam);
+            this.tabPage1.Controls.Add(this.buttonLogin);
+            this.tabPage1.Controls.Add(this.textBoxLoginPassword);
+            this.tabPage1.Controls.Add(this.textBoxLoginEmail);
+            this.tabPage1.Controls.Add(this.label40);
+            this.tabPage1.Controls.Add(this.label41);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -204,49 +212,6 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // listBoxTeamBoards
-            // 
-            this.listBoxTeamBoards.FormattingEnabled = true;
-            this.listBoxTeamBoards.Location = new System.Drawing.Point(473, 108);
-            this.listBoxTeamBoards.Name = "listBoxTeamBoards";
-            this.listBoxTeamBoards.Size = new System.Drawing.Size(210, 251);
-            this.listBoxTeamBoards.TabIndex = 4;
-            // 
-            // buttonEnterBoard
-            // 
-            this.buttonEnterBoard.Location = new System.Drawing.Point(473, 365);
-            this.buttonEnterBoard.Name = "buttonEnterBoard";
-            this.buttonEnterBoard.Size = new System.Drawing.Size(210, 23);
-            this.buttonEnterBoard.TabIndex = 3;
-            this.buttonEnterBoard.Text = "Enter Selected Board";
-            this.buttonEnterBoard.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(473, 394);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Delete Selected Board";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // listBoxUserTeams
-            // 
-            this.listBoxUserTeams.FormattingEnabled = true;
-            this.listBoxUserTeams.Location = new System.Drawing.Point(57, 108);
-            this.listBoxUserTeams.Name = "listBoxUserTeams";
-            this.listBoxUserTeams.Size = new System.Drawing.Size(210, 251);
-            this.listBoxUserTeams.TabIndex = 1;
-            // 
-            // buttonSelectTeam
-            // 
-            this.buttonSelectTeam.Location = new System.Drawing.Point(57, 365);
-            this.buttonSelectTeam.Name = "buttonSelectTeam";
-            this.buttonSelectTeam.Size = new System.Drawing.Size(210, 23);
-            this.buttonSelectTeam.TabIndex = 0;
-            this.buttonSelectTeam.Text = "Select Team";
-            this.buttonSelectTeam.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -270,7 +235,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 65);
+            this.panel2.Size = new System.Drawing.Size(873, 67);
             this.panel2.TabIndex = 5;
             // 
             // radioButtonAddUserToTeam
@@ -339,15 +304,15 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.dateTimePickerNewUser);
             this.tabPage6.Controls.Add(this.label36);
-            this.tabPage6.Controls.Add(this.radioButton2);
-            this.tabPage6.Controls.Add(this.radioButton1);
+            this.tabPage6.Controls.Add(this.radioButtonNewUserTypeColaborator);
+            this.tabPage6.Controls.Add(this.radioButtonNewUserTypeAdministrator);
             this.tabPage6.Controls.Add(this.buttonAddNewUser);
-            this.tabPage6.Controls.Add(this.textBox5);
-            this.tabPage6.Controls.Add(this.textBox4);
-            this.tabPage6.Controls.Add(this.textBox3);
-            this.tabPage6.Controls.Add(this.textBox2);
-            this.tabPage6.Controls.Add(this.textBox1);
+            this.tabPage6.Controls.Add(this.textBoxPasswordNewUser);
+            this.tabPage6.Controls.Add(this.textBoxEmailNewUser);
+            this.tabPage6.Controls.Add(this.textBoxLastNameNewUser);
+            this.tabPage6.Controls.Add(this.textBoxNameNewUser);
             this.tabPage6.Controls.Add(this.label5);
             this.tabPage6.Controls.Add(this.label4);
             this.tabPage6.Controls.Add(this.label3);
@@ -362,6 +327,38 @@
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click_1);
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(219, 331);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(56, 13);
+            this.label36.TabIndex = 24;
+            this.label36.Text = "User Type";
+            this.label36.Click += new System.EventHandler(this.label36_Click);
+            // 
+            // radioButtonNewUserTypeColaborator
+            // 
+            this.radioButtonNewUserTypeColaborator.AutoSize = true;
+            this.radioButtonNewUserTypeColaborator.Location = new System.Drawing.Point(460, 327);
+            this.radioButtonNewUserTypeColaborator.Name = "radioButtonNewUserTypeColaborator";
+            this.radioButtonNewUserTypeColaborator.Size = new System.Drawing.Size(79, 17);
+            this.radioButtonNewUserTypeColaborator.TabIndex = 23;
+            this.radioButtonNewUserTypeColaborator.TabStop = true;
+            this.radioButtonNewUserTypeColaborator.Text = "Colaborator";
+            this.radioButtonNewUserTypeColaborator.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNewUserTypeAdministrator
+            // 
+            this.radioButtonNewUserTypeAdministrator.AutoSize = true;
+            this.radioButtonNewUserTypeAdministrator.Location = new System.Drawing.Point(334, 327);
+            this.radioButtonNewUserTypeAdministrator.Name = "radioButtonNewUserTypeAdministrator";
+            this.radioButtonNewUserTypeAdministrator.Size = new System.Drawing.Size(85, 17);
+            this.radioButtonNewUserTypeAdministrator.TabIndex = 22;
+            this.radioButtonNewUserTypeAdministrator.TabStop = true;
+            this.radioButtonNewUserTypeAdministrator.Text = "Administrator";
+            this.radioButtonNewUserTypeAdministrator.UseVisualStyleBackColor = true;
+            // 
             // buttonAddNewUser
             // 
             this.buttonAddNewUser.Location = new System.Drawing.Point(437, 365);
@@ -371,45 +368,39 @@
             this.buttonAddNewUser.Text = "Add New User";
             this.buttonAddNewUser.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // textBoxPasswordNewUser
             // 
-            this.textBox5.Location = new System.Drawing.Point(313, 287);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(330, 20);
-            this.textBox5.TabIndex = 20;
+            this.textBoxPasswordNewUser.Location = new System.Drawing.Point(313, 287);
+            this.textBoxPasswordNewUser.Name = "textBoxPasswordNewUser";
+            this.textBoxPasswordNewUser.Size = new System.Drawing.Size(330, 20);
+            this.textBoxPasswordNewUser.TabIndex = 20;
             // 
-            // textBox4
+            // textBoxEmailNewUser
             // 
-            this.textBox4.Location = new System.Drawing.Point(313, 249);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(330, 20);
-            this.textBox4.TabIndex = 19;
+            this.textBoxEmailNewUser.Location = new System.Drawing.Point(313, 249);
+            this.textBoxEmailNewUser.Name = "textBoxEmailNewUser";
+            this.textBoxEmailNewUser.Size = new System.Drawing.Size(330, 20);
+            this.textBoxEmailNewUser.TabIndex = 19;
             // 
-            // textBox3
+            // textBoxLastNameNewUser
             // 
-            this.textBox3.Location = new System.Drawing.Point(313, 205);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(330, 20);
-            this.textBox3.TabIndex = 18;
+            this.textBoxLastNameNewUser.Location = new System.Drawing.Point(313, 166);
+            this.textBoxLastNameNewUser.Name = "textBoxLastNameNewUser";
+            this.textBoxLastNameNewUser.Size = new System.Drawing.Size(330, 20);
+            this.textBoxLastNameNewUser.TabIndex = 17;
             // 
-            // textBox2
+            // textBoxNameNewUser
             // 
-            this.textBox2.Location = new System.Drawing.Point(313, 166);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(330, 20);
-            this.textBox2.TabIndex = 17;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(313, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(330, 20);
-            this.textBox1.TabIndex = 16;
+            this.textBoxNameNewUser.Location = new System.Drawing.Point(313, 122);
+            this.textBoxNameNewUser.Name = "textBoxNameNewUser";
+            this.textBoxNameNewUser.Size = new System.Drawing.Size(330, 20);
+            this.textBoxNameNewUser.TabIndex = 16;
+            this.textBoxNameNewUser.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(222, 294);
+            this.label5.Location = new System.Drawing.Point(219, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 15;
@@ -418,7 +409,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(222, 256);
+            this.label4.Location = new System.Drawing.Point(219, 256);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 14;
@@ -427,7 +418,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(219, 212);
+            this.label3.Location = new System.Drawing.Point(219, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 13;
@@ -453,10 +444,10 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.dateTimePickerModifyUser);
             this.tabPage7.Controls.Add(this.label11);
             this.tabPage7.Controls.Add(this.listBoxAllUserToModifyList);
             this.tabPage7.Controls.Add(this.buttonSelectUserToModify);
-            this.tabPage7.Controls.Add(this.labelUserBirthDate);
             this.tabPage7.Controls.Add(this.buttonModifyUser);
             this.tabPage7.Controls.Add(this.textBoxPasswordUserToModify);
             this.tabPage7.Controls.Add(this.textBoxEmailUserToModify);
@@ -502,15 +493,6 @@
             this.buttonSelectUserToModify.Text = "Select User";
             this.buttonSelectUserToModify.UseVisualStyleBackColor = true;
             this.buttonSelectUserToModify.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // labelUserBirthDate
-            // 
-            this.labelUserBirthDate.AutoSize = true;
-            this.labelUserBirthDate.Location = new System.Drawing.Point(480, 197);
-            this.labelUserBirthDate.Name = "labelUserBirthDate";
-            this.labelUserBirthDate.Size = new System.Drawing.Size(95, 13);
-            this.labelUserBirthDate.TabIndex = 33;
-            this.labelUserBirthDate.Text = "labelUserBirthDate";
             // 
             // buttonModifyUser
             // 
@@ -615,6 +597,76 @@
             this.tabPage8.Text = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
             this.tabPage8.Click += new System.EventHandler(this.tabPage8_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(532, 262);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 13);
+            this.label14.TabIndex = 48;
+            this.label14.Text = "Add to Team";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(510, 158);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 13);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "Remove From Team";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(629, 88);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(149, 13);
+            this.label20.TabIndex = 46;
+            this.label20.Text = "List of all Teams in the System";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(291, 88);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(129, 13);
+            this.label21.TabIndex = 45;
+            this.label21.Text = "Team list of selected User";
+            // 
+            // listBoxAllSystemTeams
+            // 
+            this.listBoxAllSystemTeams.FormattingEnabled = true;
+            this.listBoxAllSystemTeams.Location = new System.Drawing.Point(632, 107);
+            this.listBoxAllSystemTeams.Name = "listBoxAllSystemTeams";
+            this.listBoxAllSystemTeams.Size = new System.Drawing.Size(210, 251);
+            this.listBoxAllSystemTeams.TabIndex = 44;
+            // 
+            // buttonRemoveUserOfModifyList
+            // 
+            this.buttonRemoveUserOfModifyList.Location = new System.Drawing.Point(535, 278);
+            this.buttonRemoveUserOfModifyList.Name = "buttonRemoveUserOfModifyList";
+            this.buttonRemoveUserOfModifyList.Size = new System.Drawing.Size(61, 23);
+            this.buttonRemoveUserOfModifyList.TabIndex = 43;
+            this.buttonRemoveUserOfModifyList.Text = "<<";
+            this.buttonRemoveUserOfModifyList.UseVisualStyleBackColor = true;
+            // 
+            // listBoxSelectedUserTeams
+            // 
+            this.listBoxSelectedUserTeams.FormattingEnabled = true;
+            this.listBoxSelectedUserTeams.Location = new System.Drawing.Point(294, 107);
+            this.listBoxSelectedUserTeams.Name = "listBoxSelectedUserTeams";
+            this.listBoxSelectedUserTeams.Size = new System.Drawing.Size(210, 251);
+            this.listBoxSelectedUserTeams.TabIndex = 42;
+            // 
+            // buttonAddUserToModifyTeam
+            // 
+            this.buttonAddUserToModifyTeam.Location = new System.Drawing.Point(535, 174);
+            this.buttonAddUserToModifyTeam.Name = "buttonAddUserToModifyTeam";
+            this.buttonAddUserToModifyTeam.Size = new System.Drawing.Size(60, 23);
+            this.buttonAddUserToModifyTeam.TabIndex = 41;
+            this.buttonAddUserToModifyTeam.Text = ">>";
+            this.buttonAddUserToModifyTeam.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -738,6 +790,24 @@
             this.tabPage9.Text = "tabPage9";
             this.tabPage9.UseVisualStyleBackColor = true;
             this.tabPage9.Click += new System.EventHandler(this.tabPage9_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(391, 258);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(51, 13);
+            this.label29.TabIndex = 52;
+            this.label29.Text = "Add User";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(391, 308);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(72, 13);
+            this.label30.TabIndex = 51;
+            this.label30.Text = "Remove User";
             // 
             // label18
             // 
@@ -1037,93 +1107,102 @@
             this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
-            // label20
+            // panel4
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(629, 88);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(149, 13);
-            this.label20.TabIndex = 46;
-            this.label20.Text = "List of all Teams in the System";
+            this.panel4.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel4.Controls.Add(this.radioButtonCommentartResovedByUser);
+            this.panel4.Controls.Add(this.radioButtonBoardCreatedByTeam);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(873, 64);
+            this.panel4.TabIndex = 7;
             // 
-            // label21
+            // radioButtonCommentartResovedByUser
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(291, 88);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(129, 13);
-            this.label21.TabIndex = 45;
-            this.label21.Text = "Team list of selected User";
+            this.radioButtonCommentartResovedByUser.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonCommentartResovedByUser.AutoSize = true;
+            this.radioButtonCommentartResovedByUser.FlatAppearance.BorderSize = 0;
+            this.radioButtonCommentartResovedByUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.radioButtonCommentartResovedByUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.radioButtonCommentartResovedByUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonCommentartResovedByUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonCommentartResovedByUser.Location = new System.Drawing.Point(151, 29);
+            this.radioButtonCommentartResovedByUser.Name = "radioButtonCommentartResovedByUser";
+            this.radioButtonCommentartResovedByUser.Size = new System.Drawing.Size(163, 23);
+            this.radioButtonCommentartResovedByUser.TabIndex = 1;
+            this.radioButtonCommentartResovedByUser.Text = "Commentary Resolved By User";
+            this.radioButtonCommentartResovedByUser.UseVisualStyleBackColor = true;
+            this.radioButtonCommentartResovedByUser.CheckedChanged += new System.EventHandler(this.radioButtonCommentartResovedByUser_CheckedChanged);
             // 
-            // listBoxAllSystemTeams
+            // radioButtonBoardCreatedByTeam
             // 
-            this.listBoxAllSystemTeams.FormattingEnabled = true;
-            this.listBoxAllSystemTeams.Location = new System.Drawing.Point(632, 107);
-            this.listBoxAllSystemTeams.Name = "listBoxAllSystemTeams";
-            this.listBoxAllSystemTeams.Size = new System.Drawing.Size(210, 251);
-            this.listBoxAllSystemTeams.TabIndex = 44;
+            this.radioButtonBoardCreatedByTeam.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonBoardCreatedByTeam.AutoSize = true;
+            this.radioButtonBoardCreatedByTeam.Checked = true;
+            this.radioButtonBoardCreatedByTeam.FlatAppearance.BorderSize = 0;
+            this.radioButtonBoardCreatedByTeam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.radioButtonBoardCreatedByTeam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.radioButtonBoardCreatedByTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonBoardCreatedByTeam.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonBoardCreatedByTeam.Location = new System.Drawing.Point(10, 29);
+            this.radioButtonBoardCreatedByTeam.Name = "radioButtonBoardCreatedByTeam";
+            this.radioButtonBoardCreatedByTeam.Size = new System.Drawing.Size(135, 23);
+            this.radioButtonBoardCreatedByTeam.TabIndex = 0;
+            this.radioButtonBoardCreatedByTeam.TabStop = true;
+            this.radioButtonBoardCreatedByTeam.Text = "Boards Created By Team";
+            this.radioButtonBoardCreatedByTeam.UseVisualStyleBackColor = true;
+            this.radioButtonBoardCreatedByTeam.CheckedChanged += new System.EventHandler(this.radioButtonBoardCreatedByTeam_CheckedChanged);
             // 
-            // buttonRemoveUserOfModifyList
+            // tabControlInforms
             // 
-            this.buttonRemoveUserOfModifyList.Location = new System.Drawing.Point(535, 278);
-            this.buttonRemoveUserOfModifyList.Name = "buttonRemoveUserOfModifyList";
-            this.buttonRemoveUserOfModifyList.Size = new System.Drawing.Size(61, 23);
-            this.buttonRemoveUserOfModifyList.TabIndex = 43;
-            this.buttonRemoveUserOfModifyList.Text = "<<";
-            this.buttonRemoveUserOfModifyList.UseVisualStyleBackColor = true;
+            this.tabControlInforms.Controls.Add(this.tabPage12);
+            this.tabControlInforms.Controls.Add(this.tabPage13);
+            this.tabControlInforms.Location = new System.Drawing.Point(13, 19);
+            this.tabControlInforms.Name = "tabControlInforms";
+            this.tabControlInforms.SelectedIndex = 0;
+            this.tabControlInforms.Size = new System.Drawing.Size(863, 555);
+            this.tabControlInforms.TabIndex = 0;
             // 
-            // listBoxSelectedUserTeams
+            // tabPage12
             // 
-            this.listBoxSelectedUserTeams.FormattingEnabled = true;
-            this.listBoxSelectedUserTeams.Location = new System.Drawing.Point(294, 107);
-            this.listBoxSelectedUserTeams.Name = "listBoxSelectedUserTeams";
-            this.listBoxSelectedUserTeams.Size = new System.Drawing.Size(210, 251);
-            this.listBoxSelectedUserTeams.TabIndex = 42;
+            this.tabPage12.Controls.Add(this.label37);
+            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(855, 529);
+            this.tabPage12.TabIndex = 0;
+            this.tabPage12.Text = "tabPage12";
+            this.tabPage12.UseVisualStyleBackColor = true;
             // 
-            // buttonAddUserToModifyTeam
+            // label37
             // 
-            this.buttonAddUserToModifyTeam.Location = new System.Drawing.Point(535, 174);
-            this.buttonAddUserToModifyTeam.Name = "buttonAddUserToModifyTeam";
-            this.buttonAddUserToModifyTeam.Size = new System.Drawing.Size(60, 23);
-            this.buttonAddUserToModifyTeam.TabIndex = 41;
-            this.buttonAddUserToModifyTeam.Text = ">>";
-            this.buttonAddUserToModifyTeam.UseVisualStyleBackColor = true;
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(175, 93);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(150, 13);
+            this.label37.TabIndex = 0;
+            this.label37.Text = "Pizarrones creados por equipo";
             // 
-            // label13
+            // tabPage13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(531, 158);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 13);
-            this.label13.TabIndex = 47;
-            this.label13.Text = "Remove Team";
+            this.tabPage13.Controls.Add(this.label38);
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(855, 529);
+            this.tabPage13.TabIndex = 1;
+            this.tabPage13.Text = "tabPage13";
+            this.tabPage13.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // label38
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(532, 262);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 13);
-            this.label14.TabIndex = 48;
-            this.label14.Text = "Add Team";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(391, 258);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(51, 13);
-            this.label29.TabIndex = 52;
-            this.label29.Text = "Add User";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(391, 308);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(72, 13);
-            this.label30.TabIndex = 51;
-            this.label30.Text = "Remove User";
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(220, 172);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(165, 13);
+            this.label38.TabIndex = 1;
+            this.label38.Text = "Comentarios resuletos por usuario";
             // 
             // tabPage11
             // 
@@ -1147,24 +1226,104 @@
             this.tabPage11.Text = "tabPage11";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // radioButtonHome
+            // label35
             // 
-            this.radioButtonHome.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonHome.AutoSize = true;
-            this.radioButtonHome.Checked = true;
-            this.radioButtonHome.FlatAppearance.BorderSize = 0;
-            this.radioButtonHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.radioButtonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.radioButtonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonHome.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButtonHome.Location = new System.Drawing.Point(12, 12);
-            this.radioButtonHome.Name = "radioButtonHome";
-            this.radioButtonHome.Size = new System.Drawing.Size(45, 23);
-            this.radioButtonHome.TabIndex = 0;
-            this.radioButtonHome.TabStop = true;
-            this.radioButtonHome.Text = "Home";
-            this.radioButtonHome.UseVisualStyleBackColor = true;
-            this.radioButtonHome.CheckedChanged += new System.EventHandler(this.radioButtonHome_CheckedChanged);
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(506, 55);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(86, 13);
+            this.label35.TabIndex = 28;
+            this.label35.Text = "New Board Data";
+            // 
+            // textBoxWidthNewBoard
+            // 
+            this.textBoxWidthNewBoard.Location = new System.Drawing.Point(456, 235);
+            this.textBoxWidthNewBoard.Name = "textBoxWidthNewBoard";
+            this.textBoxWidthNewBoard.Size = new System.Drawing.Size(330, 20);
+            this.textBoxWidthNewBoard.TabIndex = 27;
+            // 
+            // textBoxHeightNewBoard
+            // 
+            this.textBoxHeightNewBoard.Location = new System.Drawing.Point(456, 191);
+            this.textBoxHeightNewBoard.Name = "textBoxHeightNewBoard";
+            this.textBoxHeightNewBoard.Size = new System.Drawing.Size(330, 20);
+            this.textBoxHeightNewBoard.TabIndex = 26;
+            // 
+            // textBoxDescriptionNewBoard
+            // 
+            this.textBoxDescriptionNewBoard.Location = new System.Drawing.Point(456, 152);
+            this.textBoxDescriptionNewBoard.Name = "textBoxDescriptionNewBoard";
+            this.textBoxDescriptionNewBoard.Size = new System.Drawing.Size(330, 20);
+            this.textBoxDescriptionNewBoard.TabIndex = 25;
+            // 
+            // textBoxNameNewBoard
+            // 
+            this.textBoxNameNewBoard.Location = new System.Drawing.Point(456, 108);
+            this.textBoxNameNewBoard.Name = "textBoxNameNewBoard";
+            this.textBoxNameNewBoard.Size = new System.Drawing.Size(330, 20);
+            this.textBoxNameNewBoard.TabIndex = 24;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(365, 242);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(35, 13);
+            this.label31.TabIndex = 23;
+            this.label31.Text = "Width";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(362, 198);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(38, 13);
+            this.label32.TabIndex = 22;
+            this.label32.Text = "Height";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(362, 159);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(60, 13);
+            this.label33.TabIndex = 21;
+            this.label33.Text = "Description";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(362, 115);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(35, 13);
+            this.label34.TabIndex = 20;
+            this.label34.Text = "Name";
+            // 
+            // buttonCreateNewBoard
+            // 
+            this.buttonCreateNewBoard.Location = new System.Drawing.Point(456, 312);
+            this.buttonCreateNewBoard.Name = "buttonCreateNewBoard";
+            this.buttonCreateNewBoard.Size = new System.Drawing.Size(210, 23);
+            this.buttonCreateNewBoard.TabIndex = 11;
+            this.buttonCreateNewBoard.Text = "Create New Board";
+            this.buttonCreateNewBoard.UseVisualStyleBackColor = true;
+            // 
+            // listBoxTeamsNewBoard
+            // 
+            this.listBoxTeamsNewBoard.FormattingEnabled = true;
+            this.listBoxTeamsNewBoard.Location = new System.Drawing.Point(92, 55);
+            this.listBoxTeamsNewBoard.Name = "listBoxTeamsNewBoard";
+            this.listBoxTeamsNewBoard.Size = new System.Drawing.Size(210, 251);
+            this.listBoxTeamsNewBoard.TabIndex = 7;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(92, 312);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(210, 23);
+            this.button13.TabIndex = 6;
+            this.button13.Text = "Select Team";
+            this.button13.UseVisualStyleBackColor = true;
             // 
             // radioButtonUser
             // 
@@ -1267,245 +1426,152 @@
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // buttonCreateNewBoard
+            // tabPage14
             // 
-            this.buttonCreateNewBoard.Location = new System.Drawing.Point(456, 312);
-            this.buttonCreateNewBoard.Name = "buttonCreateNewBoard";
-            this.buttonCreateNewBoard.Size = new System.Drawing.Size(210, 23);
-            this.buttonCreateNewBoard.TabIndex = 11;
-            this.buttonCreateNewBoard.Text = "Create New Board";
-            this.buttonCreateNewBoard.UseVisualStyleBackColor = true;
+            this.tabPage14.Controls.Add(this.listBoxTeamBoards);
+            this.tabPage14.Controls.Add(this.buttonEnterBoard);
+            this.tabPage14.Controls.Add(this.button1);
+            this.tabPage14.Controls.Add(this.listBoxUserTeams);
+            this.tabPage14.Controls.Add(this.buttonSelectTeam);
+            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(879, 577);
+            this.tabPage14.TabIndex = 6;
+            this.tabPage14.Text = "tabPage14";
+            this.tabPage14.UseVisualStyleBackColor = true;
             // 
-            // listBoxTeamsNewBoard
+            // listBoxTeamBoards
             // 
-            this.listBoxTeamsNewBoard.FormattingEnabled = true;
-            this.listBoxTeamsNewBoard.Location = new System.Drawing.Point(92, 55);
-            this.listBoxTeamsNewBoard.Name = "listBoxTeamsNewBoard";
-            this.listBoxTeamsNewBoard.Size = new System.Drawing.Size(210, 251);
-            this.listBoxTeamsNewBoard.TabIndex = 7;
+            this.listBoxTeamBoards.FormattingEnabled = true;
+            this.listBoxTeamBoards.Location = new System.Drawing.Point(542, 134);
+            this.listBoxTeamBoards.Name = "listBoxTeamBoards";
+            this.listBoxTeamBoards.Size = new System.Drawing.Size(210, 251);
+            this.listBoxTeamBoards.TabIndex = 9;
             // 
-            // button13
+            // buttonEnterBoard
             // 
-            this.button13.Location = new System.Drawing.Point(92, 312);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(210, 23);
-            this.button13.TabIndex = 6;
-            this.button13.Text = "Select Team";
-            this.button13.UseVisualStyleBackColor = true;
+            this.buttonEnterBoard.Location = new System.Drawing.Point(542, 391);
+            this.buttonEnterBoard.Name = "buttonEnterBoard";
+            this.buttonEnterBoard.Size = new System.Drawing.Size(210, 23);
+            this.buttonEnterBoard.TabIndex = 8;
+            this.buttonEnterBoard.Text = "Enter Selected Board";
+            this.buttonEnterBoard.UseVisualStyleBackColor = true;
             // 
-            // textBoxWidthNewBoard
+            // button1
             // 
-            this.textBoxWidthNewBoard.Location = new System.Drawing.Point(456, 235);
-            this.textBoxWidthNewBoard.Name = "textBoxWidthNewBoard";
-            this.textBoxWidthNewBoard.Size = new System.Drawing.Size(330, 20);
-            this.textBoxWidthNewBoard.TabIndex = 27;
+            this.button1.Location = new System.Drawing.Point(542, 420);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(210, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Delete Selected Board";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBoxHeightNewBoard
+            // listBoxUserTeams
             // 
-            this.textBoxHeightNewBoard.Location = new System.Drawing.Point(456, 191);
-            this.textBoxHeightNewBoard.Name = "textBoxHeightNewBoard";
-            this.textBoxHeightNewBoard.Size = new System.Drawing.Size(330, 20);
-            this.textBoxHeightNewBoard.TabIndex = 26;
+            this.listBoxUserTeams.FormattingEnabled = true;
+            this.listBoxUserTeams.Location = new System.Drawing.Point(126, 134);
+            this.listBoxUserTeams.Name = "listBoxUserTeams";
+            this.listBoxUserTeams.Size = new System.Drawing.Size(210, 251);
+            this.listBoxUserTeams.TabIndex = 6;
             // 
-            // textBoxDescriptionNewBoard
+            // buttonSelectTeam
             // 
-            this.textBoxDescriptionNewBoard.Location = new System.Drawing.Point(456, 152);
-            this.textBoxDescriptionNewBoard.Name = "textBoxDescriptionNewBoard";
-            this.textBoxDescriptionNewBoard.Size = new System.Drawing.Size(330, 20);
-            this.textBoxDescriptionNewBoard.TabIndex = 25;
+            this.buttonSelectTeam.Location = new System.Drawing.Point(126, 391);
+            this.buttonSelectTeam.Name = "buttonSelectTeam";
+            this.buttonSelectTeam.Size = new System.Drawing.Size(210, 23);
+            this.buttonSelectTeam.TabIndex = 5;
+            this.buttonSelectTeam.Text = "Select Team";
+            this.buttonSelectTeam.UseVisualStyleBackColor = true;
             // 
-            // textBoxNameNewBoard
+            // buttonLogin
             // 
-            this.textBoxNameNewBoard.Location = new System.Drawing.Point(456, 108);
-            this.textBoxNameNewBoard.Name = "textBoxNameNewBoard";
-            this.textBoxNameNewBoard.Size = new System.Drawing.Size(330, 20);
-            this.textBoxNameNewBoard.TabIndex = 24;
+            this.buttonLogin.Location = new System.Drawing.Point(444, 335);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(206, 23);
+            this.buttonLogin.TabIndex = 29;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // label31
+            // textBoxLoginPassword
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(365, 242);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(35, 13);
-            this.label31.TabIndex = 23;
-            this.label31.Text = "Width";
+            this.textBoxLoginPassword.Location = new System.Drawing.Point(320, 257);
+            this.textBoxLoginPassword.Name = "textBoxLoginPassword";
+            this.textBoxLoginPassword.Size = new System.Drawing.Size(330, 20);
+            this.textBoxLoginPassword.TabIndex = 28;
             // 
-            // label32
+            // textBoxLoginEmail
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(362, 198);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(38, 13);
-            this.label32.TabIndex = 22;
-            this.label32.Text = "Height";
+            this.textBoxLoginEmail.Location = new System.Drawing.Point(320, 219);
+            this.textBoxLoginEmail.Name = "textBoxLoginEmail";
+            this.textBoxLoginEmail.Size = new System.Drawing.Size(330, 20);
+            this.textBoxLoginEmail.TabIndex = 27;
             // 
-            // label33
+            // label40
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(362, 159);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(60, 13);
-            this.label33.TabIndex = 21;
-            this.label33.Text = "Description";
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(229, 264);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(53, 13);
+            this.label40.TabIndex = 26;
+            this.label40.Text = "Password";
             // 
-            // label34
+            // label41
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(362, 115);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(35, 13);
-            this.label34.TabIndex = 20;
-            this.label34.Text = "Name";
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(229, 226);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(32, 13);
+            this.label41.TabIndex = 25;
+            this.label41.Text = "Email";
             // 
-            // label35
+            // radioButtonHome
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(506, 55);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(86, 13);
-            this.label35.TabIndex = 28;
-            this.label35.Text = "New Board Data";
+            this.radioButtonHome.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonHome.AutoSize = true;
+            this.radioButtonHome.Checked = true;
+            this.radioButtonHome.FlatAppearance.BorderSize = 0;
+            this.radioButtonHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.radioButtonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.radioButtonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonHome.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonHome.Location = new System.Drawing.Point(12, 12);
+            this.radioButtonHome.Name = "radioButtonHome";
+            this.radioButtonHome.Size = new System.Drawing.Size(45, 23);
+            this.radioButtonHome.TabIndex = 0;
+            this.radioButtonHome.TabStop = true;
+            this.radioButtonHome.Text = "Home";
+            this.radioButtonHome.UseVisualStyleBackColor = true;
+            this.radioButtonHome.CheckedChanged += new System.EventHandler(this.radioButtonHome_CheckedChanged);
             // 
-            // radioButton1
+            // dateTimePickerNewUser
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(334, 327);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 22;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Administrator";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.dateTimePickerNewUser.Location = new System.Drawing.Point(313, 204);
+            this.dateTimePickerNewUser.Name = "dateTimePickerNewUser";
+            this.dateTimePickerNewUser.Size = new System.Drawing.Size(330, 20);
+            this.dateTimePickerNewUser.TabIndex = 25;
             // 
-            // radioButton2
+            // dateTimePickerModifyUser
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(460, 327);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(79, 17);
-            this.radioButton2.TabIndex = 23;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Colaborator";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.dateTimePickerModifyUser.Location = new System.Drawing.Point(483, 191);
+            this.dateTimePickerModifyUser.Name = "dateTimePickerModifyUser";
+            this.dateTimePickerModifyUser.Size = new System.Drawing.Size(330, 20);
+            this.dateTimePickerModifyUser.TabIndex = 37;
             // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(225, 331);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(56, 13);
-            this.label36.TabIndex = 24;
-            this.label36.Text = "User Type";
-            // 
-            // radioButtonBoardCreatedByTeam
-            // 
-            this.radioButtonBoardCreatedByTeam.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonBoardCreatedByTeam.AutoSize = true;
-            this.radioButtonBoardCreatedByTeam.Checked = true;
-            this.radioButtonBoardCreatedByTeam.FlatAppearance.BorderSize = 0;
-            this.radioButtonBoardCreatedByTeam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.radioButtonBoardCreatedByTeam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.radioButtonBoardCreatedByTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonBoardCreatedByTeam.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButtonBoardCreatedByTeam.Location = new System.Drawing.Point(10, 29);
-            this.radioButtonBoardCreatedByTeam.Name = "radioButtonBoardCreatedByTeam";
-            this.radioButtonBoardCreatedByTeam.Size = new System.Drawing.Size(135, 23);
-            this.radioButtonBoardCreatedByTeam.TabIndex = 0;
-            this.radioButtonBoardCreatedByTeam.TabStop = true;
-            this.radioButtonBoardCreatedByTeam.Text = "Boards Created By Team";
-            this.radioButtonBoardCreatedByTeam.UseVisualStyleBackColor = true;
-            this.radioButtonBoardCreatedByTeam.CheckedChanged += new System.EventHandler(this.radioButtonBoardCreatedByTeam_CheckedChanged);
-            // 
-            // tabControlInforms
-            // 
-            this.tabControlInforms.Controls.Add(this.tabPage12);
-            this.tabControlInforms.Controls.Add(this.tabPage13);
-            this.tabControlInforms.Location = new System.Drawing.Point(13, 19);
-            this.tabControlInforms.Name = "tabControlInforms";
-            this.tabControlInforms.SelectedIndex = 0;
-            this.tabControlInforms.Size = new System.Drawing.Size(863, 555);
-            this.tabControlInforms.TabIndex = 0;
-            // 
-            // tabPage13
-            // 
-            this.tabPage13.Controls.Add(this.label38);
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(855, 529);
-            this.tabPage13.TabIndex = 1;
-            this.tabPage13.Text = "tabPage13";
-            this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // tabPage12
-            // 
-            this.tabPage12.Controls.Add(this.label37);
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(855, 529);
-            this.tabPage12.TabIndex = 0;
-            this.tabPage12.Text = "tabPage12";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonCommentartResovedByUser
-            // 
-            this.radioButtonCommentartResovedByUser.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButtonCommentartResovedByUser.AutoSize = true;
-            this.radioButtonCommentartResovedByUser.FlatAppearance.BorderSize = 0;
-            this.radioButtonCommentartResovedByUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.radioButtonCommentartResovedByUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.radioButtonCommentartResovedByUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonCommentartResovedByUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButtonCommentartResovedByUser.Location = new System.Drawing.Point(151, 29);
-            this.radioButtonCommentartResovedByUser.Name = "radioButtonCommentartResovedByUser";
-            this.radioButtonCommentartResovedByUser.Size = new System.Drawing.Size(163, 23);
-            this.radioButtonCommentartResovedByUser.TabIndex = 1;
-            this.radioButtonCommentartResovedByUser.Text = "Commentary Resolved By User";
-            this.radioButtonCommentartResovedByUser.UseVisualStyleBackColor = true;
-            this.radioButtonCommentartResovedByUser.CheckedChanged += new System.EventHandler(this.radioButtonCommentartResovedByUser_CheckedChanged);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel4.Controls.Add(this.radioButtonCommentartResovedByUser);
-            this.panel4.Controls.Add(this.radioButtonBoardCreatedByTeam);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(873, 64);
-            this.panel4.TabIndex = 7;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(175, 93);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(150, 13);
-            this.label37.TabIndex = 0;
-            this.label37.Text = "Pizarrones creados por equipo";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(220, 172);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(165, 13);
-            this.label38.TabIndex = 1;
-            this.label38.Text = "Comentarios resuletos por usuario";
-            // 
-            // Form1
+            // BoardAplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 603);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControlPrincipal);
-            this.Name = "Form1";
+            this.Name = "BoardAplication";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControlPrincipal.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1527,17 +1593,18 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.tabControlInforms.ResumeLayout(false);
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage12.PerformLayout();
+            this.tabPage13.ResumeLayout(false);
+            this.tabPage13.PerformLayout();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabControlInforms.ResumeLayout(false);
-            this.tabPage13.ResumeLayout(false);
-            this.tabPage13.PerformLayout();
-            this.tabPage12.ResumeLayout(false);
-            this.tabPage12.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.tabPage14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1550,11 +1617,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button buttonSelectTeam;
-        private System.Windows.Forms.ListBox listBoxUserTeams;
-        private System.Windows.Forms.ListBox listBoxTeamBoards;
-        private System.Windows.Forms.Button buttonEnterBoard;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabControl tabControlUsers;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
@@ -1564,11 +1626,10 @@
         private System.Windows.Forms.RadioButton radioButtonAddUserToTeam;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Button buttonAddNewUser;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPasswordNewUser;
+        private System.Windows.Forms.TextBox textBoxEmailNewUser;
+        private System.Windows.Forms.TextBox textBoxLastNameNewUser;
+        private System.Windows.Forms.TextBox textBoxNameNewUser;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -1576,7 +1637,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBoxAllUserToModifyList;
         private System.Windows.Forms.Button buttonSelectUserToModify;
-        private System.Windows.Forms.Label labelUserBirthDate;
         private System.Windows.Forms.Button buttonModifyUser;
         private System.Windows.Forms.TextBox textBoxPasswordUserToModify;
         private System.Windows.Forms.TextBox textBoxEmailUserToModify;
@@ -1637,7 +1697,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.RadioButton radioButtonHome;
         private System.Windows.Forms.RadioButton radioButtonUser;
         private System.Windows.Forms.RadioButton radioButtonTeam;
         private System.Windows.Forms.RadioButton radioButtonBoards;
@@ -1656,8 +1715,8 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButtonNewUserTypeColaborator;
+        private System.Windows.Forms.RadioButton radioButtonNewUserTypeAdministrator;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.RadioButton radioButtonCommentartResovedByUser;
@@ -1667,6 +1726,20 @@
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TabPage tabPage14;
+        private System.Windows.Forms.ListBox listBoxTeamBoards;
+        private System.Windows.Forms.Button buttonEnterBoard;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBoxUserTeams;
+        private System.Windows.Forms.Button buttonSelectTeam;
+        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.TextBox textBoxLoginPassword;
+        private System.Windows.Forms.TextBox textBoxLoginEmail;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.RadioButton radioButtonHome;
+        private System.Windows.Forms.DateTimePicker dateTimePickerNewUser;
+        private System.Windows.Forms.DateTimePicker dateTimePickerModifyUser;
     }
 }
 

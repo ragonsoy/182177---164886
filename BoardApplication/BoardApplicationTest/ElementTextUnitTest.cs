@@ -46,7 +46,7 @@ namespace BoardApplicationTest
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             teamsUser = new List<Team>();
-            creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password", teamsUser);
+            creatorUser = new UserCollaborator("NombreCreator", "Apellido", "Email", birthDate, "Password");
         }
 
         public void dataForCommentaryTest()
@@ -56,7 +56,7 @@ namespace BoardApplicationTest
             DateTime.TryParse("1/1/2000", out creationDateTime);            
             commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
         }
-
+        
         [TestMethod]
         public void ElementImageGetTextTest()
         {
@@ -104,5 +104,6 @@ namespace BoardApplicationTest
             element.setFont(newFont);
             Assert.AreEqual(element.getFont(), newFont);
         }
+        
     }
 }

@@ -41,7 +41,7 @@ namespace BoardApplicationTest
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             teams = new List<Team>();
-            creatorUser = new User("NombreCreator", "Apellido", "Email", birthDate, "Password", teams);
+            creatorUser = new UserCollaborator("NombreCreator", "Apellido", "Email", birthDate, "Password");
         }
 
         public void dataForCommentaryTest()
@@ -50,7 +50,7 @@ namespace BoardApplicationTest
             DateTime.TryParse("1/1/2000", out creationDateTime);
             commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
         }
-
+        
         [TestMethod]
         public void BoardElementGetOriginPointXTest()
         {

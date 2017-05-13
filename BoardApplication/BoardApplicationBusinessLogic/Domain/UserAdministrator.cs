@@ -35,9 +35,6 @@ namespace BoardApplicationBusinessLogic
             user.setPassword(user.getName());
         }
 
-
-
-
         public bool AddUserToTeam(User user, Team team)
         {
             if(team.AddUserToTeam())

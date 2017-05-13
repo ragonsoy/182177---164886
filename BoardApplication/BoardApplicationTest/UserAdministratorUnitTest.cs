@@ -15,11 +15,19 @@ namespace BoardApplicationTest
         string passwordUser;
         List<Team> teamsUser;
         List<Team> teamsAdministrator;
+        User userAdministrator;
+        string nameTeam;
+        DateTime dateCreationTeam;
+        string description;
+        int maxUserCount;
+        List<Board> teamBoards;
+        Team team;
 
         [TestInitialize]
         public void Init()
         {
             dataForUserAdministratorTest();
+            dataForTeamsAdministratorTest();
         }
 
         public void dataForUserAdministratorTest()
@@ -32,20 +40,27 @@ namespace BoardApplicationTest
             passwordUser = "Password";
             teamsUser = new List<Team>();
             teamsAdministrator = new List<Team>();
+            userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
         }
-
+        public void dataForTeamsAdministratorTest()
+        {
+        nameTeam = "Equipo";
+        dateCreationTeam = new DateTime();
+        description = "Descripcion";
+        maxUserCount = 2;
+        teamBoards = new List<Board>();
+        team = new Team(nameTeam, dateCreationTeam, description, maxUserCount);
+        }
 
         [TestMethod]
         public void UserAdministratorGetNameTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             Assert.AreEqual(userAdministrator.getName(), nameUser);
         }
         
         [TestMethod]
         public void UserAdministratorSetNameTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             string changeNameUser = "NombreCambiado";
             userAdministrator.setName(changeNameUser);
             Assert.AreEqual(userAdministrator.getName(), changeNameUser);
@@ -54,14 +69,12 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserAdministratorGetLastNameTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             Assert.AreEqual(userAdministrator.getLastName(), lastNameUser);
         }
 
         [TestMethod]
         public void UserAdministratorSetLastNameTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             string changeLastNameUser = "ApellidoCambiado";
             userAdministrator.setLastName(changeLastNameUser);
             Assert.AreEqual(userAdministrator.getLastName(), changeLastNameUser);
@@ -70,14 +83,12 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserAdministratorGetEmailTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             Assert.AreEqual(userAdministrator.getEmail(), emailUser);
         }
 
         [TestMethod]
         public void UserAdministratorSetEmailTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             string changeEmailUser = "EmailCambiado";
             userAdministrator.setEmail(changeEmailUser);
             Assert.AreEqual(userAdministrator.getEmail(), changeEmailUser);
@@ -86,7 +97,6 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserAdministratorGetBirthDateTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             Assert.AreEqual(userAdministrator.getBirthDate(), birthDateUser);
         }
 
@@ -95,7 +105,6 @@ namespace BoardApplicationTest
         {
             DateTime birthDateAcambiar = new DateTime();
             DateTime.TryParse("2/2/2000", out birthDateAcambiar);
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             userAdministrator.setBirthDate(birthDateAcambiar);
             Assert.AreEqual(userAdministrator.getBirthDate(), birthDateAcambiar);
         }
@@ -103,113 +112,81 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserAdministratorGetPasswordTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             Assert.AreEqual(userAdministrator.getPassword(), passwordUser);
         }
 
         [TestMethod]
         public void UserAdministratorSetPasswordTest()
         {
-            User userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             string changePasswordUserAdministration = "PasswordCambiado";
             userAdministrator.setPassword(changePasswordUserAdministration);
             Assert.AreEqual(userAdministrator.getPassword(), changePasswordUserAdministration);
         }
 
+        /*
         [TestMethod]
         public void UserAdministratorChangePasswordTest()
         {
-            User user = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            UserCollaborator user = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             string changePasswordUser = "PasswordCambiado";
             userAdministrator.ChangePassword(user, changePasswordUser);
-            Assert.AreEqual(user.getPassword(), changePasswordUser);
-        }
+            Assert.AreEqual(userAdministrator.getPassword(), changePasswordUser);
+        }        
 
         [TestMethod]
         public void UserAdministratorChangePasswordDefaultTest()
         {
-            User user = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            User user = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             userAdministrator.ChangePasswordDefault(user);
             Assert.AreEqual(user.getPassword(), nameUser);
         }
-
+        */
+        
+        /*
         [TestMethod]
         public void UserAdministratorAddUserToTeamTest()
         {
-            string nameTeam = "Equipo";
-            DateTime dateCreationTeam = new DateTime();
-            string description = "Descripcion";
-            int maxUserCount = 1;
-            List<Board> teamBoards = new List<Board>();
-            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
-            User user = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            User user = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             Assert.IsTrue(userAdministrator.AddUserToTeam(user, team));
         }
-
+        */
+        /*
         [TestMethod]
         public void UserAdministratorAddUserToTeamTwiceTest()
         {
-            string nameTeam = "Equipo";
-            DateTime dateCreationTeam = new DateTime();
-            string description = "Descripcion";
-            int maxUserCount = 2;
-            List<Board> teamBoards = new List<Board>();
-            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
-            User user = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            User user = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             userAdministrator.AddUserToTeam(user, team);
             Assert.IsFalse(userAdministrator.AddUserToTeam(user, team));
         }
-
+        */
+        /*
         [TestMethod]
         public void UserAdministratorAddUserToTeamFullTest()
         {
-            string nameTeam = "Equipo";
-            DateTime dateCreationTeam = new DateTime();
-            string description = "Descripcion";
-            int maxUserCount = 1;
-            List<Board> teamBoards = new List<Board>();
-            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
-            User userFirst = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
-            User userSecond = new User("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond", teamsUser);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            User userFirst = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
+            User userSecond = new UserCollaborator("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond");
             userAdministrator.AddUserToTeam(userFirst, team);
             Assert.IsFalse(userAdministrator.AddUserToTeam(userSecond, team));
         }
+        */
 
         [TestMethod]
         public void UserAdministratorAddTwoUsersToTeamTest()
         {
-            string nameTeam = "Equipo";
-            DateTime dateCreationTeam = new DateTime();
-            string description = "Descripcion";
-            int maxUserCount = 2;
-            List<Board> teamBoards = new List<Board>();
-            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
-            User userFirst = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
+            User userFirst = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             List<Team> teamsUserSecond = new List<Team>();
-            User userSecond = new User("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond", teamsUserSecond);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            User userSecond = new UserCollaborator("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond");
+            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             userAdministrator.AddUserToTeam(userFirst, team);
             Assert.IsTrue(userAdministrator.AddUserToTeam(userSecond, team));
         }
-
+        /*
         [TestMethod]
         public void UserAdministratorRemoveUserFromTeamTest()
         {
-            string nameTeam = "Equipo";
-            DateTime dateCreationTeam = new DateTime();
-            string description = "Descripcion";
-            int maxUserCount = 2;
-            List<Board> teamBoards = new List<Board>();
-            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
-            User userFirst = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
+            User userFirst = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             List<Team> teamsUserSecond = new List<Team>();
-            User userSecond = new User("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond", teamsUserSecond);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            User userSecond = new UserCollaborator("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond");
             userAdministrator.AddUserToTeam(userFirst, team);
             userAdministrator.AddUserToTeam(userSecond, team);
             Assert.IsTrue(userAdministrator.RemoveUserTeam(userSecond, team));
@@ -218,14 +195,7 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserAdministratorRemoveUserFromTeamEmptyTest()
         {
-            string nameTeam = "Equipo";
-            DateTime dateCreationTeam = new DateTime();
-            string description = "Descripcion";
-            int maxUserCount = 2;
-            List<Board> teamBoards = new List<Board>();
-            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
-            User userFirst = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            User userFirst = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             userAdministrator.AddUserToTeam(userFirst, team);
             Assert.IsFalse(userAdministrator.RemoveUserTeam(userFirst, team));
         }
@@ -233,15 +203,9 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserAdministratorRemoveUserFromTeamTwiceTest()
         {
-            string nameTeam = "Equipo";
-            DateTime dateCreationTeam = new DateTime();
-            string description = "Descripcion";
-            int maxUserCount = 2;
-            List<Board> teamBoards = new List<Board>();
-            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
-            User userFirst = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
+            User userFirst = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             List<Team> teamsUserSecond = new List<Team>();
-            User userSecond = new User("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond", teamsUserSecond);
+            User userSecond = new UserCollaborator("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond", teamsUserSecond);
             UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
             userAdministrator.AddUserToTeam(userFirst, team);
             userAdministrator.AddUserToTeam(userSecond, team);
@@ -252,22 +216,15 @@ namespace BoardApplicationTest
         [TestMethod]
         public void UserAdministratorRemoveAddRemoveUserFromTeamTest()
         {
-            string nameTeam = "Equipo";
-            DateTime dateCreationTeam = new DateTime();
-            string description = "Descripcion";
-            int maxUserCount = 2;
-            List<Board> teamBoards = new List<Board>();
-            Team team = new Team(nameTeam, dateCreationTeam, description, maxUserCount, teamBoards);
-            User userFirst = new User(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsUser);
+            User userFirst = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
             List<Team> teamsUserSecond = new List<Team>();
-            User userSecond = new User("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond", teamsUserSecond);
-            UserAdministrator userAdministrator = new UserAdministrator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser, teamsAdministrator);
+            User userSecond = new UserCollaborator("NombreUserSecond", "ApellidoUserSecond", "EmailUserSecond", birthDateUser, "PasswordUserSecond");
             userAdministrator.AddUserToTeam(userFirst, team);
             userAdministrator.AddUserToTeam(userSecond, team);
             userAdministrator.RemoveUserTeam(userSecond, team);
             userAdministrator.AddUserToTeam(userSecond, team);
             Assert.IsTrue(userAdministrator.RemoveUserTeam(userSecond, team));
         }
-
+        */
     }
 }

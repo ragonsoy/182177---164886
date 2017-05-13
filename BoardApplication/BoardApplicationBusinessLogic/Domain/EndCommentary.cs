@@ -8,10 +8,6 @@ namespace BoardApplicationBusinessLogic
 {
     public class EndCommentary : Commentary
     {
-
-        private DateTime creationDateTime;
-        private User creatorUser;
-        private string commentary;
         private DateTime resolutionDateTime;
         private User resolutionUser;
 

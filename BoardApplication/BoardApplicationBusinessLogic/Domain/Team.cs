@@ -34,11 +34,6 @@ namespace BoardApplicationBusinessLogic
             return (this.name == team.name);
         }
 
-
-
-
-
-
         public string getName()
         {
             return this.name;

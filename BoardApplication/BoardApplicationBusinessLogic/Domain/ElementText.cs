@@ -8,12 +8,6 @@ namespace BoardApplicationBusinessLogic
 {
     public class ElementText : BoardElement
     {
-        private List<Commentary> comentarysBoardElement;
-        private int height;
-        private int originPointX;
-        private int originPointY;
-        private int width;
-
         private string text;
         private int fontSize;
         private string font;

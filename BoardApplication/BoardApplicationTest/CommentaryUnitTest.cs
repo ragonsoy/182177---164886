@@ -32,9 +32,9 @@ namespace BoardApplicationTest
             birthDate = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDate);
             teamsUser = new List<Team>();
-            creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password", teamsUser);
+            creatorUser = new UserCollaborator("Nombre", "Apellido", "Email", birthDate, "Password");
         }
-
+        
         [TestMethod]
         public void CommentaryGetCreationDateTest()
         {         
@@ -55,7 +55,6 @@ namespace BoardApplicationTest
         [TestMethod]
         public void CommentaryGetCreatorUserTest()
         {
-            User creatorUser = new User("Nombre", "Apellido", "Email", birthDate, "Password", teamsUser);
             Commentary commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
             Assert.AreEqual(commentary.getCreatorUser().getName(), "Nombre");
         }
@@ -64,7 +63,7 @@ namespace BoardApplicationTest
         public void CommentarySetCreatorUserTest()
         {
             Commentary commentary = new Commentary(creationDateTime, creatorUser, "Comentario");
-            User creatorUserNew = new User("NombreNew", "ApellidoNew", "EmailNew", birthDate, "PasswordNew", teamsUser);
+            User creatorUserNew = new UserCollaborator("NombreNew", "ApellidoNew", "EmailNew", birthDate, "PasswordNew");
             commentary.setCreatorUser(creatorUserNew);
             Assert.AreEqual(commentary.getCreatorUser(), creatorUserNew);
         }
@@ -83,6 +82,6 @@ namespace BoardApplicationTest
             commentary.SetCommentary("NewComentario");
             Assert.AreEqual(commentary.getCommentary(), "NewComentario");
         }
-
+        
     }
 }
