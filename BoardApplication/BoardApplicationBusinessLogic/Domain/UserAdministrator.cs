@@ -24,47 +24,7 @@ namespace BoardApplicationBusinessLogic
         {
             return new UserAdministrator(name, lastName, email, birthDate, password);
         }
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                
         public void ChangePassword(User user, string password)
         {
             user.setPassword(password);
@@ -74,6 +34,9 @@ namespace BoardApplicationBusinessLogic
         {
             user.setPassword(user.getName());
         }
+
+
+
 
         public bool AddUserToTeam(User user, Team team)
         {
