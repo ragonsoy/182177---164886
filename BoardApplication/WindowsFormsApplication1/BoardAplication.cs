@@ -97,6 +97,14 @@ namespace WindowsFormsApplication1
         private void radioButtonAddUserToTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlUsers.SelectedTab = tabPage8;
+            label21.Hide();
+            listBoxSelectedUserTeams.Hide();
+            label13.Hide();
+            label14.Hide();
+            listBoxAllSystemTeams.Hide();
+            label20.Hide();
+            buttonAddUserToModifyTeam.Hide();
+            buttonRemoveUserOfModifyList.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -190,6 +198,19 @@ namespace WindowsFormsApplication1
 
         private void label36_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void buttonUserToAddToATeam_Click(object sender, EventArgs e)
+        {
+            label21.Show();
+            listBoxSelectedUserTeams.Show();
+            label13.Show();
+            label14.Show();
+            listBoxAllSystemTeams.Show();
+            label20.Show();
+            buttonAddUserToModifyTeam.Show();
+            buttonRemoveUserOfModifyList.Show();
 
         }
     }

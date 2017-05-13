@@ -30,6 +30,11 @@
         {
             this.tabControlPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonLogin = new System.Windows.Forms.Button();
+            this.textBoxLoginPassword = new System.Windows.Forms.TextBox();
+            this.textBoxLoginEmail = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButtonAddUserToTeam = new System.Windows.Forms.RadioButton();
@@ -37,6 +42,7 @@
             this.radioButtonNewUser = new System.Windows.Forms.RadioButton();
             this.tabControlUsers = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dateTimePickerNewUser = new System.Windows.Forms.DateTimePicker();
             this.label36 = new System.Windows.Forms.Label();
             this.radioButtonNewUserTypeColaborator = new System.Windows.Forms.RadioButton();
             this.radioButtonNewUserTypeAdministrator = new System.Windows.Forms.RadioButton();
@@ -51,6 +57,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.dateTimePickerModifyUser = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.listBoxAllUserToModifyList = new System.Windows.Forms.ListBox();
             this.buttonSelectUserToModify = new System.Windows.Forms.Button();
@@ -75,7 +82,6 @@
             this.buttonAddUserToModifyTeam = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.listBoxAllSystemUsers = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.radioButtonModifyTeam = new System.Windows.Forms.RadioButton();
@@ -137,26 +143,28 @@
             this.buttonCreateNewBoard = new System.Windows.Forms.Button();
             this.listBoxTeamsNewBoard = new System.Windows.Forms.ListBox();
             this.button13 = new System.Windows.Forms.Button();
-            this.radioButtonUser = new System.Windows.Forms.RadioButton();
-            this.radioButtonTeam = new System.Windows.Forms.RadioButton();
-            this.radioButtonBoards = new System.Windows.Forms.RadioButton();
-            this.radioButtonInfor = new System.Windows.Forms.RadioButton();
-            this.radioButtonNewBoard = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.listBoxTeamBoards = new System.Windows.Forms.ListBox();
             this.buttonEnterBoard = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.listBoxUserTeams = new System.Windows.Forms.ListBox();
             this.buttonSelectTeam = new System.Windows.Forms.Button();
-            this.buttonLogin = new System.Windows.Forms.Button();
-            this.textBoxLoginPassword = new System.Windows.Forms.TextBox();
-            this.textBoxLoginEmail = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
+            this.radioButtonUser = new System.Windows.Forms.RadioButton();
+            this.radioButtonTeam = new System.Windows.Forms.RadioButton();
+            this.radioButtonBoards = new System.Windows.Forms.RadioButton();
+            this.radioButtonInfor = new System.Windows.Forms.RadioButton();
+            this.radioButtonNewBoard = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonHome = new System.Windows.Forms.RadioButton();
-            this.dateTimePickerNewUser = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerModifyUser = new System.Windows.Forms.DateTimePicker();
+            this.buttonUserToAddToATeam = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -177,8 +185,8 @@
             this.tabPage12.SuspendLayout();
             this.tabPage13.SuspendLayout();
             this.tabPage11.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.tabPage14.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlPrincipal
@@ -199,6 +207,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label43);
             this.tabPage1.Controls.Add(this.buttonLogin);
             this.tabPage1.Controls.Add(this.textBoxLoginPassword);
             this.tabPage1.Controls.Add(this.textBoxLoginEmail);
@@ -212,6 +221,48 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // buttonLogin
+            // 
+            this.buttonLogin.Location = new System.Drawing.Point(444, 335);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(206, 23);
+            this.buttonLogin.TabIndex = 29;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            // 
+            // textBoxLoginPassword
+            // 
+            this.textBoxLoginPassword.Location = new System.Drawing.Point(320, 257);
+            this.textBoxLoginPassword.Name = "textBoxLoginPassword";
+            this.textBoxLoginPassword.Size = new System.Drawing.Size(330, 20);
+            this.textBoxLoginPassword.TabIndex = 28;
+            // 
+            // textBoxLoginEmail
+            // 
+            this.textBoxLoginEmail.Location = new System.Drawing.Point(320, 219);
+            this.textBoxLoginEmail.Name = "textBoxLoginEmail";
+            this.textBoxLoginEmail.Size = new System.Drawing.Size(330, 20);
+            this.textBoxLoginEmail.TabIndex = 27;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(229, 264);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(53, 13);
+            this.label40.TabIndex = 26;
+            this.label40.Text = "Password";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(229, 226);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(32, 13);
+            this.label41.TabIndex = 25;
+            this.label41.Text = "Email";
             // 
             // tabPage2
             // 
@@ -235,7 +286,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 67);
+            this.panel2.Size = new System.Drawing.Size(873, 66);
             this.panel2.TabIndex = 5;
             // 
             // radioButtonAddUserToTeam
@@ -304,6 +355,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label42);
             this.tabPage6.Controls.Add(this.dateTimePickerNewUser);
             this.tabPage6.Controls.Add(this.label36);
             this.tabPage6.Controls.Add(this.radioButtonNewUserTypeColaborator);
@@ -326,6 +378,13 @@
             this.tabPage6.Text = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click_1);
+            // 
+            // dateTimePickerNewUser
+            // 
+            this.dateTimePickerNewUser.Location = new System.Drawing.Point(313, 204);
+            this.dateTimePickerNewUser.Name = "dateTimePickerNewUser";
+            this.dateTimePickerNewUser.Size = new System.Drawing.Size(330, 20);
+            this.dateTimePickerNewUser.TabIndex = 25;
             // 
             // label36
             // 
@@ -444,6 +503,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.label39);
             this.tabPage7.Controls.Add(this.dateTimePickerModifyUser);
             this.tabPage7.Controls.Add(this.label11);
             this.tabPage7.Controls.Add(this.listBoxAllUserToModifyList);
@@ -466,6 +526,13 @@
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             this.tabPage7.Click += new System.EventHandler(this.tabPage7_Click);
+            // 
+            // dateTimePickerModifyUser
+            // 
+            this.dateTimePickerModifyUser.Location = new System.Drawing.Point(483, 191);
+            this.dateTimePickerModifyUser.Name = "dateTimePickerModifyUser";
+            this.dateTimePickerModifyUser.Size = new System.Drawing.Size(330, 20);
+            this.dateTimePickerModifyUser.TabIndex = 37;
             // 
             // label11
             // 
@@ -578,6 +645,7 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.buttonUserToAddToATeam);
             this.tabPage8.Controls.Add(this.label14);
             this.tabPage8.Controls.Add(this.label13);
             this.tabPage8.Controls.Add(this.label20);
@@ -588,7 +656,6 @@
             this.tabPage8.Controls.Add(this.buttonAddUserToModifyTeam);
             this.tabPage8.Controls.Add(this.label12);
             this.tabPage8.Controls.Add(this.listBoxAllSystemUsers);
-            this.tabPage8.Controls.Add(this.button2);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
@@ -687,15 +754,6 @@
             this.listBoxAllSystemUsers.TabIndex = 38;
             this.listBoxAllSystemUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsersToAddToTeam_SelectedIndexChanged);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(48, 364);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 23);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "Select User";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.panel3);
@@ -716,7 +774,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(873, 65);
+            this.panel3.Size = new System.Drawing.Size(873, 66);
             this.panel3.TabIndex = 6;
             // 
             // radioButtonModifyTeam
@@ -767,6 +825,7 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.label44);
             this.tabPage9.Controls.Add(this.label29);
             this.tabPage9.Controls.Add(this.label30);
             this.tabPage9.Controls.Add(this.label18);
@@ -920,6 +979,7 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.label45);
             this.tabPage10.Controls.Add(this.label26);
             this.tabPage10.Controls.Add(this.buttonSelectTeamForModify);
             this.tabPage10.Controls.Add(this.label25);
@@ -1026,6 +1086,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label46);
             this.tabPage4.Controls.Add(this.label28);
             this.tabPage4.Controls.Add(this.label27);
             this.tabPage4.Controls.Add(this.listBoxSelectedTeamBoards);
@@ -1206,6 +1267,7 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.label47);
             this.tabPage11.Controls.Add(this.label35);
             this.tabPage11.Controls.Add(this.textBoxWidthNewBoard);
             this.tabPage11.Controls.Add(this.textBoxHeightNewBoard);
@@ -1229,7 +1291,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(506, 55);
+            this.label35.Location = new System.Drawing.Point(508, 103);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(86, 13);
             this.label35.TabIndex = 28;
@@ -1237,28 +1299,28 @@
             // 
             // textBoxWidthNewBoard
             // 
-            this.textBoxWidthNewBoard.Location = new System.Drawing.Point(456, 235);
+            this.textBoxWidthNewBoard.Location = new System.Drawing.Point(458, 283);
             this.textBoxWidthNewBoard.Name = "textBoxWidthNewBoard";
             this.textBoxWidthNewBoard.Size = new System.Drawing.Size(330, 20);
             this.textBoxWidthNewBoard.TabIndex = 27;
             // 
             // textBoxHeightNewBoard
             // 
-            this.textBoxHeightNewBoard.Location = new System.Drawing.Point(456, 191);
+            this.textBoxHeightNewBoard.Location = new System.Drawing.Point(458, 239);
             this.textBoxHeightNewBoard.Name = "textBoxHeightNewBoard";
             this.textBoxHeightNewBoard.Size = new System.Drawing.Size(330, 20);
             this.textBoxHeightNewBoard.TabIndex = 26;
             // 
             // textBoxDescriptionNewBoard
             // 
-            this.textBoxDescriptionNewBoard.Location = new System.Drawing.Point(456, 152);
+            this.textBoxDescriptionNewBoard.Location = new System.Drawing.Point(458, 200);
             this.textBoxDescriptionNewBoard.Name = "textBoxDescriptionNewBoard";
             this.textBoxDescriptionNewBoard.Size = new System.Drawing.Size(330, 20);
             this.textBoxDescriptionNewBoard.TabIndex = 25;
             // 
             // textBoxNameNewBoard
             // 
-            this.textBoxNameNewBoard.Location = new System.Drawing.Point(456, 108);
+            this.textBoxNameNewBoard.Location = new System.Drawing.Point(458, 156);
             this.textBoxNameNewBoard.Name = "textBoxNameNewBoard";
             this.textBoxNameNewBoard.Size = new System.Drawing.Size(330, 20);
             this.textBoxNameNewBoard.TabIndex = 24;
@@ -1266,7 +1328,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(365, 242);
+            this.label31.Location = new System.Drawing.Point(367, 290);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(35, 13);
             this.label31.TabIndex = 23;
@@ -1275,7 +1337,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(362, 198);
+            this.label32.Location = new System.Drawing.Point(364, 246);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(38, 13);
             this.label32.TabIndex = 22;
@@ -1284,7 +1346,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(362, 159);
+            this.label33.Location = new System.Drawing.Point(364, 207);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(60, 13);
             this.label33.TabIndex = 21;
@@ -1293,7 +1355,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(362, 115);
+            this.label34.Location = new System.Drawing.Point(364, 163);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(35, 13);
             this.label34.TabIndex = 20;
@@ -1301,7 +1363,7 @@
             // 
             // buttonCreateNewBoard
             // 
-            this.buttonCreateNewBoard.Location = new System.Drawing.Point(456, 312);
+            this.buttonCreateNewBoard.Location = new System.Drawing.Point(458, 360);
             this.buttonCreateNewBoard.Name = "buttonCreateNewBoard";
             this.buttonCreateNewBoard.Size = new System.Drawing.Size(210, 23);
             this.buttonCreateNewBoard.TabIndex = 11;
@@ -1311,19 +1373,78 @@
             // listBoxTeamsNewBoard
             // 
             this.listBoxTeamsNewBoard.FormattingEnabled = true;
-            this.listBoxTeamsNewBoard.Location = new System.Drawing.Point(92, 55);
+            this.listBoxTeamsNewBoard.Location = new System.Drawing.Point(94, 103);
             this.listBoxTeamsNewBoard.Name = "listBoxTeamsNewBoard";
             this.listBoxTeamsNewBoard.Size = new System.Drawing.Size(210, 251);
             this.listBoxTeamsNewBoard.TabIndex = 7;
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(92, 312);
+            this.button13.Location = new System.Drawing.Point(94, 360);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(210, 23);
             this.button13.TabIndex = 6;
             this.button13.Text = "Select Team";
             this.button13.UseVisualStyleBackColor = true;
+            // 
+            // tabPage14
+            // 
+            this.tabPage14.Controls.Add(this.label48);
+            this.tabPage14.Controls.Add(this.listBoxTeamBoards);
+            this.tabPage14.Controls.Add(this.buttonEnterBoard);
+            this.tabPage14.Controls.Add(this.button1);
+            this.tabPage14.Controls.Add(this.listBoxUserTeams);
+            this.tabPage14.Controls.Add(this.buttonSelectTeam);
+            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(879, 577);
+            this.tabPage14.TabIndex = 6;
+            this.tabPage14.Text = "tabPage14";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // listBoxTeamBoards
+            // 
+            this.listBoxTeamBoards.FormattingEnabled = true;
+            this.listBoxTeamBoards.Location = new System.Drawing.Point(542, 134);
+            this.listBoxTeamBoards.Name = "listBoxTeamBoards";
+            this.listBoxTeamBoards.Size = new System.Drawing.Size(210, 251);
+            this.listBoxTeamBoards.TabIndex = 9;
+            // 
+            // buttonEnterBoard
+            // 
+            this.buttonEnterBoard.Location = new System.Drawing.Point(542, 391);
+            this.buttonEnterBoard.Name = "buttonEnterBoard";
+            this.buttonEnterBoard.Size = new System.Drawing.Size(210, 23);
+            this.buttonEnterBoard.TabIndex = 8;
+            this.buttonEnterBoard.Text = "Enter Selected Board";
+            this.buttonEnterBoard.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(542, 420);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(210, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Delete Selected Board";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // listBoxUserTeams
+            // 
+            this.listBoxUserTeams.FormattingEnabled = true;
+            this.listBoxUserTeams.Location = new System.Drawing.Point(126, 134);
+            this.listBoxUserTeams.Name = "listBoxUserTeams";
+            this.listBoxUserTeams.Size = new System.Drawing.Size(210, 251);
+            this.listBoxUserTeams.TabIndex = 6;
+            // 
+            // buttonSelectTeam
+            // 
+            this.buttonSelectTeam.Location = new System.Drawing.Point(126, 391);
+            this.buttonSelectTeam.Name = "buttonSelectTeam";
+            this.buttonSelectTeam.Size = new System.Drawing.Size(210, 23);
+            this.buttonSelectTeam.TabIndex = 5;
+            this.buttonSelectTeam.Text = "Select Team";
+            this.buttonSelectTeam.UseVisualStyleBackColor = true;
             // 
             // radioButtonUser
             // 
@@ -1426,106 +1547,6 @@
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // tabPage14
-            // 
-            this.tabPage14.Controls.Add(this.listBoxTeamBoards);
-            this.tabPage14.Controls.Add(this.buttonEnterBoard);
-            this.tabPage14.Controls.Add(this.button1);
-            this.tabPage14.Controls.Add(this.listBoxUserTeams);
-            this.tabPage14.Controls.Add(this.buttonSelectTeam);
-            this.tabPage14.Location = new System.Drawing.Point(4, 22);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(879, 577);
-            this.tabPage14.TabIndex = 6;
-            this.tabPage14.Text = "tabPage14";
-            this.tabPage14.UseVisualStyleBackColor = true;
-            // 
-            // listBoxTeamBoards
-            // 
-            this.listBoxTeamBoards.FormattingEnabled = true;
-            this.listBoxTeamBoards.Location = new System.Drawing.Point(542, 134);
-            this.listBoxTeamBoards.Name = "listBoxTeamBoards";
-            this.listBoxTeamBoards.Size = new System.Drawing.Size(210, 251);
-            this.listBoxTeamBoards.TabIndex = 9;
-            // 
-            // buttonEnterBoard
-            // 
-            this.buttonEnterBoard.Location = new System.Drawing.Point(542, 391);
-            this.buttonEnterBoard.Name = "buttonEnterBoard";
-            this.buttonEnterBoard.Size = new System.Drawing.Size(210, 23);
-            this.buttonEnterBoard.TabIndex = 8;
-            this.buttonEnterBoard.Text = "Enter Selected Board";
-            this.buttonEnterBoard.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(542, 420);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Delete Selected Board";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // listBoxUserTeams
-            // 
-            this.listBoxUserTeams.FormattingEnabled = true;
-            this.listBoxUserTeams.Location = new System.Drawing.Point(126, 134);
-            this.listBoxUserTeams.Name = "listBoxUserTeams";
-            this.listBoxUserTeams.Size = new System.Drawing.Size(210, 251);
-            this.listBoxUserTeams.TabIndex = 6;
-            // 
-            // buttonSelectTeam
-            // 
-            this.buttonSelectTeam.Location = new System.Drawing.Point(126, 391);
-            this.buttonSelectTeam.Name = "buttonSelectTeam";
-            this.buttonSelectTeam.Size = new System.Drawing.Size(210, 23);
-            this.buttonSelectTeam.TabIndex = 5;
-            this.buttonSelectTeam.Text = "Select Team";
-            this.buttonSelectTeam.UseVisualStyleBackColor = true;
-            // 
-            // buttonLogin
-            // 
-            this.buttonLogin.Location = new System.Drawing.Point(444, 335);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(206, 23);
-            this.buttonLogin.TabIndex = 29;
-            this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            // 
-            // textBoxLoginPassword
-            // 
-            this.textBoxLoginPassword.Location = new System.Drawing.Point(320, 257);
-            this.textBoxLoginPassword.Name = "textBoxLoginPassword";
-            this.textBoxLoginPassword.Size = new System.Drawing.Size(330, 20);
-            this.textBoxLoginPassword.TabIndex = 28;
-            // 
-            // textBoxLoginEmail
-            // 
-            this.textBoxLoginEmail.Location = new System.Drawing.Point(320, 219);
-            this.textBoxLoginEmail.Name = "textBoxLoginEmail";
-            this.textBoxLoginEmail.Size = new System.Drawing.Size(330, 20);
-            this.textBoxLoginEmail.TabIndex = 27;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(229, 264);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(53, 13);
-            this.label40.TabIndex = 26;
-            this.label40.Text = "Password";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(229, 226);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(32, 13);
-            this.label41.TabIndex = 25;
-            this.label41.Text = "Email";
-            // 
             // radioButtonHome
             // 
             this.radioButtonHome.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1545,19 +1566,87 @@
             this.radioButtonHome.UseVisualStyleBackColor = true;
             this.radioButtonHome.CheckedChanged += new System.EventHandler(this.radioButtonHome_CheckedChanged);
             // 
-            // dateTimePickerNewUser
+            // buttonUserToAddToATeam
             // 
-            this.dateTimePickerNewUser.Location = new System.Drawing.Point(313, 204);
-            this.dateTimePickerNewUser.Name = "dateTimePickerNewUser";
-            this.dateTimePickerNewUser.Size = new System.Drawing.Size(330, 20);
-            this.dateTimePickerNewUser.TabIndex = 25;
+            this.buttonUserToAddToATeam.Location = new System.Drawing.Point(47, 364);
+            this.buttonUserToAddToATeam.Name = "buttonUserToAddToATeam";
+            this.buttonUserToAddToATeam.Size = new System.Drawing.Size(211, 23);
+            this.buttonUserToAddToATeam.TabIndex = 49;
+            this.buttonUserToAddToATeam.Text = "Select User";
+            this.buttonUserToAddToATeam.UseVisualStyleBackColor = true;
+            this.buttonUserToAddToATeam.Click += new System.EventHandler(this.buttonUserToAddToATeam_Click);
             // 
-            // dateTimePickerModifyUser
+            // label39
             // 
-            this.dateTimePickerModifyUser.Location = new System.Drawing.Point(483, 191);
-            this.dateTimePickerModifyUser.Name = "dateTimePickerModifyUser";
-            this.dateTimePickerModifyUser.Size = new System.Drawing.Size(330, 20);
-            this.dateTimePickerModifyUser.TabIndex = 37;
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(604, 65);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(75, 13);
+            this.label39.TabIndex = 38;
+            this.label39.Text = "User to Modify";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(388, 74);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(54, 13);
+            this.label42.TabIndex = 37;
+            this.label42.Text = "New User";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(441, 169);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(33, 13);
+            this.label43.TabIndex = 37;
+            this.label43.Text = "Login";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(318, 45);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(59, 13);
+            this.label44.TabIndex = 53;
+            this.label44.Text = "New Team";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(416, 103);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(80, 13);
+            this.label45.TabIndex = 45;
+            this.label45.Text = "Team to Modify";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(359, 62);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(69, 13);
+            this.label46.TabIndex = 37;
+            this.label46.Text = "Delete Board";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(325, 51);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(60, 13);
+            this.label47.TabIndex = 37;
+            this.label47.Text = "New Board";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(375, 84);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(72, 13);
+            this.label48.TabIndex = 37;
+            this.label48.Text = "Board Ingress";
             // 
             // BoardAplication
             // 
@@ -1602,9 +1691,10 @@
             this.tabPage13.PerformLayout();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
+            this.tabPage14.ResumeLayout(false);
+            this.tabPage14.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabPage14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1650,7 +1740,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox listBoxAllSystemUsers;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton radioButtonModifyTeam;
         private System.Windows.Forms.RadioButton radioButtonNewTeam;
@@ -1740,6 +1829,15 @@
         private System.Windows.Forms.RadioButton radioButtonHome;
         private System.Windows.Forms.DateTimePicker dateTimePickerNewUser;
         private System.Windows.Forms.DateTimePicker dateTimePickerModifyUser;
+        private System.Windows.Forms.Button buttonUserToAddToATeam;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
     }
 }
 
