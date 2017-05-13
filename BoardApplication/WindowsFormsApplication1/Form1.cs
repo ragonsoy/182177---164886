@@ -140,11 +140,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void label20_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button10_Click(object sender, EventArgs e)
         {
 
@@ -158,6 +153,21 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButtonNewBoard_CheckedChanged(object sender, EventArgs e)
+        {
+            tabControlPrincipal.SelectedTab = tabPage11;
+        }
+
+        private void radioButtonBoardCreatedByTeam_CheckedChanged(object sender, EventArgs e)
+        {
+            tabControlInforms.SelectedTab = tabPage12;
+        }
+
+        private void radioButtonCommentartResovedByUser_CheckedChanged(object sender, EventArgs e)
+        {
+            tabControlInforms.SelectedTab = tabPage13;
         }
     }
 }
