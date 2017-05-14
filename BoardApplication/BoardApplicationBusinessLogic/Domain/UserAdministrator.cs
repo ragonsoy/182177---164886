@@ -15,6 +15,19 @@ namespace BoardApplicationBusinessLogic
         
         }
 
+        public UserAdministrator(string email)
+            : base(email)
+        {
+
+        }
+
+        public UserAdministrator() { }
+
+        public bool Equals(UserAdministrator userAdministrator)
+        {
+            return (this.getEmail() == userAdministrator.getEmail());
+        }
+
         public UserCollaborator CreationUserCollaborator(string name, string lastName, string email, DateTime birthDate, string password)
         {
             return new UserCollaborator(name,lastName,email,birthDate,password);

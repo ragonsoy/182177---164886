@@ -12,6 +12,14 @@ namespace BoardApplicationBusinessLogic
             : base (name, lastName, email, birthDate, password)
         {
         
-        }        
+        }
+
+        public UserCollaborator(string email)
+            : base(email)
+        {
+
+        }
+
+        public UserCollaborator() { }
     }
 }

@@ -22,10 +22,10 @@ namespace BoardApplicationFacade.Interface
             persistence.Add(team);
         }
 
-        public Team QueryTeam(string name, DateTime creationDate, string description, int maxUserCount)
+        public Team GetTeam(string name, DateTime creationDate, string description, int maxUserCount)
         {
             Team team = new Team(name, creationDate, description, maxUserCount);
-            return (Team)persistence.Query(team);
+            return (Team)persistence.Get(team);
         }
 
         public void ModifyTeam(string name, DateTime creationDate, string description, int maxUserCount)
@@ -38,7 +38,7 @@ namespace BoardApplicationFacade.Interface
         public void RemoveTeam(string name, DateTime creationDate, string description, int maxUserCount)
         {
             Team team = new Team(name, creationDate, description, maxUserCount);
-            persistence.Remove(persistence.Query(team));
+            persistence.Remove(persistence.Get(team));
         }
     }
 }

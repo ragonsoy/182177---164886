@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace BoardApplicationBusinessLogic.DomainPersistence
 {
-    public class Persistence
+    public class PersistenceUserCollaborator
     {
-        List<Object> collection;
-        public Persistence()
+        List<User> collection;
+        public PersistenceUserCollaborator()
         {
-            collection = new List<Object>();
+            collection = new List<User>();
         }
 
-        public void Add(Object obj)
+        public void Add(User obj)
         {
             collection.Add(obj);
         }
 
-        public void Remove(Object obj)
+        public void Remove(UserCollaborator obj)
         {
             collection.Remove(obj);
         }
 
-        public Object Get(Object obj)
+        public User Get(User obj)
         {
-            Object objectReturn = new Object();
-            foreach (var item in collection)
+            User objectReturn = new UserCollaborator();
+            foreach (UserCollaborator item in collection)
             {               
-                if (base.Equals(obj))
+                if (item.Equals(obj))
                     objectReturn = item;
             }
             return objectReturn;
@@ -40,7 +40,7 @@ namespace BoardApplicationBusinessLogic.DomainPersistence
             return collection.Count();
         }
 
-        public bool ElementExist(Object obj)
+        public bool ElementExist(User obj)
         {
             return collection.Contains(obj);
         }

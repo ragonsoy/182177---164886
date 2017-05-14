@@ -25,10 +25,24 @@ namespace BoardApplicationBusinessLogic
             this.teams = new List<Team>();
         }
 
+        public User() { }
+
+        public User(string email)
+        {
+            this.email = email;
+        }
+
+
         public bool Equals(User user)
         {
             return (this.getEmail() == user.getEmail());
         }
+
+        public bool PasswordCorrect(string password)
+        {
+            return this.password == password;
+        }
+
 
         public string getName()
         {

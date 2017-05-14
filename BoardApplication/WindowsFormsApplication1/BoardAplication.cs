@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BoardApplicationFacade;
+using BoardApplicationBusinessLogic;
 
 namespace WindowsFormsApplication1
 {
     public partial class BoardAplication : Form
     {
+        ManagerUserAdministrator managerUserAdministrator;
         public BoardAplication()
         {
             InitializeComponent();
@@ -21,6 +24,12 @@ namespace WindowsFormsApplication1
             radioButtonTeam.Hide();
             radioButtonBoards.Hide();
             radioButtonInfor.Hide();
+
+            this.managerUserAdministrator = new ManagerUserAdministrator();
+            DateTime birthDateUser = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDateUser);
+            managerUserAdministrator.CreateUserAdministrator("admim","admin","admin", birthDateUser,"admin");
+            managerUserAdministrator.CreateUserCollaborator("collaborator", "collaborator", "collaborator", birthDateUser, "collaborator");
         }
         
         private void tabPage4_Click(object sender, EventArgs e)
@@ -174,22 +183,48 @@ namespace WindowsFormsApplication1
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            // if admin
-            radioButtonHome.Show();
-            radioButtonNewBoard.Show();
-            radioButtonUser.Show();
-            radioButtonTeam.Show();
-            radioButtonBoards.Show();
-            radioButtonInfor.Show();
-            tabControlPrincipal.SelectedTab = tabPage14;
+            User user;
+            string email = textBoxLoginEmail.Text;
+            if (managerUserAdministrator.ExistsUserAdministrator(email))
+            {
+                user = managerUserAdministrator.GetUserAdministrator(email);
+                if (managerUserAdministrator.PasswordCorrect(user, textBoxLoginPassword.Text))
+                {
+                    radioButtonHome.Show();
+                    radioButtonNewBoard.Show();
+                    radioButtonUser.Show();
+                    radioButtonTeam.Show();
+                    radioButtonBoards.Show();
+                    radioButtonInfor.Show();
 
-            //if colaborator
-            /*
-            radioButtonHome.Show();
-            radioButtonNewBoard.Show();
-            tabControlInforms.SelectedTab = tabPage14;
-            */
+                    tabControlPrincipal.SelectedTab = tabPage14;
+                }
+                else {
+                    MessageBox.Show("La password es incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                if (managerUserAdministrator.ExistsUserCollaborator(email))
+                {
+                    user = managerUserAdministrator.GetUserAdministrator(email);
+                    if (managerUserAdministrator.PasswordCorrect(user, textBoxLoginPassword.Text))
+                    {
+                        radioButtonHome.Show();
+                        radioButtonNewBoard.Show();
+
+                        tabControlPrincipal.SelectedTab = tabPage14;
+                    } else {
+                        MessageBox.Show("La password es incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no existe en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

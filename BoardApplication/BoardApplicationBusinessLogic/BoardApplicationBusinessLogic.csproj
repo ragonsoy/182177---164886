@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainPersistence\PersistenceTeam.cs" />
+    <Compile Include="DomainPersistence\PersistenceUserCollaborator.cs" />
+    <Compile Include="DomainPersistence\PersistenceUserAdministration.cs" />
     <Compile Include="Domain\Board.cs" />
     <Compile Include="Domain\BoardElement.cs" />
     <Compile Include="Domain\Commentary.cs" />

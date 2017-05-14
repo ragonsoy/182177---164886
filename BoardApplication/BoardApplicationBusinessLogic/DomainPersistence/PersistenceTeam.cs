@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace BoardApplicationBusinessLogic.DomainPersistence
 {
-    public class Persistence
+    public class PersistenceTeam
     {
-        List<Object> collection;
-        public Persistence()
+        List<Team> collection;
+        public PersistenceTeam()
         {
-            collection = new List<Object>();
+            collection = new List<Team>();
         }
 
-        public void Add(Object obj)
+        public void Add(Team obj)
         {
             collection.Add(obj);
         }
 
-        public void Remove(Object obj)
+        public void Remove(Team obj)
         {
             collection.Remove(obj);
         }
 
-        public Object Get(Object obj)
+        public Team Get(Team obj)
         {
-            Object objectReturn = new Object();
+            Team objectReturn = new Team();
             foreach (var item in collection)
             {               
                 if (base.Equals(obj))
@@ -40,7 +40,7 @@ namespace BoardApplicationBusinessLogic.DomainPersistence
             return collection.Count();
         }
 
-        public bool ElementExist(Object obj)
+        public bool ElementExist(Team obj)
         {
             return collection.Contains(obj);
         }

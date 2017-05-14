@@ -22,10 +22,10 @@ namespace BoardApplicationBusinessLogic.Interface
             persistence.Add(board);
         }
 
-        public Board QueryBoard(string name, string description, int height, int width)
+        public Board GetBoard(string name, string description, int height, int width)
         {
             Board board = new Board(name, description, height, width);
-            return (Board)persistence.Query(board);
+            return (Board)persistence.Get(board);
         }
 
         public void ModifyBoard(string name, string description, int height, int width)
@@ -38,7 +38,7 @@ namespace BoardApplicationBusinessLogic.Interface
         public void RemoveBoard(string name, string description, int height, int width)
         {
             Board board = new Board(name, description, height, width);
-            persistence.Remove(persistence.Query(board));
+            persistence.Remove(persistence.Get(board));
         }
     }
 }

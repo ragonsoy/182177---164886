@@ -30,6 +30,7 @@
         {
             this.tabControlPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label43 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxLoginPassword = new System.Windows.Forms.TextBox();
             this.textBoxLoginEmail = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@
             this.radioButtonNewUser = new System.Windows.Forms.RadioButton();
             this.tabControlUsers = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label42 = new System.Windows.Forms.Label();
             this.dateTimePickerNewUser = new System.Windows.Forms.DateTimePicker();
             this.label36 = new System.Windows.Forms.Label();
             this.radioButtonNewUserTypeColaborator = new System.Windows.Forms.RadioButton();
@@ -57,6 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label39 = new System.Windows.Forms.Label();
             this.dateTimePickerModifyUser = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.listBoxAllUserToModifyList = new System.Windows.Forms.ListBox();
@@ -72,6 +75,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.buttonUserToAddToATeam = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -88,6 +92,7 @@
             this.radioButtonNewTeam = new System.Windows.Forms.RadioButton();
             this.tabControlTeams = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.label44 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -104,6 +109,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.label45 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.buttonSelectTeamForModify = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
@@ -115,6 +121,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label46 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.listBoxSelectedTeamBoards = new System.Windows.Forms.ListBox();
@@ -131,6 +138,7 @@
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.label38 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.label47 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.textBoxWidthNewBoard = new System.Windows.Forms.TextBox();
             this.textBoxHeightNewBoard = new System.Windows.Forms.TextBox();
@@ -144,6 +152,7 @@
             this.listBoxTeamsNewBoard = new System.Windows.Forms.ListBox();
             this.button13 = new System.Windows.Forms.Button();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.label48 = new System.Windows.Forms.Label();
             this.listBoxTeamBoards = new System.Windows.Forms.ListBox();
             this.buttonEnterBoard = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -156,15 +165,6 @@
             this.radioButtonNewBoard = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonHome = new System.Windows.Forms.RadioButton();
-            this.buttonUserToAddToATeam = new System.Windows.Forms.Button();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -221,6 +221,15 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(441, 169);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(33, 13);
+            this.label43.TabIndex = 37;
+            this.label43.Text = "Login";
             // 
             // buttonLogin
             // 
@@ -379,6 +388,15 @@
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click_1);
             // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(388, 74);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(54, 13);
+            this.label42.TabIndex = 37;
+            this.label42.Text = "New User";
+            // 
             // dateTimePickerNewUser
             // 
             this.dateTimePickerNewUser.Location = new System.Drawing.Point(313, 204);
@@ -527,6 +545,15 @@
             this.tabPage7.UseVisualStyleBackColor = true;
             this.tabPage7.Click += new System.EventHandler(this.tabPage7_Click);
             // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(604, 65);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(75, 13);
+            this.label39.TabIndex = 38;
+            this.label39.Text = "User to Modify";
+            // 
             // dateTimePickerModifyUser
             // 
             this.dateTimePickerModifyUser.Location = new System.Drawing.Point(483, 191);
@@ -664,6 +691,16 @@
             this.tabPage8.Text = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
             this.tabPage8.Click += new System.EventHandler(this.tabPage8_Click);
+            // 
+            // buttonUserToAddToATeam
+            // 
+            this.buttonUserToAddToATeam.Location = new System.Drawing.Point(47, 364);
+            this.buttonUserToAddToATeam.Name = "buttonUserToAddToATeam";
+            this.buttonUserToAddToATeam.Size = new System.Drawing.Size(211, 23);
+            this.buttonUserToAddToATeam.TabIndex = 49;
+            this.buttonUserToAddToATeam.Text = "Select User";
+            this.buttonUserToAddToATeam.UseVisualStyleBackColor = true;
+            this.buttonUserToAddToATeam.Click += new System.EventHandler(this.buttonUserToAddToATeam_Click);
             // 
             // label14
             // 
@@ -850,6 +887,15 @@
             this.tabPage9.UseVisualStyleBackColor = true;
             this.tabPage9.Click += new System.EventHandler(this.tabPage9_Click);
             // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(318, 45);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(59, 13);
+            this.label44.TabIndex = 53;
+            this.label44.Text = "New Team";
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -998,6 +1044,15 @@
             this.tabPage10.Text = "tabPage10";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(416, 103);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(80, 13);
+            this.label45.TabIndex = 45;
+            this.label45.Text = "Team to Modify";
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -1101,6 +1156,15 @@
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(359, 62);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(69, 13);
+            this.label46.TabIndex = 37;
+            this.label46.Text = "Delete Board";
             // 
             // label28
             // 
@@ -1288,6 +1352,15 @@
             this.tabPage11.Text = "tabPage11";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(325, 51);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(60, 13);
+            this.label47.TabIndex = 37;
+            this.label47.Text = "New Board";
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -1402,6 +1475,15 @@
             this.tabPage14.TabIndex = 6;
             this.tabPage14.Text = "tabPage14";
             this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(375, 84);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(72, 13);
+            this.label48.TabIndex = 37;
+            this.label48.Text = "Board Ingress";
             // 
             // listBoxTeamBoards
             // 
@@ -1565,88 +1647,6 @@
             this.radioButtonHome.Text = "Home";
             this.radioButtonHome.UseVisualStyleBackColor = true;
             this.radioButtonHome.CheckedChanged += new System.EventHandler(this.radioButtonHome_CheckedChanged);
-            // 
-            // buttonUserToAddToATeam
-            // 
-            this.buttonUserToAddToATeam.Location = new System.Drawing.Point(47, 364);
-            this.buttonUserToAddToATeam.Name = "buttonUserToAddToATeam";
-            this.buttonUserToAddToATeam.Size = new System.Drawing.Size(211, 23);
-            this.buttonUserToAddToATeam.TabIndex = 49;
-            this.buttonUserToAddToATeam.Text = "Select User";
-            this.buttonUserToAddToATeam.UseVisualStyleBackColor = true;
-            this.buttonUserToAddToATeam.Click += new System.EventHandler(this.buttonUserToAddToATeam_Click);
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(604, 65);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(75, 13);
-            this.label39.TabIndex = 38;
-            this.label39.Text = "User to Modify";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(388, 74);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(54, 13);
-            this.label42.TabIndex = 37;
-            this.label42.Text = "New User";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(441, 169);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(33, 13);
-            this.label43.TabIndex = 37;
-            this.label43.Text = "Login";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(318, 45);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(59, 13);
-            this.label44.TabIndex = 53;
-            this.label44.Text = "New Team";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(416, 103);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(80, 13);
-            this.label45.TabIndex = 45;
-            this.label45.Text = "Team to Modify";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(359, 62);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(69, 13);
-            this.label46.TabIndex = 37;
-            this.label46.Text = "Delete Board";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(325, 51);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(60, 13);
-            this.label47.TabIndex = 37;
-            this.label47.Text = "New Board";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(375, 84);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(72, 13);
-            this.label48.TabIndex = 37;
-            this.label48.Text = "Board Ingress";
             // 
             // BoardAplication
             // 

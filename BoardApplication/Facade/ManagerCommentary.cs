@@ -22,10 +22,10 @@ namespace BoardApplicationBusinessLogic.Interface
             persistence.Add(commentary);
         }
 
-        public Commentary QueryCommentary(DateTime creationDateTime, User creatorUser, string comment)
+        public Commentary GetCommentary(DateTime creationDateTime, User creatorUser, string comment)
         {
             Commentary commentary = new Commentary(creationDateTime, creatorUser, comment);
-            return (Commentary)persistence.Query(commentary);
+            return (Commentary)persistence.Get(commentary);
         }
 
         public void ModifyCommentary(DateTime creationDateTime, User creatorUser, string comment)
@@ -38,7 +38,7 @@ namespace BoardApplicationBusinessLogic.Interface
         public void RemoveCommentary(DateTime creationDateTime, User creatorUser, string comment)
         {
             Commentary commentary = new Commentary(creationDateTime, creatorUser, comment);
-            persistence.Remove(persistence.Query(commentary));
+            persistence.Remove(persistence.Get(commentary));
         }
     }
 }

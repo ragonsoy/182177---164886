@@ -84,6 +84,10 @@
       <Project>{911cc5f0-adf3-4ee9-b0d1-f72afc13cce9}</Project>
       <Name>BoardApplicationBusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Facade\BoardApplicationFacade.csproj">
+      <Project>{c4ea4c87-fe83-45fb-ac3b-63e90f2c57a2}</Project>
+      <Name>BoardApplicationFacade</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
