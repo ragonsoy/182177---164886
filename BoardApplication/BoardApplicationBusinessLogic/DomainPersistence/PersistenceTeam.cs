@@ -50,5 +50,10 @@ namespace BoardApplicationBusinessLogic.DomainPersistence
             }
             return exist;
         }
+
+        public List<Team> GetPersistence()
+        {
+            return this.collection;
+        }
     }
 }

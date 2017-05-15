@@ -54,6 +54,26 @@ namespace BoardApplicationFacade
             return board.IsUserCreator(user);
         }
 
+        public void RemoveBoard(string nameBoard)
+        {
+            Board board = this.team.GetBoard(nameBoard);
+            this.team.RemoveBoard(board);
+            persistenceTeams.Remove(team);
+            persistenceTeams.Add(team);
+        }
+
+        public bool TeamIsFull(string name)
+        {
+            Team team = this.GetTeam(name);
+            return team.TeamFull();
+        }
+
+        public bool UniqueUser(string name)
+        {
+            Team team = this.GetTeam(name);
+            return team.UniqueUser();
+        }
+
         //public void ModifyTeam(string name, DateTime creationDate, string description, int maxUserCount)
         //{
         //    Team team = new Team(name, creationDate, description, maxUserCount);

@@ -59,7 +59,7 @@ namespace BoardApplicationBusinessLogic
             this.maxUserCount = maxUserCount;
         }
 
-        private bool TeamFull()
+        public bool TeamFull()
         {
             return (countUser == maxUserCount);
         }
@@ -94,6 +94,14 @@ namespace BoardApplicationBusinessLogic
         public Board GetBoard(string nameBoard)
         {
             return this.teamBoards.Find(x => x.getName() == nameBoard);
+        }
+        public void RemoveBoard(Board board)
+        {
+            this.teamBoards.Remove(board);
+        }
+        public bool UniqueUser()
+        {
+            return countUser == minimunUser;
         }
 
 
@@ -146,10 +154,7 @@ namespace BoardApplicationBusinessLogic
             return false;
         }
 
-        private bool UniqueUser()
-        {
-            return countUser == minimunUser;
-        }
+        
                
 
         //public void ModifyBoard(Board board)

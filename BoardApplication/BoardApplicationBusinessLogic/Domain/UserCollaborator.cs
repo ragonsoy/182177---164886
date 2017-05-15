@@ -21,5 +21,10 @@ namespace BoardApplicationBusinessLogic
         }
 
         public UserCollaborator() { }
+
+        public override string ToString()
+        {
+            return this.getEmail();
+        }
     }
 }

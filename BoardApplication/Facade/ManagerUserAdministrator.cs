@@ -65,14 +65,26 @@ namespace BoardApplicationFacade
             return this.userAdministrator.PasswordCorrect(password);
         }
 
-        //public void ModifyUser(string name, string lastName, string email, DateTime birthDate, string password)
-        //{
-        //    User user = new UserCollaborator(name, lastName, email, birthDate, password);
-        //    persistenceUserCollaborator.Remove(user);
-        //    persistenceUserCollaborator.Add(user);
-        //    persistenceUserAdministrator.Remove(user);
-        //    persistenceUserAdministrator.Add(user);
-        //}
+        public void ModifyUser(string name, string lastName, string email, DateTime birthDate, string password)
+        {
+            if (this.ExistsUserAdministrator(email))
+            {
+                UserAdministrator userAdministratorModify = this.GetUserAdministrator(email);
+                userAdministratorModify.setName(name);
+                userAdministratorModify.setLastName(lastName);
+                userAdministratorModify.setPassword(password);
+                userAdministratorModify.setBirthDate(birthDate);
+                persistenceUserAdministrator.Remove(userAdministratorModify);
+                persistenceUserAdministrator.Add(userAdministratorModify);
+            }
+            UserCollaborator userCollaboratorModify = persistenceUserCollaborator.Get(new UserCollaborator(email));
+            userCollaboratorModify.setName(name);
+            userCollaboratorModify.setLastName(lastName);
+            userCollaboratorModify.setPassword(password);
+            userCollaboratorModify.setBirthDate(birthDate);
+            persistenceUserCollaborator.Remove(userCollaboratorModify);
+            persistenceUserCollaborator.Add(userCollaboratorModify);
+        }
 
         //public void RemoveUser(string name, string lastName, string email, DateTime birthDate, string password)
         //{
@@ -91,19 +103,48 @@ namespace BoardApplicationFacade
         public void AddUserToTeam(UserCollaborator user, Team team)
         {
             if (userAdministrator.AddUserToTeam(user, team))
+            {
                 user.AddToTeam(team);
+                //if (this.ExistsUserAdministrator(user.getEmail()))
+                //{
+                //    UserAdministrator userAdministratorModify = this.GetUserAdministrator(user.getEmail());
+                //    userAdministrator.AddUserToTeam(userAdministratorModify,team);
+                //    persistenceUserAdministrator.Remove(userAdministratorModify);
+                //    persistenceUserAdministrator.Add(userAdministratorModify);
+                //}
+                userAdministrator.AddUserToTeam(user, team);
+                persistenceUserCollaborator.Remove(user);
+                persistenceUserCollaborator.Add(user);
+            }
+        }
+
+        public List<User> GetAllUser()
+        {
+            return persistenceUserCollaborator.GetPersistence();
+        }
+
+        public List<Team> GetAllTeamExceptTeamsUser(UserCollaborator user)
+        {
+            List<Team> teams = new List<Team>();
+            foreach (Team item in this.GetAllTeam())
+            {
+                if (!user.getTeams().Contains(item))
+                    teams.Add(item);
+            }
+            return teams;
+        }
+
+        public List<Team> GetAllTeam()
+        {
+            return persistanceTeams.GetPersistence();
+        }
+
+        public void RemoveUserToTeam(UserCollaborator user, Team team)
+        {
+            if (userAdministrator.RemoveUserTeam(user, team))
+                user.RemoveFromTeam(team);
             persistenceUserCollaborator.Remove(user);
             persistenceUserCollaborator.Add(user);
         }
-
-        //public void RemoveUserToTeam(User user, Team team)
-        //{
-        //    if (userAdministrator.RemoveUserTeam(user, team))
-        //        user.RemoveFromTeam(team);
-        //    persistenceUserCollaborator.Remove(user);
-        //    persistenceUserAdministrator.Remove(user);
-        //    persistenceUserCollaborator.Add(user);
-        //    persistenceUserAdministrator.Add(user);
-        //}
     }
 }

@@ -81,9 +81,9 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.listBoxAllSystemTeams = new System.Windows.Forms.ListBox();
-            this.buttonRemoveUserOfModifyList = new System.Windows.Forms.Button();
+            this.buttonAddUserOfModifyList = new System.Windows.Forms.Button();
             this.listBoxSelectedUserTeams = new System.Windows.Forms.ListBox();
-            this.buttonAddUserToModifyTeam = new System.Windows.Forms.Button();
+            this.buttonRemoveUserOfModifyList = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.listBoxAllSystemUsers = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -164,6 +164,7 @@
             this.radioButtonInfor = new System.Windows.Forms.RadioButton();
             this.radioButtonNewBoard = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButtonLogout = new System.Windows.Forms.RadioButton();
             this.radioButtonHome = new System.Windows.Forms.RadioButton();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -293,7 +294,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 66);
+            this.panel2.Size = new System.Drawing.Size(873, 71);
             this.panel2.TabIndex = 5;
             // 
             // radioButtonAddUserToTeam
@@ -328,7 +329,7 @@
             this.radioButtonModifyUser.TabIndex = 1;
             this.radioButtonModifyUser.Text = "Modify Users";
             this.radioButtonModifyUser.UseVisualStyleBackColor = true;
-            this.radioButtonModifyUser.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.radioButtonModifyUser.CheckedChanged += new System.EventHandler(this.radioButtonModifyUser_CheckedChanged);
             // 
             // radioButtonNewUser
             // 
@@ -413,6 +414,7 @@
             // radioButtonNewUserTypeColaborator
             // 
             this.radioButtonNewUserTypeColaborator.AutoSize = true;
+            this.radioButtonNewUserTypeColaborator.Checked = true;
             this.radioButtonNewUserTypeColaborator.Location = new System.Drawing.Point(460, 327);
             this.radioButtonNewUserTypeColaborator.Name = "radioButtonNewUserTypeColaborator";
             this.radioButtonNewUserTypeColaborator.Size = new System.Drawing.Size(79, 17);
@@ -440,6 +442,7 @@
             this.buttonAddNewUser.TabIndex = 21;
             this.buttonAddNewUser.Text = "Add New User";
             this.buttonAddNewUser.UseVisualStyleBackColor = true;
+            this.buttonAddNewUser.Click += new System.EventHandler(this.buttonAddNewUser_Click);
             // 
             // textBoxPasswordNewUser
             // 
@@ -580,6 +583,7 @@
             this.buttonSelectUserToModify.TabIndex = 34;
             this.buttonSelectUserToModify.Text = "Select User";
             this.buttonSelectUserToModify.UseVisualStyleBackColor = true;
+            this.buttonSelectUserToModify.Click += new System.EventHandler(this.buttonSelectUserToModify_Click);
             // 
             // buttonModifyUser
             // 
@@ -589,6 +593,7 @@
             this.buttonModifyUser.TabIndex = 32;
             this.buttonModifyUser.Text = "Modify User";
             this.buttonModifyUser.UseVisualStyleBackColor = true;
+            this.buttonModifyUser.Click += new System.EventHandler(this.buttonModifyUser_Click);
             // 
             // textBoxPasswordUserToModify
             // 
@@ -599,6 +604,7 @@
             // 
             // textBoxEmailUserToModify
             // 
+            this.textBoxEmailUserToModify.Enabled = false;
             this.textBoxEmailUserToModify.Location = new System.Drawing.Point(483, 234);
             this.textBoxEmailUserToModify.Name = "textBoxEmailUserToModify";
             this.textBoxEmailUserToModify.Size = new System.Drawing.Size(330, 20);
@@ -671,9 +677,9 @@
             this.tabPage8.Controls.Add(this.label20);
             this.tabPage8.Controls.Add(this.label21);
             this.tabPage8.Controls.Add(this.listBoxAllSystemTeams);
-            this.tabPage8.Controls.Add(this.buttonRemoveUserOfModifyList);
+            this.tabPage8.Controls.Add(this.buttonAddUserOfModifyList);
             this.tabPage8.Controls.Add(this.listBoxSelectedUserTeams);
-            this.tabPage8.Controls.Add(this.buttonAddUserToModifyTeam);
+            this.tabPage8.Controls.Add(this.buttonRemoveUserOfModifyList);
             this.tabPage8.Controls.Add(this.label12);
             this.tabPage8.Controls.Add(this.listBoxAllSystemUsers);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
@@ -738,14 +744,15 @@
             this.listBoxAllSystemTeams.Size = new System.Drawing.Size(210, 251);
             this.listBoxAllSystemTeams.TabIndex = 44;
             // 
-            // buttonRemoveUserOfModifyList
+            // buttonAddUserOfModifyList
             // 
-            this.buttonRemoveUserOfModifyList.Location = new System.Drawing.Point(535, 278);
-            this.buttonRemoveUserOfModifyList.Name = "buttonRemoveUserOfModifyList";
-            this.buttonRemoveUserOfModifyList.Size = new System.Drawing.Size(61, 23);
-            this.buttonRemoveUserOfModifyList.TabIndex = 43;
-            this.buttonRemoveUserOfModifyList.Text = "<<";
-            this.buttonRemoveUserOfModifyList.UseVisualStyleBackColor = true;
+            this.buttonAddUserOfModifyList.Location = new System.Drawing.Point(535, 278);
+            this.buttonAddUserOfModifyList.Name = "buttonAddUserOfModifyList";
+            this.buttonAddUserOfModifyList.Size = new System.Drawing.Size(61, 23);
+            this.buttonAddUserOfModifyList.TabIndex = 43;
+            this.buttonAddUserOfModifyList.Text = "<<";
+            this.buttonAddUserOfModifyList.UseVisualStyleBackColor = true;
+            this.buttonAddUserOfModifyList.Click += new System.EventHandler(this.buttonAddUserOfModifyList_Click);
             // 
             // listBoxSelectedUserTeams
             // 
@@ -755,14 +762,15 @@
             this.listBoxSelectedUserTeams.Size = new System.Drawing.Size(210, 251);
             this.listBoxSelectedUserTeams.TabIndex = 42;
             // 
-            // buttonAddUserToModifyTeam
+            // buttonRemoveUserOfModifyList
             // 
-            this.buttonAddUserToModifyTeam.Location = new System.Drawing.Point(535, 174);
-            this.buttonAddUserToModifyTeam.Name = "buttonAddUserToModifyTeam";
-            this.buttonAddUserToModifyTeam.Size = new System.Drawing.Size(60, 23);
-            this.buttonAddUserToModifyTeam.TabIndex = 41;
-            this.buttonAddUserToModifyTeam.Text = ">>";
-            this.buttonAddUserToModifyTeam.UseVisualStyleBackColor = true;
+            this.buttonRemoveUserOfModifyList.Location = new System.Drawing.Point(535, 174);
+            this.buttonRemoveUserOfModifyList.Name = "buttonRemoveUserOfModifyList";
+            this.buttonRemoveUserOfModifyList.Size = new System.Drawing.Size(60, 23);
+            this.buttonRemoveUserOfModifyList.TabIndex = 41;
+            this.buttonRemoveUserOfModifyList.Text = ">>";
+            this.buttonRemoveUserOfModifyList.UseVisualStyleBackColor = true;
+            this.buttonRemoveUserOfModifyList.Click += new System.EventHandler(this.buttonRemoveUserOfModifyList_Click);
             // 
             // label12
             // 
@@ -1496,6 +1504,7 @@
             this.buttonDeleteSelectedBoard.TabIndex = 7;
             this.buttonDeleteSelectedBoard.Text = "Delete Selected Board";
             this.buttonDeleteSelectedBoard.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedBoard.Click += new System.EventHandler(this.buttonDeleteSelectedBoard_Click);
             // 
             // listBoxUserTeams
             // 
@@ -1603,6 +1612,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.radioButtonLogout);
             this.panel1.Controls.Add(this.radioButtonNewBoard);
             this.panel1.Controls.Add(this.radioButtonInfor);
             this.panel1.Controls.Add(this.radioButtonBoards);
@@ -1612,8 +1622,24 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(887, 10);
+            this.panel1.Size = new System.Drawing.Size(887, 48);
             this.panel1.TabIndex = 4;
+            // 
+            // radioButtonLogout
+            // 
+            this.radioButtonLogout.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonLogout.AutoSize = true;
+            this.radioButtonLogout.FlatAppearance.BorderSize = 0;
+            this.radioButtonLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.radioButtonLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.radioButtonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonLogout.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonLogout.Location = new System.Drawing.Point(778, 12);
+            this.radioButtonLogout.Name = "radioButtonLogout";
+            this.radioButtonLogout.Size = new System.Drawing.Size(50, 23);
+            this.radioButtonLogout.TabIndex = 6;
+            this.radioButtonLogout.Text = "Logout";
+            this.radioButtonLogout.UseVisualStyleBackColor = true;
             // 
             // radioButtonHome
             // 
@@ -1765,9 +1791,9 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ListBox listBoxAllSystemTeams;
-        private System.Windows.Forms.Button buttonRemoveUserOfModifyList;
+        private System.Windows.Forms.Button buttonAddUserOfModifyList;
         private System.Windows.Forms.ListBox listBoxSelectedUserTeams;
-        private System.Windows.Forms.Button buttonAddUserToModifyTeam;
+        private System.Windows.Forms.Button buttonRemoveUserOfModifyList;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TabPage tabPage11;
@@ -1823,6 +1849,7 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.RadioButton radioButtonLogout;
     }
 }
 

@@ -24,7 +24,7 @@ namespace BoardApplicationFacade
             try
             {
                 UserCollaborator user = new UserCollaborator(email);                
-                return persistenceUserCollaborator.Get(user); ;
+                return persistenceUserCollaborator.Get(user);
             }
             catch
             {
@@ -46,11 +46,11 @@ namespace BoardApplicationFacade
             return this.userCollaborator;
         }
 
-        public UserCollaborator GetUser(string email)
-        {
-            UserCollaborator user = new UserCollaborator(email);
-            return persistenceUserCollaborator.Get(user);
-        }
+        //public UserCollaborator GetUser(string email)
+        //{
+        //    UserCollaborator user = new UserCollaborator(email);
+        //    return persistenceUserCollaborator.Get(user);
+        //}
         public bool ExistsUserCollaborator(string email)
         {
             User user = new UserCollaborator(email);
@@ -64,6 +64,32 @@ namespace BoardApplicationFacade
         public List<Team> GetTeams()
         {
             return this.userCollaborator.getTeams();
+        }
+        public List<Team> GetTeams(string email)
+        {
+            UserCollaborator user = this.GetUserCollaborator(email);
+            return user.getTeams();
+        }
+
+        public string GetName(string email)
+        {
+            UserCollaborator user = this.GetUserCollaborator(email);
+            return user.getName();
+        }
+        public string GetLastName(string email)
+        {
+            UserCollaborator user = this.GetUserCollaborator(email);
+            return user.getLastName();
+        }
+        public DateTime GetBirthDay(string email)
+        {
+            UserCollaborator user = this.GetUserCollaborator(email);
+            return user.getBirthDate();
+        }
+        public string GetPassword(string email)
+        {
+            UserCollaborator user = this.GetUserCollaborator(email);
+            return user.getPassword();
         }
     }
 }
