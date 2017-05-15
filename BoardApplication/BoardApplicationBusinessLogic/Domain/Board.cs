@@ -13,14 +13,16 @@ namespace BoardApplicationBusinessLogic
         private int height;
         private int width;
         private List<BoardElement> boardElements;
+        private User creatorUser;
 
-        public Board(string name, string description, int height, int width)
+        public Board(string name, string description, int height, int width, User creatorUser)
         {
             this.name = name;
             this.description = description;
             this.height = height;
             this.width = width;
             this.boardElements = new List<BoardElement>();
+            this.creatorUser = creatorUser;
         }
 
         public bool Equals(Board board)
@@ -28,14 +30,31 @@ namespace BoardApplicationBusinessLogic
             return (this.name == board.name);
         }
 
-
-
-
-
+        public override string ToString()
+        {
+            return this.name;
+        }
         public string getName()
         {
             return this.name;
         }
+        public bool IsUserCreator(UserCollaborator user)
+        {
+            return this.creatorUser.Equals(user);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public void setName(string name)
         {

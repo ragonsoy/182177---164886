@@ -8,11 +8,13 @@ namespace BoardApplicationBusinessLogic
 {
     public class UserAdministrator : User
     {
-        
+
+        private List<Team> teams;
+
         public UserAdministrator(string name, string lastName, string email, DateTime birthDate, string password) 
             : base (name, lastName, email, birthDate, password)
         {
-        
+            
         }
 
         public UserAdministrator(string email)
@@ -37,6 +39,11 @@ namespace BoardApplicationBusinessLogic
         {
             return new UserAdministrator(name, lastName, email, birthDate, password);
         }
+        
+        
+        
+        
+        
                 
         public void ChangePassword(User user, string password)
         {

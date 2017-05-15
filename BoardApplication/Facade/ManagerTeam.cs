@@ -6,39 +6,65 @@ using System.Threading.Tasks;
 using BoardApplicationBusinessLogic.DomainPersistence;
 using BoardApplicationBusinessLogic;
 
-namespace BoardApplicationFacade.Interface
+namespace BoardApplicationFacade
 {
-    class ManagerTeam
+    public class ManagerTeam
     {
-        Persistence persistence;
-        public ManagerTeam(Persistence persistence)
+        PersistenceTeam persistenceTeams;
+        Team team;
+        public ManagerTeam(PersistenceTeam persistanceTeams)
         {
-            this.persistence = persistence;
+            this.persistenceTeams = persistanceTeams;
         }
 
-        public void CreateTeam(string name, DateTime creationDate, string description, int maxUserCount)
+        public void SetActualTeam(string name)
         {
-            Team team = new Team(name,creationDate,description,maxUserCount);
-            persistence.Add(team);
+            this.team = GetTeam(name);
+        }
+        public bool ExistsTeam(string name)
+        {
+            Team team = new Team(name);
+            return persistenceTeams.ElementExist(team);
+        }
+        public Team GetTeam(string name)
+        {
+            Team team = new Team(name);
+            return persistenceTeams.Get(team);
         }
 
-        public Team GetTeam(string name, DateTime creationDate, string description, int maxUserCount)
+        public void AddBoard(UserCollaborator user, string name, string description, int height, int width)
         {
-            Team team = new Team(name, creationDate, description, maxUserCount);
-            return (Team)persistence.Get(team);
+            Board board = new Board(name, description, height, width, user);
+            if (!team.ExistBoard(board))
+            {
+                team.AddBoard(board);
+                persistenceTeams.Remove(team);
+                persistenceTeams.Add(team);
+            }
         }
 
-        public void ModifyTeam(string name, DateTime creationDate, string description, int maxUserCount)
+        public List<Board> GetBoards()
         {
-            Team team = new Team(name, creationDate, description, maxUserCount);
-            persistence.Remove(team);
-            persistence.Add(team);
+            return this.team.getBoards();
         }
 
-        public void RemoveTeam(string name, DateTime creationDate, string description, int maxUserCount)
+        public bool UserIsCreatorBoard(UserCollaborator user, string nameBoard)
         {
-            Team team = new Team(name, creationDate, description, maxUserCount);
-            persistence.Remove(persistence.Get(team));
+            Board board = this.team.GetBoard(nameBoard);
+            return board.IsUserCreator(user);
         }
+
+        //public void ModifyTeam(string name, DateTime creationDate, string description, int maxUserCount)
+        //{
+        //    Team team = new Team(name, creationDate, description, maxUserCount);
+        //    persistence.Remove(team);
+        //    persistence.Add(team);
+        //}
+
+        //public void RemoveTeam(string name, DateTime creationDate, string description, int maxUserCount)
+        //{
+        //    Team team = new Team(name, creationDate, description, maxUserCount);
+        //    persistence.Remove(persistence.Get(team));
+        //}
     }
 }

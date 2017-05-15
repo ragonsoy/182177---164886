@@ -43,6 +43,42 @@ namespace BoardApplicationBusinessLogic
             return this.password == password;
         }
 
+        public List<Team> getTeams()
+        {
+            return teams;
+        }
+        public bool AddToTeam(Team team)
+        {
+            if (!UserIsOnTeam(team))
+            {
+                this.teams.Add(team);
+                return true;
+            }
+            return false;
+        }
+        private bool UserIsOnTeam(Team team)
+        {
+            return this.teams.Contains(team);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public string getName()
         {
@@ -93,26 +129,13 @@ namespace BoardApplicationBusinessLogic
         {
             this.password = password;
         }
-
-        public List<Team> getTeams()
-        {
-            return teams;
-        }
-
+        
         public void setTeams(List<Team> teams)
         {
             this.teams = teams;
         }
 
-        public bool AddToTeam(Team team)
-        {
-            if (!UserIsOnTeam(team))
-            {
-                this.teams.Add(team);
-                return true;
-            }
-            return false;
-        }
+        
 
         public bool RemoveFromTeam(Team team)
         {
@@ -124,22 +147,19 @@ namespace BoardApplicationBusinessLogic
             return false;
         }
 
-        private bool UserIsOnTeam(Team team)
-        {
-            return this.teams.Contains(team);
-        }
 
-        public bool CreationBoard(Team team, string nameBoard, string boardDescripcion, int height, int width)
-        {
-            if(this.teams.Contains(team))
-            {
-                Team userTeam = this.GetTeam(team);
-                Board board = new Board(nameBoard, boardDescripcion, height, width);
-                userTeam.AddBoard(board);
-                return true;
-            }
-            return false;
-        }
+
+        //public bool CreationBoard(Team team, string nameBoard, string boardDescripcion, int height, int width)
+        //{
+        //    if(this.teams.Contains(team))
+        //    {
+        //        Team userTeam = this.GetTeam(team);
+        //        Board board = new Board(nameBoard, boardDescripcion, height, width);
+        //        userTeam.AddBoard(board);
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         private Team GetTeam(Team team)
         {

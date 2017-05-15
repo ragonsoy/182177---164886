@@ -24,10 +24,10 @@ namespace BoardApplicationBusinessLogic.DomainPersistence
             collection.Remove(obj);
         }
 
-        public User Get(User obj)
+        public UserAdministrator Get(UserAdministrator obj)
         {
-            User objectReturn = new UserAdministrator();
-            foreach (User item in collection)
+            UserAdministrator objectReturn = new UserAdministrator();
+            foreach (UserAdministrator item in collection)
             {               
                 if (item.Equals(obj))
                     objectReturn = item;

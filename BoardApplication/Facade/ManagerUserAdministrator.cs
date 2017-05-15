@@ -12,11 +12,13 @@ namespace BoardApplicationFacade
     {
         PersistenceUserCollaborator persistenceUserCollaborator;
         PersistenceUserAdministration persistenceUserAdministrator;
+        PersistenceTeam persistanceTeams;
         UserAdministrator userAdministrator;
-        public ManagerUserAdministrator()
+        public ManagerUserAdministrator(PersistenceUserAdministration persistenceUserAdministrator, PersistenceUserCollaborator persistenceUserCollaborator, PersistenceTeam persistanceTeams)
         {
-            this.persistenceUserCollaborator = new PersistenceUserCollaborator();
-            this.persistenceUserAdministrator = new PersistenceUserAdministration();
+            this.persistenceUserCollaborator = persistenceUserCollaborator;
+            this.persistenceUserAdministrator = persistenceUserAdministrator;
+            this.persistanceTeams = persistanceTeams;
             this.userAdministrator = new UserAdministrator();
         }
 
@@ -30,14 +32,15 @@ namespace BoardApplicationFacade
         {
             UserAdministrator user = userAdministrator.CreationUserAdministrator(name, lastName, email, birthDate, password);
             persistenceUserAdministrator.Add(user);
-            persistenceUserCollaborator.Add(user);
+            UserCollaborator userCollaborator = userAdministrator.CreationUserCollaborator(name, lastName, email, birthDate, password);
+            persistenceUserCollaborator.Add(userCollaborator);
         }
 
-        public User GetUserAdministrator(string email)
+        public UserAdministrator GetUserAdministrator(string email)
         {
             try
             {
-                User user = new UserAdministrator(email);                
+                UserAdministrator user = new UserAdministrator(email);                
                 return persistenceUserAdministrator.Get(user); ;
             }
             catch
@@ -46,27 +49,20 @@ namespace BoardApplicationFacade
             }
         }
 
-        public User GetUser(string email)
+        public void SetActualUserAdministrator(string email)
         {
-            User user = new UserCollaborator(email);
-            return persistenceUserCollaborator.Get(user);
+            this.userAdministrator = GetUserAdministrator(email);
         }
-
+        
         public bool ExistsUserAdministrator(string email)
         {
             User user = new UserAdministrator(email);
             return persistenceUserAdministrator.ElementExist(user);
         }
-
-        public bool ExistsUserCollaborator(string email)
+        
+        public bool PasswordCorrect(string password)
         {
-            User user = new UserCollaborator(email);
-            return persistenceUserCollaborator.ElementExist(user);
-        }
-
-        public bool PasswordCorrect(User user, string password)
-        {
-            return user.PasswordCorrect(password);
+            return this.userAdministrator.PasswordCorrect(password);
         }
 
         //public void ModifyUser(string name, string lastName, string email, DateTime birthDate, string password)
@@ -85,15 +81,20 @@ namespace BoardApplicationFacade
         //    persistenceUserAdministrator.Remove(persistenceUserAdministrator.Get(user));
         //}
 
-        //public void AddUserToTeam(User user, Team team)
-        //{
-        //    if(userAdministrator.AddUserToTeam(user, team))
-        //        user.AddToTeam(team);
-        //    persistenceUserCollaborator.Remove(user);
-        //    persistenceUserAdministrator.Remove(user);
-        //    persistenceUserCollaborator.Add(user);
-        //    persistenceUserAdministrator.Add(user);
-        //}
+        public void CreateTeam(string name, DateTime creationDate, string description, int maxUserCount)
+        {
+            Team team = new Team(name, creationDate, description, maxUserCount);
+            persistanceTeams.Add(team);            
+        }
+                
+
+        public void AddUserToTeam(UserCollaborator user, Team team)
+        {
+            if (userAdministrator.AddUserToTeam(user, team))
+                user.AddToTeam(team);
+            persistenceUserCollaborator.Remove(user);
+            persistenceUserCollaborator.Add(user);
+        }
 
         //public void RemoveUserToTeam(User user, Team team)
         //{

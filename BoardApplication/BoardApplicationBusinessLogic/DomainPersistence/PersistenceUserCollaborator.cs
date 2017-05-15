@@ -24,9 +24,9 @@ namespace BoardApplicationBusinessLogic.DomainPersistence
             collection.Remove(obj);
         }
 
-        public User Get(User obj)
+        public UserCollaborator Get(UserCollaborator obj)
         {
-            User objectReturn = new UserCollaborator();
+            UserCollaborator objectReturn = new UserCollaborator();
             foreach (UserCollaborator item in collection)
             {               
                 if (item.Equals(obj))
@@ -42,7 +42,13 @@ namespace BoardApplicationBusinessLogic.DomainPersistence
 
         public bool ElementExist(User obj)
         {
-            return collection.Contains(obj);
+            bool exist = false;
+            foreach (User item in collection)
+            {
+                if (item.Equals(obj))
+                    exist = true;
+            }
+            return exist;
         }
     }
 }

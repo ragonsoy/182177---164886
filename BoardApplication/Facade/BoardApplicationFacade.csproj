@@ -44,6 +44,7 @@
     <Compile Include="ManagerCommentary.cs" />
     <Compile Include="ManagerElement.cs" />
     <Compile Include="ManagerTeam.cs" />
+    <Compile Include="ManagerUserCollaborator.cs" />
     <Compile Include="ManagerUserAdministrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -27,9 +27,9 @@ namespace BoardApplicationBusinessLogic.DomainPersistence
         public Team Get(Team obj)
         {
             Team objectReturn = new Team();
-            foreach (var item in collection)
+            foreach (Team item in collection)
             {               
-                if (base.Equals(obj))
+                if (item.Equals(obj))
                     objectReturn = item;
             }
             return objectReturn;
@@ -42,7 +42,13 @@ namespace BoardApplicationBusinessLogic.DomainPersistence
 
         public bool ElementExist(Team obj)
         {
-            return collection.Contains(obj);
+            bool exist = false;
+            foreach (Team item in collection)
+            {
+                if (item.Equals(obj))
+                    exist = true;
+            }
+            return exist;
         }
     }
 }

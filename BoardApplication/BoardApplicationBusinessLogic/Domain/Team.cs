@@ -19,6 +19,11 @@ namespace BoardApplicationBusinessLogic
 
         public Team() { }
 
+        public Team(string name)
+        {
+            this.name = name;
+        }
+
         public Team(string name, DateTime creationDate, string description, int maxUserCount)
         {
             this.name = name;
@@ -34,10 +39,68 @@ namespace BoardApplicationBusinessLogic
             return (this.name == team.name);
         }
 
+        public override string ToString()
+        {
+            return this.getName();
+        }
+        
         public string getName()
         {
             return this.name;
         }
+
+        public int getMaxUserCount()
+        {
+            return this.maxUserCount;
+        }
+
+        public void setMaxUserCount(int maxUserCount)
+        {
+            this.maxUserCount = maxUserCount;
+        }
+
+        private bool TeamFull()
+        {
+            return (countUser == maxUserCount);
+        }
+
+        public bool AddUserToTeam()
+        {
+            if (TeamFull())
+                return false;
+            countUser++;
+            return true;
+        }
+        public void AddBoard(Board board)
+        {
+            this.teamBoards.Add(board);
+        }
+
+        public bool ExistBoard(Board board)
+        {
+            bool exist = false;
+            foreach (Board item in this.teamBoards)
+            {
+                if (item.Equals(board))
+                    exist = true;
+            }
+            return exist;
+        }
+        public List<Board> getBoards()
+        {
+            return this.teamBoards;
+        }
+
+        public Board GetBoard(string nameBoard)
+        {
+            return this.teamBoards.Find(x => x.getName() == nameBoard);
+        }
+
+
+
+
+
+
 
         public void setName(string name)
         {
@@ -71,28 +134,7 @@ namespace BoardApplicationBusinessLogic
                 this.description = description;
         }
 
-        public int getMaxUserCount()
-        {
-            return this.maxUserCount;
-        }
-
-        public void setMaxUserCount(int maxUserCount)
-        {
-            this.maxUserCount = maxUserCount;
-        }
         
-        private bool TeamFull()
-        {
-            return (countUser == maxUserCount);
-        }
-
-        public bool AddUserToTeam()
-        {
-            if (TeamFull())
-                return false;
-            countUser++;
-            return true;
-        }
 
         public bool RemoveUserTeam()
         {
@@ -108,11 +150,7 @@ namespace BoardApplicationBusinessLogic
         {
             return countUser == minimunUser;
         }
-
-        public void AddBoard(Board board)
-        {
-            this.teamBoards.Add(board);   
-        }
+               
 
         //public void ModifyBoard(Board board)
         //{

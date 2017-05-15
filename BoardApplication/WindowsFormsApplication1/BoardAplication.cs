@@ -9,12 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BoardApplicationFacade;
 using BoardApplicationBusinessLogic;
+using BoardApplicationBusinessLogic.DomainPersistence;
 
 namespace WindowsFormsApplication1
 {
     public partial class BoardAplication : Form
     {
         ManagerUserAdministrator managerUserAdministrator;
+        ManagerUserCollaborator managerUserCollabarator;
+        ManagerTeam managerTeam;
+
+        PersistenceUserCollaborator persistenceUserCollaborator;
+        PersistenceUserAdministration persistenceUserAdministrator;
+        PersistenceTeam persistenceTeam;
+
         public BoardAplication()
         {
             InitializeComponent();
@@ -25,26 +33,33 @@ namespace WindowsFormsApplication1
             radioButtonBoards.Hide();
             radioButtonInfor.Hide();
 
-            this.managerUserAdministrator = new ManagerUserAdministrator();
+            persistenceUserCollaborator = new PersistenceUserCollaborator();
+            persistenceUserAdministrator = new PersistenceUserAdministration();
+            persistenceTeam = new PersistenceTeam();
+
+            this.managerUserAdministrator = new ManagerUserAdministrator(persistenceUserAdministrator, persistenceUserCollaborator, persistenceTeam);
+            this.managerUserCollabarator = new ManagerUserCollaborator(persistenceUserCollaborator);
+            this.managerTeam = new ManagerTeam(persistenceTeam);
+
             DateTime birthDateUser = new DateTime();
             DateTime.TryParse("1/1/2000", out birthDateUser);
             managerUserAdministrator.CreateUserAdministrator("admim","admin","admin", birthDateUser,"admin");
             managerUserAdministrator.CreateUserCollaborator("collaborator", "collaborator", "collaborator", birthDateUser, "collaborator");
-        }
-        
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
+            managerUserAdministrator.CreateTeam("team", birthDateUser, "description", 10);
+            managerUserAdministrator.AddUserToTeam(managerUserCollabarator.GetUserCollaborator("admin"),managerTeam.GetTeam("team"));
+            managerUserAdministrator.CreateTeam("team2", birthDateUser, "description", 10);
+            managerUserAdministrator.AddUserToTeam(managerUserCollabarator.GetUserCollaborator("admin"), managerTeam.GetTeam("team2"));
+            managerUserAdministrator.CreateTeam("team3", birthDateUser, "description", 10);
+            managerUserAdministrator.AddUserToTeam(managerUserCollabarator.GetUserCollaborator("admin"), managerTeam.GetTeam("team3"));
+            managerUserAdministrator.CreateTeam("team4", birthDateUser, "description", 10);
+            managerUserAdministrator.AddUserToTeam(managerUserCollabarator.GetUserCollaborator("admin"), managerTeam.GetTeam("team4"));
+            managerUserAdministrator.CreateTeam("team5", birthDateUser, "description", 10);
+            managerUserAdministrator.AddUserToTeam(managerUserCollabarator.GetUserCollaborator("admin"), managerTeam.GetTeam("team5"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollabarator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollabarator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team3"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollabarator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team5"));
+            managerTeam.SetActualTeam("team");
+            managerTeam.AddBoard(managerUserCollabarator.GetUserCollaborator("collaborator"), "board", "description", 100, 100);
         }
 
         private void radioButtonHome_CheckedChanged(object sender, EventArgs e)
@@ -71,23 +86,7 @@ namespace WindowsFormsApplication1
         {
             tabControlPrincipal.SelectedTab = tabPage5;
         }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-        private void tabPage6_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
             tabControlUsers.SelectedTab = tabPage7;
@@ -97,12 +96,7 @@ namespace WindowsFormsApplication1
         {
             tabControlUsers.SelectedTab = tabPage6;
         }
-
-        private void tabPage8_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void radioButtonAddUserToTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlUsers.SelectedTab = tabPage8;
@@ -115,27 +109,8 @@ namespace WindowsFormsApplication1
             buttonAddUserToModifyTeam.Hide();
             buttonRemoveUserOfModifyList.Hide();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBoxUsersToAddToTeam_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
+               
+                
         private void radioButtonNewTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlTeams.SelectedTab = tabPage9;
@@ -145,27 +120,7 @@ namespace WindowsFormsApplication1
         {
             tabControlTeams.SelectedTab = tabPage10;
         }
-
-        private void tabPage9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+                
         private void radioButtonNewBoard_CheckedChanged(object sender, EventArgs e)
         {
             tabControlPrincipal.SelectedTab = tabPage11;
@@ -180,62 +135,7 @@ namespace WindowsFormsApplication1
         {
             tabControlInforms.SelectedTab = tabPage13;
         }
-
-        private void buttonLogin_Click(object sender, EventArgs e)
-        {
-            User user;
-            string email = textBoxLoginEmail.Text;
-            if (managerUserAdministrator.ExistsUserAdministrator(email))
-            {
-                user = managerUserAdministrator.GetUserAdministrator(email);
-                if (managerUserAdministrator.PasswordCorrect(user, textBoxLoginPassword.Text))
-                {
-                    radioButtonHome.Show();
-                    radioButtonNewBoard.Show();
-                    radioButtonUser.Show();
-                    radioButtonTeam.Show();
-                    radioButtonBoards.Show();
-                    radioButtonInfor.Show();
-
-                    tabControlPrincipal.SelectedTab = tabPage14;
-                }
-                else {
-                    MessageBox.Show("La password es incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                if (managerUserAdministrator.ExistsUserCollaborator(email))
-                {
-                    user = managerUserAdministrator.GetUserAdministrator(email);
-                    if (managerUserAdministrator.PasswordCorrect(user, textBoxLoginPassword.Text))
-                    {
-                        radioButtonHome.Show();
-                        radioButtonNewBoard.Show();
-
-                        tabControlPrincipal.SelectedTab = tabPage14;
-                    } else {
-                        MessageBox.Show("La password es incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("El usuario no existe en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label36_Click(object sender, EventArgs e)
-        {
-
-        }
-
+                
         private void buttonUserToAddToATeam_Click(object sender, EventArgs e)
         {
             label21.Show();
@@ -247,6 +147,78 @@ namespace WindowsFormsApplication1
             buttonAddUserToModifyTeam.Show();
             buttonRemoveUserOfModifyList.Show();
 
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            string email = textBoxLoginEmail.Text;
+            if (managerUserAdministrator.ExistsUserAdministrator(email))
+            {
+                managerUserAdministrator.SetActualUserAdministrator(email);
+                managerUserCollabarator.SetActualUser(email);
+                if (managerUserAdministrator.PasswordCorrect(textBoxLoginPassword.Text))
+                    ShowAdministratorFrontendFuntions();
+                else
+                    MessageBox.Show("La password es incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (managerUserCollabarator.ExistsUserCollaborator(email))
+                {
+                    managerUserCollabarator.SetActualUser(email);
+                    if (managerUserCollabarator.PasswordCorrect(textBoxLoginPassword.Text))
+                        ShowCollaboratorFrontendFuntions();
+                    else
+                        MessageBox.Show("La password es incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                    MessageBox.Show("El usuario no existe en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ShowAdministratorFrontendFuntions()
+        {
+            radioButtonNewBoard.Show();
+            radioButtonUser.Show();
+            radioButtonTeam.Show();
+            radioButtonInfor.Show();
+            ShowCollaboratorFrontendFuntions();
+        }
+        private void ShowCollaboratorFrontendFuntions()
+        {
+            radioButtonHome.Show();
+            radioButtonNewBoard.Show();
+            buttonDeleteSelectedBoard.Hide();
+
+            tabControlPrincipal.SelectedTab = tabPage14;
+
+            ShowTeamsActualUser();
+        }
+
+        private void ShowTeamsActualUser()
+        {
+            this.listBoxUserTeams.Items.AddRange(managerUserCollabarator.GetTeams().ToArray());
+        }
+
+        private void buttonSelectTeam_Click(object sender, EventArgs e)
+        {
+            managerTeam.SetActualTeam(this.listBoxUserTeams.SelectedItem.ToString());
+            this.listBoxTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
+        }
+
+        private void listBoxTeamBoards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (managerUserAdministrator.ExistsUserAdministrator(managerUserCollabarator.GetIDActualUser()))
+                this.buttonDeleteSelectedBoard.Show();
+            else
+            {
+                if(managerTeam.UserIsCreatorBoard(managerUserCollabarator.GetActualUser(), listBoxTeamBoards.SelectedItem.ToString()))
+                    this.buttonDeleteSelectedBoard.Show();
+                else
+                    this.buttonDeleteSelectedBoard.Hide();
+
+            }
         }
     }
 }
