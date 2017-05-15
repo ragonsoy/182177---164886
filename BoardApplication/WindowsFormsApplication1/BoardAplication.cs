@@ -596,5 +596,11 @@ namespace WindowsFormsApplication1
             this.listBoxInformCommentaryResolvedByUser.Items.Clear();
             // cargar info de comentarios resuletos por este usuario, pasando el email del usuario seleccionado.
         }
+
+        private void buttonEnterBoard_Click(object sender, EventArgs e)
+        {
+            BoardAplication_Board board = new BoardAplication_Board();
+            board.Show();
+        }
     }
 }

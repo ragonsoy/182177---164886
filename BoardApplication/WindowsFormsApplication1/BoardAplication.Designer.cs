@@ -132,8 +132,17 @@
             this.radioButtonBoardCreatedByTeam = new System.Windows.Forms.RadioButton();
             this.tabControlInforms = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.listBoxInformAllBoardsByTeam = new System.Windows.Forms.ListBox();
+            this.listBoxInformAllTeams = new System.Windows.Forms.ListBox();
             this.label37 = new System.Windows.Forms.Label();
             this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.listBoxInformCommentaryResolvedByUser = new System.Windows.Forms.ListBox();
+            this.listBoxInformAllUsers = new System.Windows.Forms.ListBox();
+            this.label54 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.label49 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
@@ -163,15 +172,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonLogout = new System.Windows.Forms.RadioButton();
             this.radioButtonHome = new System.Windows.Forms.RadioButton();
-            this.listBoxInformAllBoardsByTeam = new System.Windows.Forms.ListBox();
-            this.listBoxInformAllTeams = new System.Windows.Forms.ListBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.listBoxInformCommentaryResolvedByUser = new System.Windows.Forms.ListBox();
-            this.listBoxInformAllUsers = new System.Windows.Forms.ListBox();
-            this.label54 = new System.Windows.Forms.Label();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -1288,6 +1288,41 @@
             this.tabPage12.Text = "tabPage12";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(276, 78);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(148, 13);
+            this.label52.TabIndex = 13;
+            this.label52.Text = "Select A Team For More Data";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(67, 78);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(154, 13);
+            this.label51.TabIndex = 12;
+            this.label51.Text = "List of All Teams in The System";
+            // 
+            // listBoxInformAllBoardsByTeam
+            // 
+            this.listBoxInformAllBoardsByTeam.FormattingEnabled = true;
+            this.listBoxInformAllBoardsByTeam.Location = new System.Drawing.Point(486, 94);
+            this.listBoxInformAllBoardsByTeam.Name = "listBoxInformAllBoardsByTeam";
+            this.listBoxInformAllBoardsByTeam.Size = new System.Drawing.Size(210, 251);
+            this.listBoxInformAllBoardsByTeam.TabIndex = 11;
+            // 
+            // listBoxInformAllTeams
+            // 
+            this.listBoxInformAllTeams.FormattingEnabled = true;
+            this.listBoxInformAllTeams.Location = new System.Drawing.Point(70, 94);
+            this.listBoxInformAllTeams.Name = "listBoxInformAllTeams";
+            this.listBoxInformAllTeams.Size = new System.Drawing.Size(210, 251);
+            this.listBoxInformAllTeams.TabIndex = 10;
+            this.listBoxInformAllTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxInformAllTeams_SelectedIndexChanged);
+            // 
             // label37
             // 
             this.label37.AutoSize = true;
@@ -1311,6 +1346,50 @@
             this.tabPage13.TabIndex = 1;
             this.tabPage13.Text = "tabPage13";
             this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(296, 127);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(143, 13);
+            this.label38.TabIndex = 18;
+            this.label38.Text = "Select A User For More Data";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(87, 127);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(149, 13);
+            this.label53.TabIndex = 17;
+            this.label53.Text = "List of All Users in The System";
+            // 
+            // listBoxInformCommentaryResolvedByUser
+            // 
+            this.listBoxInformCommentaryResolvedByUser.FormattingEnabled = true;
+            this.listBoxInformCommentaryResolvedByUser.Location = new System.Drawing.Point(506, 143);
+            this.listBoxInformCommentaryResolvedByUser.Name = "listBoxInformCommentaryResolvedByUser";
+            this.listBoxInformCommentaryResolvedByUser.Size = new System.Drawing.Size(210, 251);
+            this.listBoxInformCommentaryResolvedByUser.TabIndex = 16;
+            // 
+            // listBoxInformAllUsers
+            // 
+            this.listBoxInformAllUsers.FormattingEnabled = true;
+            this.listBoxInformAllUsers.Location = new System.Drawing.Point(90, 143);
+            this.listBoxInformAllUsers.Name = "listBoxInformAllUsers";
+            this.listBoxInformAllUsers.Size = new System.Drawing.Size(210, 251);
+            this.listBoxInformAllUsers.TabIndex = 15;
+            this.listBoxInformAllUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxInformAllUsers_SelectedIndexChanged);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(503, 127);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(158, 13);
+            this.label54.TabIndex = 14;
+            this.label54.Text = "Commentarys Resolved By User";
             // 
             // tabPage11
             // 
@@ -1496,6 +1575,7 @@
             this.buttonEnterBoard.TabIndex = 8;
             this.buttonEnterBoard.Text = "Enter Selected Board";
             this.buttonEnterBoard.UseVisualStyleBackColor = true;
+            this.buttonEnterBoard.Click += new System.EventHandler(this.buttonEnterBoard_Click);
             // 
             // buttonDeleteSelectedBoard
             // 
@@ -1614,7 +1694,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(887, 48);
+            this.panel1.Size = new System.Drawing.Size(887, 45);
             this.panel1.TabIndex = 4;
             // 
             // radioButtonLogout
@@ -1652,85 +1732,6 @@
             this.radioButtonHome.Text = "Home";
             this.radioButtonHome.UseVisualStyleBackColor = true;
             this.radioButtonHome.CheckedChanged += new System.EventHandler(this.radioButtonHome_CheckedChanged);
-            // 
-            // listBoxInformAllBoardsByTeam
-            // 
-            this.listBoxInformAllBoardsByTeam.FormattingEnabled = true;
-            this.listBoxInformAllBoardsByTeam.Location = new System.Drawing.Point(486, 94);
-            this.listBoxInformAllBoardsByTeam.Name = "listBoxInformAllBoardsByTeam";
-            this.listBoxInformAllBoardsByTeam.Size = new System.Drawing.Size(210, 251);
-            this.listBoxInformAllBoardsByTeam.TabIndex = 11;
-            // 
-            // listBoxInformAllTeams
-            // 
-            this.listBoxInformAllTeams.FormattingEnabled = true;
-            this.listBoxInformAllTeams.Location = new System.Drawing.Point(70, 94);
-            this.listBoxInformAllTeams.Name = "listBoxInformAllTeams";
-            this.listBoxInformAllTeams.Size = new System.Drawing.Size(210, 251);
-            this.listBoxInformAllTeams.TabIndex = 10;
-            this.listBoxInformAllTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxInformAllTeams_SelectedIndexChanged);
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(67, 78);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(154, 13);
-            this.label51.TabIndex = 12;
-            this.label51.Text = "List of All Teams in The System";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(276, 78);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(148, 13);
-            this.label52.TabIndex = 13;
-            this.label52.Text = "Select A Team For More Data";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(296, 127);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(143, 13);
-            this.label38.TabIndex = 18;
-            this.label38.Text = "Select A User For More Data";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(87, 127);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(149, 13);
-            this.label53.TabIndex = 17;
-            this.label53.Text = "List of All Users in The System";
-            // 
-            // listBoxInformCommentaryResolvedByUser
-            // 
-            this.listBoxInformCommentaryResolvedByUser.FormattingEnabled = true;
-            this.listBoxInformCommentaryResolvedByUser.Location = new System.Drawing.Point(506, 143);
-            this.listBoxInformCommentaryResolvedByUser.Name = "listBoxInformCommentaryResolvedByUser";
-            this.listBoxInformCommentaryResolvedByUser.Size = new System.Drawing.Size(210, 251);
-            this.listBoxInformCommentaryResolvedByUser.TabIndex = 16;
-            // 
-            // listBoxInformAllUsers
-            // 
-            this.listBoxInformAllUsers.FormattingEnabled = true;
-            this.listBoxInformAllUsers.Location = new System.Drawing.Point(90, 143);
-            this.listBoxInformAllUsers.Name = "listBoxInformAllUsers";
-            this.listBoxInformAllUsers.Size = new System.Drawing.Size(210, 251);
-            this.listBoxInformAllUsers.TabIndex = 15;
-            this.listBoxInformAllUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxInformAllUsers_SelectedIndexChanged);
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(503, 127);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(158, 13);
-            this.label54.TabIndex = 14;
-            this.label54.Text = "Commentarys Resolved By User";
             // 
             // BoardAplication
             // 

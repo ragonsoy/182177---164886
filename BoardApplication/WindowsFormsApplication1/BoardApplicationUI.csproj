@@ -52,10 +52,19 @@
     <Compile Include="BoardAplication.Designer.cs">
       <DependentUpon>BoardAplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="BoardAplication_Board.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoardAplication_Board.Designer.cs">
+      <DependentUpon>BoardAplication_Board.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BoardAplication.resx">
       <DependentUpon>BoardAplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoardAplication_Board.resx">
+      <DependentUpon>BoardAplication_Board.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
