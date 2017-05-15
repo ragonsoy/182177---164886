@@ -48,7 +48,14 @@ namespace BoardApplicationBusinessLogic
             return this.creatorUser.Equals(user);
         }
 
-
+        public List<BoardElement> GetBoardTextElements()
+        {
+            List<BoardElement> returnElement = new List<BoardElement>();
+            foreach (BoardElement item in this.boardElements)
+            {
+            }
+            return returnElement;
+        }
 
 
 

@@ -82,14 +82,6 @@ namespace BoardApplicationTest
         }
 
         [TestMethod]
-        public void TeamSetNameEmptyTest()
-        {
-            string changeNameEmptyTeam = "";
-            team.setName(changeNameEmptyTeam);
-            Assert.AreEqual(team.getName(), nameTeam);
-        }
-
-        [TestMethod]
         public void TeamGetCreationDateTest()
         {
             Assert.AreEqual(team.getCreationDate(), dateCreationTeam);

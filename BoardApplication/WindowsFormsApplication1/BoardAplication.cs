@@ -15,13 +15,13 @@ namespace WindowsFormsApplication1
 {
     public partial class BoardAplication : Form
     {
-        ManagerUserAdministrator managerUserAdministrator;
-        ManagerUserCollaborator managerUserCollaborator;
-        ManagerTeam managerTeam;
+        private ManagerUserAdministrator managerUserAdministrator;
+        private ManagerUserCollaborator managerUserCollaborator;
+        private ManagerTeam managerTeam;
 
-        PersistenceUserCollaborator persistenceUserCollaborator;
-        PersistenceUserAdministration persistenceUserAdministrator;
-        PersistenceTeam persistenceTeam;
+        private PersistenceUserCollaborator persistenceUserCollaborator;
+        private PersistenceUserAdministration persistenceUserAdministrator;
+        private PersistenceTeam persistenceTeam;
 
         public BoardAplication()
         {

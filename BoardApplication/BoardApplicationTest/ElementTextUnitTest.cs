@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BoardApplicationBusinessLogic;
-using System.Collections.Generic;
 
 namespace BoardApplicationTest
 {
@@ -19,8 +20,8 @@ namespace BoardApplicationTest
         User creatorUser;
         Commentary commentary;
         string text;
-        int fontSize;
-        string font;
+        Size fontSize;
+        Font font;
 
         [TestInitialize]
         public void Init()
@@ -32,8 +33,8 @@ namespace BoardApplicationTest
         public void dataForElementTextTest()
         {
             text = "oneText";
-            fontSize = 11;
-            font = "Arial";
+            fontSize = new Size(11,11);
+            font = new Font("Times New Roman", 12.0f);
             comentarysBoardElement = new List<Commentary>();
             originPointX = 10;
             originPointY = 9;
@@ -84,7 +85,7 @@ namespace BoardApplicationTest
         public void ElementImageSetFontSizeTest()
         {
             ElementText element = new ElementText(text, fontSize, font, originPointX, originPointY, height, width, comentarysBoardElement);
-            int newFontSize = 12;
+            Size newFontSize = new Size(12,12);
             element.setFontSize(newFontSize);
             Assert.AreEqual(element.getFontSize(), newFontSize);
         }
@@ -100,7 +101,7 @@ namespace BoardApplicationTest
         public void ElementImageSetFontTest()
         {
             ElementText element = new ElementText(text, fontSize, font, originPointX, originPointY, height, width, comentarysBoardElement);
-            string newFont = "TimesNewRoman";
+            Font newFont = new Font("Cambria", 16.0f);
             element.setFont(newFont);
             Assert.AreEqual(element.getFont(), newFont);
         }

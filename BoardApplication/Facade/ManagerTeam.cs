@@ -92,6 +92,16 @@ namespace BoardApplicationFacade
             return team.getMaxUserCount();
         }
 
-        
+        public Board GetBoard(string nameBoard)
+        {
+            return team.GetBoard(nameBoard);            
+        }
+
+        public List<BoardElement> GetElementsBoard(string nameBoard)
+        {
+            Board board = team.GetBoard(nameBoard);
+            return board.getBoardElements();
+        }
+
     }
 }

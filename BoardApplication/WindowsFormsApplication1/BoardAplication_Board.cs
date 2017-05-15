@@ -26,28 +26,15 @@ namespace WindowsFormsApplication1
             this.nameBoard = nameBoard;
             this.managerTeam = new ManagerTeam(persistenceTeam);
             managerTeam.SetActualTeam(nameTeam);
-            ShowElementsBoard();
+            ShowPanel();        
         }
 
-        public void ShowElementsBoard()
+        public void ShowPanel()
         {
-            Label newLabel = new Label();
-            newLabel.Text = "Elemento";
-            newLabel.Visible = true;
-            newLabel.Show();
-            this.panelBoard.Controls.Add(newLabel);
-        }
+            Board board = managerTeam.GetBoard(nameBoard);
+            this.panelBoard.Height = board.getHeight();
+            this.panelBoard.Width = board.getWidth();
+        }       
 
-        public void ShowCommentariesBoard()
-        {
-            this.listBoxComentaryOfSelectedElement.Items.Clear();
-            
-            //this.listBoxComentaryOfSelectedElement.Items.AddRange(managerTeam.GetCommentaries(nameBoard));
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

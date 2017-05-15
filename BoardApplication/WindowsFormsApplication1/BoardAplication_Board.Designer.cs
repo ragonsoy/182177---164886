@@ -48,7 +48,7 @@
             this.panelBoard.Location = new System.Drawing.Point(233, 44);
             this.panelBoard.Name = "panelBoard";
             this.panelBoard.Size = new System.Drawing.Size(728, 570);
-            this.panelBoard.TabIndex = 0;
+            this.panelBoard.TabIndex = 0;            
             // 
             // label50
             // 
@@ -84,7 +84,6 @@
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 42;
             this.label2.Text = "Comentary:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
