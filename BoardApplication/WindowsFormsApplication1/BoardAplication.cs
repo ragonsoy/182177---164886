@@ -385,6 +385,16 @@ namespace WindowsFormsApplication1
         private void radioButtonLogout_CheckedChanged(object sender, EventArgs e)
         {
             ShowLoginFuntions();
+        }        
+
+        private void listBoxUserTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonEnterBoard.Hide();
+            buttonDeleteSelectedBoard.Hide();
+            this.listBoxTeamBoards.Items.Clear();
+            this.listBoxTeamBoards.Items.Clear();
+            managerTeam.SetActualTeam(this.listBoxUserTeams.SelectedItem.ToString());
+            this.listBoxTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
         }
 
         private void buttonSelectTeamNewBoard_Click(object sender, EventArgs e)
@@ -403,16 +413,6 @@ namespace WindowsFormsApplication1
             textBoxHeightNewBoard.Show();
             textBoxWidthNewBoard.Show();
             buttonCreateNewBoard.Show();
-        }
-
-        private void listBoxUserTeams_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            buttonEnterBoard.Hide();
-            buttonDeleteSelectedBoard.Hide();
-            this.listBoxTeamBoards.Items.Clear();
-            this.listBoxTeamBoards.Items.Clear();
-            managerTeam.SetActualTeam(this.listBoxUserTeams.SelectedItem.ToString());
-            this.listBoxTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
         }
 
         private void listBoxTeamsNewBoard_SelectedIndexChanged(object sender, EventArgs e)
@@ -516,9 +516,55 @@ namespace WindowsFormsApplication1
             buttonAddUserOfModifyList.Show();
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void buttonCreateNewBoard_Click(object sender, EventArgs e)
         {
+            /*
+            if (ValidateFieldsNewBoard())
+            {
+                string nameBoard = textBoxNameNewBoard.Text;
+                string descriptionBoard = textBoxDescriptionNewBoard.Text;
+                string heightBoard = textBoxHeightNewBoard.Text;
+                string widthBoard = textBoxWidthNewBoard.Text;
+                managerUserCollaborator.GetUserCollaborator(managerUserCollaborator.GetIDActualUser());
+                // agregar board datos --> (nameBoard, descriptionBoard, heightBoard, widthBoard, managerUserCollaborator, managerUserCollaborator.GetUserCollaborator(managerUserCollaborator.GetIDActualUser());
+                MessageBox.Show("Pizarron agregado correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearFieldsNewBoard();
+            }
+            */
+        }
 
+        private void ClearFieldsNewBoard()
+        {
+            textBoxNameNewBoard.Clear();
+            textBoxDescriptionNewBoard.Clear();
+            textBoxHeightNewBoard.Clear();
+            textBoxWidthNewBoard.Clear();
+        }
+
+        private bool ValidateFieldsNewBoard()
+        {
+            if (textBoxNameNewBoard.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar un nombre para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBoxDescriptionNewBoard.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar una descripcin para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (textBoxHeightNewBoard.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar una altura para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBoxWidthNewBoard.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar un ancho para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

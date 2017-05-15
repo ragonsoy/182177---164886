@@ -25,6 +25,7 @@ namespace BoardApplicationTest
         string emailUser;
         string passwordUser;
         UserCollaborator creatorUser;
+        UserCollaborator user;
 
         [TestInitialize]
         public void Init()
@@ -63,6 +64,7 @@ namespace BoardApplicationTest
             emailUser = "Email";
             passwordUser = "Password";
             creatorUser = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
+            user = new UserCollaborator(nameUser, lastNameUser, "userEmail", birthDateUser, passwordUser);
         }
 
         [TestMethod]
@@ -180,6 +182,28 @@ namespace BoardApplicationTest
             team.AddBoard(board);
             team.AddBoard(boardPrueba);
             Assert.AreEqual(team.GetBoard("NombreBoardPrueba"), boardPrueba);
+        }
+
+        [TestMethod]
+        public void TeamRemoveBoardTest()
+        {
+            team.AddBoard(board);
+            team.AddBoard(boardPrueba);
+            team.RemoveBoard(board);
+            Assert.AreEqual(team.GetBoard("NombreBoardPrueba"), boardPrueba);
+        }
+
+        [TestMethod]
+        public void TeamUniqueUserTest()
+        {
+            if(teamNotFull())
+                user.AddToTeam(team);
+            Assert.IsTrue(team.UniqueUser());
+        }
+
+        private bool teamNotFull()
+        {
+            return team.AddUserToTeam();
         }
     }
 }

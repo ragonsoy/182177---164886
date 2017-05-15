@@ -146,6 +146,6 @@ namespace BoardApplicationTest
         {
             user.AddToTeam(teamTestTwo);
             Assert.IsTrue(user.getTeams().Contains(teamTestTwo));
-        }  
+        }
     }
 }

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardApplicationTest", "Boa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardApplicationFacade", "Facade\BoardApplicationFacade.csproj", "{C4EA4C87-FE83-45FB-AC3B-63E90F2C57A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "WindowsFormsApplication1\GUI.csproj", "{C10EC3B2-DCD7-4E49-A9AE-9296B9B9CF6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardApplicationUI", "WindowsFormsApplication1\BoardApplicationUI.csproj", "{C10EC3B2-DCD7-4E49-A9AE-9296B9B9CF6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

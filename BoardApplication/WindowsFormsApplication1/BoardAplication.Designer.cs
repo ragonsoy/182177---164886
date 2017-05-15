@@ -799,7 +799,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(873, 10);
+            this.panel3.Size = new System.Drawing.Size(873, 64);
             this.panel3.TabIndex = 6;
             // 
             // radioButtonModifyTeam
@@ -1427,6 +1427,7 @@
             this.buttonCreateNewBoard.TabIndex = 11;
             this.buttonCreateNewBoard.Text = "Create New Board";
             this.buttonCreateNewBoard.UseVisualStyleBackColor = true;
+            this.buttonCreateNewBoard.Click += new System.EventHandler(this.buttonCreateNewBoard_Click);
             // 
             // listBoxTeamsNewBoard
             // 
