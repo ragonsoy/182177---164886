@@ -91,30 +91,29 @@
             this.radioButtonNewTeam = new System.Windows.Forms.RadioButton();
             this.tabControlTeams = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.numericBoxMaxUsersNewTeam = new System.Windows.Forms.NumericUpDown();
             this.label44 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.listBoxUsersForNewTeam = new System.Windows.Forms.ListBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.buttonRemoveUserToNewTeam = new System.Windows.Forms.Button();
             this.listBoxAllUsersForNewTeam = new System.Windows.Forms.ListBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBoxMaxUsersNewTeam = new System.Windows.Forms.TextBox();
+            this.buttonAddUserToNewTeam = new System.Windows.Forms.Button();
+            this.buttonAddNewTeam = new System.Windows.Forms.Button();
             this.textBoxDescriptionNewTeam = new System.Windows.Forms.TextBox();
             this.textBoxNameNewTeam = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.numericBoxMaxUserTeamToModify = new System.Windows.Forms.NumericUpDown();
+            this.textBoxTeamNameToModify = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.buttonSelectTeamForModify = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.listBoxAllTeams = new System.Windows.Forms.ListBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.textBoxMaxUsersOfTeamToModify = new System.Windows.Forms.TextBox();
+            this.buttonModifySelectedTeam = new System.Windows.Forms.Button();
             this.textBoxDescriptionOfTeamToModify = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -147,8 +146,6 @@
             this.label49 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.textBoxWidthNewBoard = new System.Windows.Forms.TextBox();
-            this.textBoxHeightNewBoard = new System.Windows.Forms.TextBox();
             this.textBoxDescriptionNewBoard = new System.Windows.Forms.TextBox();
             this.textBoxNameNewBoard = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -172,6 +169,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonLogout = new System.Windows.Forms.RadioButton();
             this.radioButtonHome = new System.Windows.Forms.RadioButton();
+            this.numericBoxHeightNewBoard = new System.Windows.Forms.NumericUpDown();
+            this.numericBoxWidthNewBoard = new System.Windows.Forms.NumericUpDown();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -184,7 +183,9 @@
             this.panel3.SuspendLayout();
             this.tabControlTeams.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxMaxUsersNewTeam)).BeginInit();
             this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxMaxUserTeamToModify)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -194,6 +195,8 @@
             this.tabPage11.SuspendLayout();
             this.tabPage14.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxHeightNewBoard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxWidthNewBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlPrincipal
@@ -300,7 +303,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 65);
+            this.panel2.Size = new System.Drawing.Size(873, 19);
             this.panel2.TabIndex = 5;
             // 
             // radioButtonAddUserToTeam
@@ -807,7 +810,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(873, 65);
+            this.panel3.Size = new System.Drawing.Size(873, 18);
             this.panel3.TabIndex = 6;
             // 
             // radioButtonModifyTeam
@@ -858,17 +861,17 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.numericBoxMaxUsersNewTeam);
             this.tabPage9.Controls.Add(this.label44);
             this.tabPage9.Controls.Add(this.label29);
             this.tabPage9.Controls.Add(this.label30);
             this.tabPage9.Controls.Add(this.label18);
             this.tabPage9.Controls.Add(this.label15);
             this.tabPage9.Controls.Add(this.listBoxUsersForNewTeam);
-            this.tabPage9.Controls.Add(this.button9);
+            this.tabPage9.Controls.Add(this.buttonRemoveUserToNewTeam);
             this.tabPage9.Controls.Add(this.listBoxAllUsersForNewTeam);
-            this.tabPage9.Controls.Add(this.button8);
-            this.tabPage9.Controls.Add(this.button3);
-            this.tabPage9.Controls.Add(this.textBoxMaxUsersNewTeam);
+            this.tabPage9.Controls.Add(this.buttonAddUserToNewTeam);
+            this.tabPage9.Controls.Add(this.buttonAddNewTeam);
             this.tabPage9.Controls.Add(this.textBoxDescriptionNewTeam);
             this.tabPage9.Controls.Add(this.textBoxNameNewTeam);
             this.tabPage9.Controls.Add(this.label16);
@@ -881,6 +884,23 @@
             this.tabPage9.TabIndex = 0;
             this.tabPage9.Text = "tabPage9";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // numericBoxMaxUsersNewTeam
+            // 
+            this.numericBoxMaxUsersNewTeam.Location = new System.Drawing.Point(322, 169);
+            this.numericBoxMaxUsersNewTeam.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericBoxMaxUsersNewTeam.Name = "numericBoxMaxUsersNewTeam";
+            this.numericBoxMaxUsersNewTeam.Size = new System.Drawing.Size(329, 20);
+            this.numericBoxMaxUsersNewTeam.TabIndex = 54;
+            this.numericBoxMaxUsersNewTeam.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label44
             // 
@@ -935,14 +955,15 @@
             this.listBoxUsersForNewTeam.Size = new System.Drawing.Size(210, 160);
             this.listBoxUsersForNewTeam.TabIndex = 25;
             // 
-            // button9
+            // buttonRemoveUserToNewTeam
             // 
-            this.button9.Location = new System.Drawing.Point(394, 324);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(61, 23);
-            this.button9.TabIndex = 24;
-            this.button9.Text = "<<";
-            this.button9.UseVisualStyleBackColor = true;
+            this.buttonRemoveUserToNewTeam.Location = new System.Drawing.Point(394, 324);
+            this.buttonRemoveUserToNewTeam.Name = "buttonRemoveUserToNewTeam";
+            this.buttonRemoveUserToNewTeam.Size = new System.Drawing.Size(61, 23);
+            this.buttonRemoveUserToNewTeam.TabIndex = 24;
+            this.buttonRemoveUserToNewTeam.Text = "<<";
+            this.buttonRemoveUserToNewTeam.UseVisualStyleBackColor = true;
+            this.buttonRemoveUserToNewTeam.Click += new System.EventHandler(this.buttonRemoveUserToNewTeam_Click);
             // 
             // listBoxAllUsersForNewTeam
             // 
@@ -952,30 +973,25 @@
             this.listBoxAllUsersForNewTeam.Size = new System.Drawing.Size(210, 160);
             this.listBoxAllUsersForNewTeam.TabIndex = 23;
             // 
-            // button8
+            // buttonAddUserToNewTeam
             // 
-            this.button8.Location = new System.Drawing.Point(394, 274);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(60, 23);
-            this.button8.TabIndex = 22;
-            this.button8.Text = ">>";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonAddUserToNewTeam.Location = new System.Drawing.Point(394, 274);
+            this.buttonAddUserToNewTeam.Name = "buttonAddUserToNewTeam";
+            this.buttonAddUserToNewTeam.Size = new System.Drawing.Size(60, 23);
+            this.buttonAddUserToNewTeam.TabIndex = 22;
+            this.buttonAddUserToNewTeam.Text = ">>";
+            this.buttonAddUserToNewTeam.UseVisualStyleBackColor = true;
+            this.buttonAddUserToNewTeam.Click += new System.EventHandler(this.buttonAddUserToNewTeam_Click);
             // 
-            // button3
+            // buttonAddNewTeam
             // 
-            this.button3.Location = new System.Drawing.Point(321, 440);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(206, 23);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Add New Team";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBoxMaxUsersNewTeam
-            // 
-            this.textBoxMaxUsersNewTeam.Location = new System.Drawing.Point(321, 162);
-            this.textBoxMaxUsersNewTeam.Name = "textBoxMaxUsersNewTeam";
-            this.textBoxMaxUsersNewTeam.Size = new System.Drawing.Size(330, 20);
-            this.textBoxMaxUsersNewTeam.TabIndex = 18;
+            this.buttonAddNewTeam.Location = new System.Drawing.Point(321, 440);
+            this.buttonAddNewTeam.Name = "buttonAddNewTeam";
+            this.buttonAddNewTeam.Size = new System.Drawing.Size(206, 23);
+            this.buttonAddNewTeam.TabIndex = 21;
+            this.buttonAddNewTeam.Text = "Add New Team";
+            this.buttonAddNewTeam.UseVisualStyleBackColor = true;
+            this.buttonAddNewTeam.Click += new System.EventHandler(this.buttonAddNewTeam_Click);
             // 
             // textBoxDescriptionNewTeam
             // 
@@ -1020,13 +1036,12 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.numericBoxMaxUserTeamToModify);
+            this.tabPage10.Controls.Add(this.textBoxTeamNameToModify);
             this.tabPage10.Controls.Add(this.label45);
-            this.tabPage10.Controls.Add(this.label26);
-            this.tabPage10.Controls.Add(this.buttonSelectTeamForModify);
             this.tabPage10.Controls.Add(this.label25);
             this.tabPage10.Controls.Add(this.listBoxAllTeams);
-            this.tabPage10.Controls.Add(this.button10);
-            this.tabPage10.Controls.Add(this.textBoxMaxUsersOfTeamToModify);
+            this.tabPage10.Controls.Add(this.buttonModifySelectedTeam);
             this.tabPage10.Controls.Add(this.textBoxDescriptionOfTeamToModify);
             this.tabPage10.Controls.Add(this.label22);
             this.tabPage10.Controls.Add(this.label23);
@@ -1039,6 +1054,31 @@
             this.tabPage10.Text = "tabPage10";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // numericBoxMaxUserTeamToModify
+            // 
+            this.numericBoxMaxUserTeamToModify.Location = new System.Drawing.Point(419, 269);
+            this.numericBoxMaxUserTeamToModify.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericBoxMaxUserTeamToModify.Name = "numericBoxMaxUserTeamToModify";
+            this.numericBoxMaxUserTeamToModify.Size = new System.Drawing.Size(330, 20);
+            this.numericBoxMaxUserTeamToModify.TabIndex = 47;
+            this.numericBoxMaxUserTeamToModify.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // textBoxTeamNameToModify
+            // 
+            this.textBoxTeamNameToModify.Enabled = false;
+            this.textBoxTeamNameToModify.Location = new System.Drawing.Point(419, 193);
+            this.textBoxTeamNameToModify.Name = "textBoxTeamNameToModify";
+            this.textBoxTeamNameToModify.Size = new System.Drawing.Size(330, 20);
+            this.textBoxTeamNameToModify.TabIndex = 46;
+            // 
             // label45
             // 
             this.label45.AutoSize = true;
@@ -1047,24 +1087,6 @@
             this.label45.Size = new System.Drawing.Size(80, 13);
             this.label45.TabIndex = 45;
             this.label45.Text = "Team to Modify";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(416, 193);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(106, 13);
-            this.label26.TabIndex = 44;
-            this.label26.Text = "TeamNameToModify";
-            // 
-            // buttonSelectTeamForModify
-            // 
-            this.buttonSelectTeamForModify.Location = new System.Drawing.Point(19, 435);
-            this.buttonSelectTeamForModify.Name = "buttonSelectTeamForModify";
-            this.buttonSelectTeamForModify.Size = new System.Drawing.Size(210, 23);
-            this.buttonSelectTeamForModify.TabIndex = 43;
-            this.buttonSelectTeamForModify.Text = "Add New Team";
-            this.buttonSelectTeamForModify.UseVisualStyleBackColor = true;
             // 
             // label25
             // 
@@ -1082,22 +1104,17 @@
             this.listBoxAllTeams.Name = "listBoxAllTeams";
             this.listBoxAllTeams.Size = new System.Drawing.Size(210, 342);
             this.listBoxAllTeams.TabIndex = 41;
+            this.listBoxAllTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxAllTeams_SelectedIndexChanged);
             // 
-            // button10
+            // buttonModifySelectedTeam
             // 
-            this.button10.Location = new System.Drawing.Point(419, 353);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(206, 23);
-            this.button10.TabIndex = 34;
-            this.button10.Text = "Modify Selected Team";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // textBoxMaxUsersOfTeamToModify
-            // 
-            this.textBoxMaxUsersOfTeamToModify.Location = new System.Drawing.Point(419, 269);
-            this.textBoxMaxUsersOfTeamToModify.Name = "textBoxMaxUsersOfTeamToModify";
-            this.textBoxMaxUsersOfTeamToModify.Size = new System.Drawing.Size(330, 20);
-            this.textBoxMaxUsersOfTeamToModify.TabIndex = 33;
+            this.buttonModifySelectedTeam.Location = new System.Drawing.Point(419, 353);
+            this.buttonModifySelectedTeam.Name = "buttonModifySelectedTeam";
+            this.buttonModifySelectedTeam.Size = new System.Drawing.Size(206, 23);
+            this.buttonModifySelectedTeam.TabIndex = 34;
+            this.buttonModifySelectedTeam.Text = "Modify Selected Team";
+            this.buttonModifySelectedTeam.UseVisualStyleBackColor = true;
+            this.buttonModifySelectedTeam.Click += new System.EventHandler(this.buttonModifySelectedTeam_Click);
             // 
             // textBoxDescriptionOfTeamToModify
             // 
@@ -1393,11 +1410,11 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.numericBoxWidthNewBoard);
+            this.tabPage11.Controls.Add(this.numericBoxHeightNewBoard);
             this.tabPage11.Controls.Add(this.label49);
             this.tabPage11.Controls.Add(this.label47);
             this.tabPage11.Controls.Add(this.label35);
-            this.tabPage11.Controls.Add(this.textBoxWidthNewBoard);
-            this.tabPage11.Controls.Add(this.textBoxHeightNewBoard);
             this.tabPage11.Controls.Add(this.textBoxDescriptionNewBoard);
             this.tabPage11.Controls.Add(this.textBoxNameNewBoard);
             this.tabPage11.Controls.Add(this.label31);
@@ -1440,20 +1457,6 @@
             this.label35.Size = new System.Drawing.Size(86, 13);
             this.label35.TabIndex = 28;
             this.label35.Text = "New Board Data";
-            // 
-            // textBoxWidthNewBoard
-            // 
-            this.textBoxWidthNewBoard.Location = new System.Drawing.Point(458, 283);
-            this.textBoxWidthNewBoard.Name = "textBoxWidthNewBoard";
-            this.textBoxWidthNewBoard.Size = new System.Drawing.Size(330, 20);
-            this.textBoxWidthNewBoard.TabIndex = 27;
-            // 
-            // textBoxHeightNewBoard
-            // 
-            this.textBoxHeightNewBoard.Location = new System.Drawing.Point(458, 239);
-            this.textBoxHeightNewBoard.Name = "textBoxHeightNewBoard";
-            this.textBoxHeightNewBoard.Size = new System.Drawing.Size(330, 20);
-            this.textBoxHeightNewBoard.TabIndex = 26;
             // 
             // textBoxDescriptionNewBoard
             // 
@@ -1694,7 +1697,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(887, 45);
+            this.panel1.Size = new System.Drawing.Size(887, 46);
             this.panel1.TabIndex = 4;
             // 
             // radioButtonLogout
@@ -1733,6 +1736,40 @@
             this.radioButtonHome.UseVisualStyleBackColor = true;
             this.radioButtonHome.CheckedChanged += new System.EventHandler(this.radioButtonHome_CheckedChanged);
             // 
+            // numericBoxHeightNewBoard
+            // 
+            this.numericBoxHeightNewBoard.Location = new System.Drawing.Point(458, 246);
+            this.numericBoxHeightNewBoard.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericBoxHeightNewBoard.Name = "numericBoxHeightNewBoard";
+            this.numericBoxHeightNewBoard.Size = new System.Drawing.Size(330, 20);
+            this.numericBoxHeightNewBoard.TabIndex = 39;
+            this.numericBoxHeightNewBoard.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numericBoxWidthNewBoard
+            // 
+            this.numericBoxWidthNewBoard.Location = new System.Drawing.Point(458, 283);
+            this.numericBoxWidthNewBoard.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericBoxWidthNewBoard.Name = "numericBoxWidthNewBoard";
+            this.numericBoxWidthNewBoard.Size = new System.Drawing.Size(330, 20);
+            this.numericBoxWidthNewBoard.TabIndex = 40;
+            this.numericBoxWidthNewBoard.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // BoardAplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1761,8 +1798,10 @@
             this.tabControlTeams.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxMaxUsersNewTeam)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxMaxUserTeamToModify)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -1779,6 +1818,8 @@
             this.tabPage14.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxHeightNewBoard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxWidthNewBoard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1829,8 +1870,7 @@
         private System.Windows.Forms.RadioButton radioButtonNewTeam;
         private System.Windows.Forms.TabControl tabControlTeams;
         private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBoxMaxUsersNewTeam;
+        private System.Windows.Forms.Button buttonAddNewTeam;
         private System.Windows.Forms.TextBox textBoxDescriptionNewTeam;
         private System.Windows.Forms.TextBox textBoxNameNewTeam;
         private System.Windows.Forms.Label label16;
@@ -1840,19 +1880,16 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListBox listBoxUsersForNewTeam;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button buttonRemoveUserToNewTeam;
         private System.Windows.Forms.ListBox listBoxAllUsersForNewTeam;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button buttonSelectTeamForModify;
+        private System.Windows.Forms.Button buttonAddUserToNewTeam;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ListBox listBoxAllTeams;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.TextBox textBoxMaxUsersOfTeamToModify;
+        private System.Windows.Forms.Button buttonModifySelectedTeam;
         private System.Windows.Forms.TextBox textBoxDescriptionOfTeamToModify;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ListBox listBoxSelectedTeamBoards;
@@ -1878,8 +1915,6 @@
         private System.Windows.Forms.Button buttonCreateNewBoard;
         private System.Windows.Forms.ListBox listBoxTeamsNewBoard;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBoxWidthNewBoard;
-        private System.Windows.Forms.TextBox textBoxHeightNewBoard;
         private System.Windows.Forms.TextBox textBoxDescriptionNewBoard;
         private System.Windows.Forms.TextBox textBoxNameNewBoard;
         private System.Windows.Forms.Label label31;
@@ -1929,6 +1964,11 @@
         private System.Windows.Forms.ListBox listBoxInformCommentaryResolvedByUser;
         private System.Windows.Forms.ListBox listBoxInformAllUsers;
         private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.NumericUpDown numericBoxMaxUsersNewTeam;
+        private System.Windows.Forms.TextBox textBoxTeamNameToModify;
+        private System.Windows.Forms.NumericUpDown numericBoxMaxUserTeamToModify;
+        private System.Windows.Forms.NumericUpDown numericBoxWidthNewBoard;
+        private System.Windows.Forms.NumericUpDown numericBoxHeightNewBoard;
     }
 }
 

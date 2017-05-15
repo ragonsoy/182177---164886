@@ -25,6 +25,11 @@ namespace BoardApplicationBusinessLogic
             this.creatorUser = creatorUser;
         }
 
+        public Board(string name)
+        {
+            this.name = name;
+        }
+
         public bool Equals(Board board)
         {
             return (this.name == board.name);

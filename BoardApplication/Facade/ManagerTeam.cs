@@ -32,7 +32,7 @@ namespace BoardApplicationFacade
             return persistenceTeams.Get(team);
         }
 
-        public void AddBoard(UserCollaborator user, string name, string description, int height, int width)
+        public void CreationBoard(UserCollaborator user, string name, string description, int height, int width)
         {
             Board board = new Board(name, description, height, width, user);
             if (!team.ExistBoard(board))
@@ -41,6 +41,12 @@ namespace BoardApplicationFacade
                 persistenceTeams.Remove(team);
                 persistenceTeams.Add(team);
             }
+        }
+
+        public bool ExistOtherBoardWithTheSameNameInTheTeam(string nameBoard)
+        {
+            Board board = new Board(nameBoard);
+            return team.ExistBoard(board);                 
         }
 
         public List<Board> GetBoards()
@@ -72,6 +78,18 @@ namespace BoardApplicationFacade
         {
             Team team = this.GetTeam(name);
             return team.UniqueUser();
+        }
+
+        public string GetDescription(string name)
+        {
+            Team team = GetTeam(name);
+            return team.getDescription();
+        }
+
+        public int GetMaxUserTeam(string name)
+        {
+            Team team = GetTeam(name);
+            return team.getMaxUserCount();
         }
 
         //public void ModifyTeam(string name, DateTime creationDate, string description, int maxUserCount)

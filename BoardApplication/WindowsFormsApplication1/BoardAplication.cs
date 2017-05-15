@@ -51,8 +51,8 @@ namespace WindowsFormsApplication1
         private void dataTestAddBoardToTeams()
         {
             managerTeam.SetActualTeam("team");
-            managerTeam.AddBoard(managerUserCollaborator.GetUserCollaborator("collaborator"), "board", "description", 100, 100);
-            managerTeam.AddBoard(managerUserCollaborator.GetUserCollaborator("c2"), "boardTest", "description", 100, 100);
+            managerTeam.CreationBoard(managerUserCollaborator.GetUserCollaborator("collaborator"), "board", "description", 100, 100);
+            managerTeam.CreationBoard(managerUserCollaborator.GetUserCollaborator("c2"), "boardTest", "description", 100, 100);
         }
 
         private void dataTestUsers()
@@ -165,8 +165,15 @@ namespace WindowsFormsApplication1
         private void radioButtonModifyTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlTeams.SelectedTab = tabPage10;
+            ListBoxAllTeamsModify();
         }
-                
+
+        private void ListBoxAllTeamsModify()
+        {
+            this.listBoxAllTeams.Items.Clear();
+            this.listBoxAllTeams.Items.AddRange(managerUserAdministrator.GetAllTeam().ToArray());
+        }
+
         private void radioButtonNewBoard_CheckedChanged(object sender, EventArgs e)
         {
             tabControlPrincipal.SelectedTab = tabPage11;
@@ -183,8 +190,8 @@ namespace WindowsFormsApplication1
             label31.Hide();
             textBoxNameNewBoard.Hide();
             textBoxDescriptionNewBoard.Hide();
-            textBoxHeightNewBoard.Hide();
-            textBoxWidthNewBoard.Hide();
+            numericBoxHeightNewBoard.Hide();
+            numericBoxWidthNewBoard.Hide();
             buttonCreateNewBoard.Hide();
         }     
         
@@ -422,8 +429,8 @@ namespace WindowsFormsApplication1
             label31.Show();
             textBoxNameNewBoard.Show();
             textBoxDescriptionNewBoard.Show();
-            textBoxHeightNewBoard.Show();
-            textBoxWidthNewBoard.Show();
+            numericBoxHeightNewBoard.Show();
+            numericBoxWidthNewBoard.Show();
             buttonCreateNewBoard.Show();
         }
 
@@ -495,9 +502,9 @@ namespace WindowsFormsApplication1
 
         private void buttonRemoveUserOfModifyList_Click(object sender, EventArgs e)
         {
-            if (!managerTeam.UniqueUser(listBoxAllSystemTeams.SelectedItem.ToString()))
+            if (!managerTeam.UniqueUser(listBoxSelectedUserTeams.SelectedItem.ToString()))
             {
-                managerUserAdministrator.RemoveUserToTeam(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString()), managerTeam.GetTeam(listBoxAllSystemTeams.SelectedItem.ToString()));
+                managerUserAdministrator.RemoveUserToTeam(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString()), managerTeam.GetTeam(listBoxSelectedUserTeams.SelectedItem.ToString()));
                 RefreshListModifyUserToTeam();
             }
             else
@@ -530,31 +537,34 @@ namespace WindowsFormsApplication1
 
         private void buttonCreateNewBoard_Click(object sender, EventArgs e)
         {
-            /*
+            managerTeam.SetActualTeam(listBoxTeamsNewBoard.SelectedItem.ToString());
             if (ValidateFieldsNewBoard())
             {
                 string nameBoard = textBoxNameNewBoard.Text;
                 string descriptionBoard = textBoxDescriptionNewBoard.Text;
-                string heightBoard = textBoxHeightNewBoard.Text;
-                string widthBoard = textBoxWidthNewBoard.Text;
-                managerUserCollaborator.GetUserCollaborator(managerUserCollaborator.GetIDActualUser());
-                // agregar board datos --> (nameBoard, descriptionBoard, heightBoard, widthBoard, managerUserCollaborator, managerUserCollaborator.GetUserCollaborator(managerUserCollaborator.GetIDActualUser());
+                int heightBoard = (int)numericBoxHeightNewBoard.Value;
+                int widthBoard = (int)numericBoxWidthNewBoard.Value;                
+                managerTeam.CreationBoard(managerUserCollaborator.GetActualUser(),nameBoard, descriptionBoard, heightBoard, widthBoard);
                 MessageBox.Show("Pizarron agregado correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFieldsNewBoard();
             }
-            */
         }
 
         private void ClearFieldsNewBoard()
         {
             textBoxNameNewBoard.Clear();
             textBoxDescriptionNewBoard.Clear();
-            textBoxHeightNewBoard.Clear();
-            textBoxWidthNewBoard.Clear();
+            numericBoxHeightNewBoard.Value = 1;
+            numericBoxWidthNewBoard.Value = 1;
         }
 
         private bool ValidateFieldsNewBoard()
         {
+            if (ExistOtherBoardWithTheSameNameInTheTeam())
+            {
+                MessageBox.Show("Este equipo ya tiene un pizarron con este nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             if (textBoxNameNewBoard.Text.Trim() == "")
             {
                 MessageBox.Show("Debe ingresar un nombre para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -562,21 +572,26 @@ namespace WindowsFormsApplication1
             }
             if (textBoxDescriptionNewBoard.Text.Trim() == "")
             {
-                MessageBox.Show("Debe ingresar una descripcin para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar una descripcion para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (textBoxHeightNewBoard.Text.Trim() == "")
+            if (numericBoxHeightNewBoard.Value == 0)
             {
                 MessageBox.Show("Debe ingresar una altura para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (textBoxWidthNewBoard.Text.Trim() == "")
+            if (numericBoxWidthNewBoard.Value == 0)
             {
                 MessageBox.Show("Debe ingresar un ancho para el pizarron", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
+        }
+
+        private bool ExistOtherBoardWithTheSameNameInTheTeam()
+        {
+            return managerTeam.ExistOtherBoardWithTheSameNameInTheTeam(textBoxNameNewBoard.Text);
         }
 
         private void listBoxInformAllTeams_SelectedIndexChanged(object sender, EventArgs e)
@@ -601,6 +616,139 @@ namespace WindowsFormsApplication1
         {
             BoardAplication_Board board = new BoardAplication_Board();
             board.Show();
+        }
+
+        private void buttonAddNewTeam_Click(object sender, EventArgs e)
+        {
+            if (ValidateFieldsNewTeam())
+            {
+                if (!managerTeam.ExistsTeam(textBoxNameNewTeam.Text))
+                {                    
+                    string name = textBoxNameNewTeam.Text;
+                    string description = textBoxDescriptionNewTeam.Text;
+                    int maxUsersTeam = (int)numericBoxMaxUsersNewTeam.Value;
+                    managerUserAdministrator.CreateTeam(name,DateTime.Now.Date, description, maxUsersTeam);
+                    AddListUsersNewTeam();
+                    MessageBox.Show("El equipo ha sido creado correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearFieldsNewTeam();
+                }
+                else
+                    MessageBox.Show("El nombre del equipo ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void AddListUsersNewTeam()
+        {
+            for (int i = 0; i < listBoxUsersForNewTeam.Items.Count; i++)
+                managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator(listBoxUsersForNewTeam.Items[i].ToString()), managerTeam.GetTeam(textBoxNameNewTeam.Text));             
+        }
+
+        private void ClearFieldsNewTeam()
+        {
+
+            textBoxNameNewTeam.Clear();
+            textBoxDescriptionNewTeam.Clear();
+            numericBoxMaxUsersNewTeam.Value = 1;
+        }
+
+        private bool ValidateFieldsNewTeam()
+        {
+            if (ListUserNewTeamEmpty())
+            {
+                MessageBox.Show("Debe ingresar al menos un usuario al equipo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (ListUserNewTeamOverflow())
+            {
+                MessageBox.Show("El equipo tiene un maximo de usuarios menor a los usuarios seleccionados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBoxNameNewTeam.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar un nombre para el equipo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBoxDescriptionNewTeam.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar una descripcion para el equipo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (numericBoxMaxUsersNewTeam.Value == 0)
+            {
+                MessageBox.Show("Debe ingresar un maximo de usuarios mayor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private bool ListUserNewTeamEmpty()
+        {
+            return listBoxUsersForNewTeam.Items.Count == 0;
+        }
+
+        private bool ListUserNewTeamOverflow()
+        {
+            return listBoxUsersForNewTeam.Items.Count > numericBoxMaxUsersNewTeam.Value;
+        }
+
+        private void buttonRemoveUserToNewTeam_Click(object sender, EventArgs e)
+        {
+            this.listBoxUsersForNewTeam.Items.Remove(listBoxUsersForNewTeam.SelectedItem);
+        }
+
+        private void buttonAddUserToNewTeam_Click(object sender, EventArgs e)
+        {
+            if (!this.listBoxUsersForNewTeam.Items.Contains(listBoxAllUsersForNewTeam.SelectedItem))
+                this.listBoxUsersForNewTeam.Items.Add(listBoxAllUsersForNewTeam.SelectedItem);
+        }
+
+        private void listBoxAllTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxTeamNameToModify.Text = listBoxAllTeams.SelectedItem.ToString();
+            textBoxDescriptionOfTeamToModify.Text = managerTeam.GetDescription(listBoxAllTeams.SelectedItem.ToString());
+            numericBoxMaxUserTeamToModify.Value = managerTeam.GetMaxUserTeam(listBoxAllTeams.SelectedItem.ToString());
+        }
+
+        private void buttonModifySelectedTeam_Click(object sender, EventArgs e)
+        {
+            if (ValidateFieldsModifyTeam())
+            {
+                string nameTeam = textBoxTeamNameToModify.Text;
+                string descriptionTeam = textBoxDescriptionOfTeamToModify.Text;
+                int maxUserTeam = (int)numericBoxMaxUserTeamToModify.Value;
+                managerUserAdministrator.ModifyTeam(nameTeam, descriptionTeam, maxUserTeam);
+                MessageBox.Show("El equipo ha sido modificado correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearFieldsModifyTeam();
+            }
+        }
+
+        private void ClearFieldsModifyTeam()
+        {
+            textBoxTeamNameToModify.Clear();
+            textBoxDescriptionOfTeamToModify.Clear();
+            numericBoxMaxUserTeamToModify.Value = 1;
+        }
+
+        private bool ValidateFieldsModifyTeam()
+        {
+            if (textBoxDescriptionOfTeamToModify.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar una descripcion para el equipo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (numericBoxMaxUserTeamToModify.Value == 0)
+            {
+                MessageBox.Show("Debe ingresar un maximo de usuarios mayor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (numericBoxMaxUserTeamToModify.Value == managerTeam.GetMaxUserTeam(listBoxAllTeams.SelectedItem.ToString()))
+            {
+                MessageBox.Show("El equipo esta integrado por mas usuario que el numero maximo especificado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

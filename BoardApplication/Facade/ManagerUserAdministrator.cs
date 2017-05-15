@@ -86,6 +86,15 @@ namespace BoardApplicationFacade
             persistenceUserCollaborator.Add(userCollaboratorModify);
         }
 
+        public void ModifyTeam(string name, string description, int maxUserTeam)
+        {
+            Team team = persistanceTeams.Get(new Team(name));
+            team.setDescription(description);
+            team.setMaxUserCount(maxUserTeam);
+            persistanceTeams.Remove(team);
+            persistanceTeams.Add(team);
+        }
+
         //public void RemoveUser(string name, string lastName, string email, DateTime birthDate, string password)
         //{
         //    User user = new UserCollaborator(name, lastName, email, birthDate, password);
@@ -105,13 +114,6 @@ namespace BoardApplicationFacade
             if (userAdministrator.AddUserToTeam(user, team))
             {
                 user.AddToTeam(team);
-                //if (this.ExistsUserAdministrator(user.getEmail()))
-                //{
-                //    UserAdministrator userAdministratorModify = this.GetUserAdministrator(user.getEmail());
-                //    userAdministrator.AddUserToTeam(userAdministratorModify,team);
-                //    persistenceUserAdministrator.Remove(userAdministratorModify);
-                //    persistenceUserAdministrator.Add(userAdministratorModify);
-                //}
                 userAdministrator.AddUserToTeam(user, team);
                 persistenceUserCollaborator.Remove(user);
                 persistenceUserCollaborator.Add(user);

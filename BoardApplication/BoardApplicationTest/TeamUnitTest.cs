@@ -94,16 +94,7 @@ namespace BoardApplicationTest
         {
             Assert.AreEqual(team.getCreationDate(), dateCreationTeam);
         }
-
-        [TestMethod]
-        public void TeamSetCreationDateTest()
-        {
-            DateTime dateTimeNew = new DateTime();
-            DateTime.TryParse("2/1/2000", out dateTimeNew);
-            team.setCreationDate(dateTimeNew);
-            Assert.AreEqual(team.getCreationDate(), dateTimeNew);
-        }
-
+        
         [TestMethod]
         public void TeamGetDescriptionTest()
         {

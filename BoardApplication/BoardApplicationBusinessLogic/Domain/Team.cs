@@ -103,34 +103,17 @@ namespace BoardApplicationBusinessLogic
         {
             return countUser == minimunUser;
         }
-
-
-
-
-
-
-
+        
         public void setName(string name)
         {
-            if (!isEmpty(name))
-                this.name = name;
+            this.name = name;
         }
-
-        private bool isEmpty(string str)
-        {
-            return (str.Trim().Length == 0);
-        }
-
+        
         public DateTime getCreationDate()
         {
             return this.creationDate;
         }
-
-        public void setCreationDate(DateTime dateTime)
-        {
-            this.creationDate = dateTime;
-        }
-
+        
         public string getDescription()
         {
             return this.description;
@@ -138,12 +121,9 @@ namespace BoardApplicationBusinessLogic
 
         public void setDescription(string description)
         {
-            if(!isEmpty(description))
-                this.description = description;
+            this.description = description;
         }
-
         
-
         public bool RemoveUserTeam()
         {
             if (!UniqueUser())
@@ -153,27 +133,6 @@ namespace BoardApplicationBusinessLogic
             }
             return false;
         }
-
-        
                
-
-        //public void ModifyBoard(Board board)
-        //{
-        //    if (this.teamBoards.Contains(board))
-        //    {
-        //        Board teamBoard = this.GetBoard(board);
-        //        teamBoard.ModifyBoard(board);
-        //    }
-        //}
-
-        //private Board GetBoard(Board board)
-        //{
-        //    foreach (Board boardWanted in this.teamBoards)
-        //    {
-        //        if (boardWanted.Equals(board))
-        //            return boardWanted;
-        //    }
-        //    return board;
-        //}
     }
 }
