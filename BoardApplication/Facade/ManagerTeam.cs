@@ -92,17 +92,6 @@ namespace BoardApplicationFacade
             return team.getMaxUserCount();
         }
 
-        //public void ModifyTeam(string name, DateTime creationDate, string description, int maxUserCount)
-        //{
-        //    Team team = new Team(name, creationDate, description, maxUserCount);
-        //    persistence.Remove(team);
-        //    persistence.Add(team);
-        //}
-
-        //public void RemoveTeam(string name, DateTime creationDate, string description, int maxUserCount)
-        //{
-        //    Team team = new Team(name, creationDate, description, maxUserCount);
-        //    persistence.Remove(persistence.Get(team));
-        //}
+        
     }
 }

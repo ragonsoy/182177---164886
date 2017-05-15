@@ -614,7 +614,9 @@ namespace WindowsFormsApplication1
 
         private void buttonEnterBoard_Click(object sender, EventArgs e)
         {
-            BoardAplication_Board board = new BoardAplication_Board();
+            string nameBoard = this.listBoxTeamBoards.SelectedItem.ToString();
+            string nameTeam = this.listBoxUserTeams.SelectedItem.ToString();
+            BoardAplication_Board board = new BoardAplication_Board(nameTeam, nameBoard, persistenceTeam);
             board.Show();
         }
 

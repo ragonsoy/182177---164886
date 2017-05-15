@@ -143,6 +143,8 @@
             this.listBoxInformAllUsers = new System.Windows.Forms.ListBox();
             this.label54 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.numericBoxWidthNewBoard = new System.Windows.Forms.NumericUpDown();
+            this.numericBoxHeightNewBoard = new System.Windows.Forms.NumericUpDown();
             this.label49 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -169,8 +171,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonLogout = new System.Windows.Forms.RadioButton();
             this.radioButtonHome = new System.Windows.Forms.RadioButton();
-            this.numericBoxHeightNewBoard = new System.Windows.Forms.NumericUpDown();
-            this.numericBoxWidthNewBoard = new System.Windows.Forms.NumericUpDown();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -193,10 +193,10 @@
             this.tabPage12.SuspendLayout();
             this.tabPage13.SuspendLayout();
             this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxWidthNewBoard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxHeightNewBoard)).BeginInit();
             this.tabPage14.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBoxHeightNewBoard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBoxWidthNewBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlPrincipal
@@ -303,7 +303,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 19);
+            this.panel2.Size = new System.Drawing.Size(873, 66);
             this.panel2.TabIndex = 5;
             // 
             // radioButtonAddUserToTeam
@@ -810,7 +810,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(873, 18);
+            this.panel3.Size = new System.Drawing.Size(873, 62);
             this.panel3.TabIndex = 6;
             // 
             // radioButtonModifyTeam
@@ -1431,6 +1431,40 @@
             this.tabPage11.Text = "tabPage11";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // numericBoxWidthNewBoard
+            // 
+            this.numericBoxWidthNewBoard.Location = new System.Drawing.Point(458, 283);
+            this.numericBoxWidthNewBoard.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericBoxWidthNewBoard.Name = "numericBoxWidthNewBoard";
+            this.numericBoxWidthNewBoard.Size = new System.Drawing.Size(330, 20);
+            this.numericBoxWidthNewBoard.TabIndex = 40;
+            this.numericBoxWidthNewBoard.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numericBoxHeightNewBoard
+            // 
+            this.numericBoxHeightNewBoard.Location = new System.Drawing.Point(458, 246);
+            this.numericBoxHeightNewBoard.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericBoxHeightNewBoard.Name = "numericBoxHeightNewBoard";
+            this.numericBoxHeightNewBoard.Size = new System.Drawing.Size(330, 20);
+            this.numericBoxHeightNewBoard.TabIndex = 39;
+            this.numericBoxHeightNewBoard.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // label49
             // 
             this.label49.AutoSize = true;
@@ -1697,7 +1731,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(887, 46);
+            this.panel1.Size = new System.Drawing.Size(887, 60);
             this.panel1.TabIndex = 4;
             // 
             // radioButtonLogout
@@ -1735,40 +1769,6 @@
             this.radioButtonHome.Text = "Home";
             this.radioButtonHome.UseVisualStyleBackColor = true;
             this.radioButtonHome.CheckedChanged += new System.EventHandler(this.radioButtonHome_CheckedChanged);
-            // 
-            // numericBoxHeightNewBoard
-            // 
-            this.numericBoxHeightNewBoard.Location = new System.Drawing.Point(458, 246);
-            this.numericBoxHeightNewBoard.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericBoxHeightNewBoard.Name = "numericBoxHeightNewBoard";
-            this.numericBoxHeightNewBoard.Size = new System.Drawing.Size(330, 20);
-            this.numericBoxHeightNewBoard.TabIndex = 39;
-            this.numericBoxHeightNewBoard.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numericBoxWidthNewBoard
-            // 
-            this.numericBoxWidthNewBoard.Location = new System.Drawing.Point(458, 283);
-            this.numericBoxWidthNewBoard.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericBoxWidthNewBoard.Name = "numericBoxWidthNewBoard";
-            this.numericBoxWidthNewBoard.Size = new System.Drawing.Size(330, 20);
-            this.numericBoxWidthNewBoard.TabIndex = 40;
-            this.numericBoxWidthNewBoard.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // BoardAplication
             // 
@@ -1814,12 +1814,12 @@
             this.tabPage13.PerformLayout();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxWidthNewBoard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericBoxHeightNewBoard)).EndInit();
             this.tabPage14.ResumeLayout(false);
             this.tabPage14.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBoxHeightNewBoard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBoxWidthNewBoard)).EndInit();
             this.ResumeLayout(false);
 
         }
