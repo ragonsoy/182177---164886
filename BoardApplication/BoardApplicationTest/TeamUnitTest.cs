@@ -14,12 +14,32 @@ namespace BoardApplicationTest
         string nameTeam;
         string description;
         Team team;
-
+        Team teamTwo;
+        int height;
+        int width;
+        Board board;
+        Board boardPrueba;
+        DateTime birthDateUser;
+        string nameUser;
+        string lastNameUser;
+        string emailUser;
+        string passwordUser;
+        UserCollaborator creatorUser;
 
         [TestInitialize]
         public void Init()
         {
+            dataForUserTest();
+            dataForBoardTest();
             dataForTeamTest();
+        }
+
+        public void dataForBoardTest()
+        {
+            height = 10;
+            width = 10;
+            board = new Board("NombreBoard", "BoardDescripcion", height, width, creatorUser);
+            boardPrueba = new Board("NombreBoardPrueba", "BoardDescripcion", height, width, creatorUser);
         }
 
         public void dataForTeamTest()
@@ -31,6 +51,18 @@ namespace BoardApplicationTest
             maxUserCount = 1;
             teamBoards = new List<Board>();
             team = new Team(nameTeam, dateCreationTeam, description, maxUserCount);
+            teamTwo = new Team(nameTeam, dateCreationTeam, description, 0);
+        }
+
+        public void dataForUserTest()
+        {
+            birthDateUser = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDateUser);
+            nameUser = "Nombre";
+            lastNameUser = "Apellido";
+            emailUser = "Email";
+            passwordUser = "Password";
+            creatorUser = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
         }
 
         [TestMethod]
@@ -95,6 +127,59 @@ namespace BoardApplicationTest
         {
             team.setMaxUserCount(2);
             Assert.AreEqual(team.getMaxUserCount(), 2);
-        }   
+        }
+
+        [TestMethod]
+        public void TeamEqualsTest()
+        {
+            Assert.IsTrue(team.Equals(team));
+        }
+
+        [TestMethod]
+        public void TeamToStringTest()
+        {
+            Assert.AreEqual(team.getName(), team.ToString());
+        }
+
+        [TestMethod]
+        public void TeamAddUserToTeamTrueTest()
+        {
+            Assert.IsFalse(teamTwo.AddUserToTeam());
+        }
+
+        [TestMethod]
+        public void TeamAddUserToTeamFalseTest()
+        {
+            Assert.IsTrue(team.AddUserToTeam());
+        }
+
+        [TestMethod]
+        public void TeamAddBoardTest()
+        {
+            team.AddBoard(board);
+            Assert.AreEqual(team.getBoards().Count, 1);
+        }
+
+        [TestMethod]
+        public void TeamExistBoardTest()
+        {
+            team.AddBoard(board);
+            Assert.IsTrue(team.ExistBoard(board));
+        }
+
+        [TestMethod]
+        public void TeamGetBoardsTest()
+        {
+            team.AddBoard(board);
+            Assert.AreEqual(team.getBoards().Count, 1);
+        }
+
+        [TestMethod]
+        public void TeamGetBoardTest()
+        {
+            team.AddBoard(board);
+            team.AddBoard(boardPrueba);
+            Assert.AreEqual(team.GetBoard("NombreBoardPrueba"), boardPrueba);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace BoardApplicationTest
         {
             persistence = new Persistence();
         }
-
+        /*
         [TestMethod]
         public void PersistenceAddGetAdministrator()
         {
@@ -25,6 +25,7 @@ namespace BoardApplicationTest
             persistence.Add(user);
             Assert.AreEqual(persistence.Get(user), user);
         }
+        */
 
         [TestMethod]
         public void PersistenceCountEmptyAdministrator()

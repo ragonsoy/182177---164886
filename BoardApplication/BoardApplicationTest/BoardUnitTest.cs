@@ -10,10 +10,6 @@ namespace BoardApplicationTest
     public class BoardUnitTest
     {
         List<BoardElement> boardElements;
-        DateTime dateTime;
-        int maxUserCount;
-        List<User> teamUsers;
-        Team boardTeam;
         int height;
         int width;
         List<Commentary> comentarysElement;
@@ -22,12 +18,23 @@ namespace BoardApplicationTest
         int heightElement;
         int widthElement;
         BoardElement element;
+        DateTime birthDateUser;
+        string nameUser;
+        string lastNameUser;
+        string emailUser;
+        string passwordUser;
+        List<Team> teamsUser;
+        UserCollaborator creatorUser;
+        Board board;
+        Board boardPrueba;
 
         [TestInitialize]
         public void Init()
         {
+            dataForUserTest();
             dataForBoardTest();
             dataForBoardElementTest();
+            
         }
 
         public void dataForBoardTest()
@@ -35,6 +42,8 @@ namespace BoardApplicationTest
             boardElements = new List<BoardElement>();
             height = 10;
             width = 10;
+            board = new Board("NombreBoard", "BoardDescripcion", height, width, creatorUser);
+            boardPrueba = new Board("NombreBoard", "BoardDescripcion", height, width, creatorUser);
         }
         
         public void dataForBoardElementTest()
@@ -47,17 +56,27 @@ namespace BoardApplicationTest
             element = new BoardElement(originPointX, originPointY, heightElement, widthElement, comentarysElement);
         }
 
+        public void dataForUserTest()
+        {
+            birthDateUser = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDateUser);
+            nameUser = "Nombre";
+            lastNameUser = "Apellido";
+            emailUser = "Email";
+            passwordUser = "Password";
+            teamsUser = new List<Team>();
+            creatorUser = new UserCollaborator(nameUser, lastNameUser, emailUser, birthDateUser, passwordUser);
+        }
+
         [TestMethod]
         public void BoardGetNameTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getName(), "NombreBoard");
         }
 
         [TestMethod]
         public void BoardSetNameTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.setName("NombreCambiado");
             Assert.AreEqual(board.getName(), "NombreCambiado");
         }
@@ -65,14 +84,12 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetDescriptionTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getDescription(), "BoardDescripcion");
         }
 
         [TestMethod]
         public void BoardSetDescriptionTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.setDescripcion("BoardDescripcionCambiada");
             Assert.AreEqual(board.getDescription(), "BoardDescripcionCambiada");
         }
@@ -80,14 +97,12 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetHeightTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getHeight(), height);
         }
 
         [TestMethod]
         public void BoardSetHeightTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.setHeight(6);
             Assert.AreEqual(board.getHeight(), 6);
         }
@@ -95,14 +110,12 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetWidthTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getWidth(), width);
         }
 
         [TestMethod]
         public void BoardSetWidthTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.setWidth(5);
             Assert.AreEqual(board.getWidth(), 5);
         }
@@ -110,14 +123,12 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardGetBoardElementsTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             Assert.AreEqual(board.getBoardElements().Count, 0);
         }
 
         [TestMethod]
         public void BoardAddBoardElementTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.AddBoardElements(element);
             Assert.IsTrue(board.getBoardElements().Contains(element));
         }
@@ -125,7 +136,6 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardRemoveBoardElementTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.AddBoardElements(element);
             board.RemoveBoardElements(element);
             Assert.IsFalse(board.getBoardElements().Contains(element));
@@ -134,10 +144,28 @@ namespace BoardApplicationTest
         [TestMethod]
         public void BoardRemoveBoardElementNotExistTest()
         {
-            Board board = new Board("NombreBoard", "BoardDescripcion", height, width);
             board.RemoveBoardElements(element);
             Assert.IsFalse(board.getBoardElements().Contains(element));
         }
+
+        [TestMethod]
+        public void ToStringBoardElementTest()
+        {
+            Assert.AreEqual(board.ToString(), "NombreBoard");
+        }
+
+        [TestMethod]
+        public void EqualsBoardElementTest()
+        {            
+            Assert.IsTrue(board.Equals(boardPrueba));
+        }
         
+        [TestMethod]
+        public void IsUserCreatorBoardElementTest()
+        {
+            Assert.IsTrue(board.IsUserCreator(creatorUser));
+        }
     }
+
+
 }
