@@ -134,7 +134,6 @@
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.label37 = new System.Windows.Forms.Label();
             this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.label38 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.label49 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
@@ -164,6 +163,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonLogout = new System.Windows.Forms.RadioButton();
             this.radioButtonHome = new System.Windows.Forms.RadioButton();
+            this.listBoxInformAllBoardsByTeam = new System.Windows.Forms.ListBox();
+            this.listBoxInformAllTeams = new System.Windows.Forms.ListBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.listBoxInformCommentaryResolvedByUser = new System.Windows.Forms.ListBox();
+            this.listBoxInformAllUsers = new System.Windows.Forms.ListBox();
+            this.label54 = new System.Windows.Forms.Label();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -799,7 +807,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(873, 64);
+            this.panel3.Size = new System.Drawing.Size(873, 65);
             this.panel3.TabIndex = 6;
             // 
             // radioButtonModifyTeam
@@ -1216,7 +1224,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(873, 64);
+            this.panel4.Size = new System.Drawing.Size(873, 68);
             this.panel4.TabIndex = 7;
             // 
             // radioButtonCommentartResovedByUser
@@ -1267,6 +1275,10 @@
             // 
             // tabPage12
             // 
+            this.tabPage12.Controls.Add(this.label52);
+            this.tabPage12.Controls.Add(this.label51);
+            this.tabPage12.Controls.Add(this.listBoxInformAllBoardsByTeam);
+            this.tabPage12.Controls.Add(this.listBoxInformAllTeams);
             this.tabPage12.Controls.Add(this.label37);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
@@ -1279,15 +1291,19 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(175, 93);
+            this.label37.Location = new System.Drawing.Point(483, 78);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(150, 13);
+            this.label37.Size = new System.Drawing.Size(125, 13);
             this.label37.TabIndex = 0;
-            this.label37.Text = "Pizarrones creados por equipo";
+            this.label37.Text = "Boards Created By Team";
             // 
             // tabPage13
             // 
             this.tabPage13.Controls.Add(this.label38);
+            this.tabPage13.Controls.Add(this.label53);
+            this.tabPage13.Controls.Add(this.listBoxInformCommentaryResolvedByUser);
+            this.tabPage13.Controls.Add(this.listBoxInformAllUsers);
+            this.tabPage13.Controls.Add(this.label54);
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
@@ -1295,15 +1311,6 @@
             this.tabPage13.TabIndex = 1;
             this.tabPage13.Text = "tabPage13";
             this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(220, 172);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(165, 13);
-            this.label38.TabIndex = 1;
-            this.label38.Text = "Comentarios resuletos por usuario";
             // 
             // tabPage11
             // 
@@ -1646,6 +1653,85 @@
             this.radioButtonHome.UseVisualStyleBackColor = true;
             this.radioButtonHome.CheckedChanged += new System.EventHandler(this.radioButtonHome_CheckedChanged);
             // 
+            // listBoxInformAllBoardsByTeam
+            // 
+            this.listBoxInformAllBoardsByTeam.FormattingEnabled = true;
+            this.listBoxInformAllBoardsByTeam.Location = new System.Drawing.Point(486, 94);
+            this.listBoxInformAllBoardsByTeam.Name = "listBoxInformAllBoardsByTeam";
+            this.listBoxInformAllBoardsByTeam.Size = new System.Drawing.Size(210, 251);
+            this.listBoxInformAllBoardsByTeam.TabIndex = 11;
+            // 
+            // listBoxInformAllTeams
+            // 
+            this.listBoxInformAllTeams.FormattingEnabled = true;
+            this.listBoxInformAllTeams.Location = new System.Drawing.Point(70, 94);
+            this.listBoxInformAllTeams.Name = "listBoxInformAllTeams";
+            this.listBoxInformAllTeams.Size = new System.Drawing.Size(210, 251);
+            this.listBoxInformAllTeams.TabIndex = 10;
+            this.listBoxInformAllTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxInformAllTeams_SelectedIndexChanged);
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(67, 78);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(154, 13);
+            this.label51.TabIndex = 12;
+            this.label51.Text = "List of All Teams in The System";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(276, 78);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(148, 13);
+            this.label52.TabIndex = 13;
+            this.label52.Text = "Select A Team For More Data";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(296, 127);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(143, 13);
+            this.label38.TabIndex = 18;
+            this.label38.Text = "Select A User For More Data";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(87, 127);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(149, 13);
+            this.label53.TabIndex = 17;
+            this.label53.Text = "List of All Users in The System";
+            // 
+            // listBoxInformCommentaryResolvedByUser
+            // 
+            this.listBoxInformCommentaryResolvedByUser.FormattingEnabled = true;
+            this.listBoxInformCommentaryResolvedByUser.Location = new System.Drawing.Point(506, 143);
+            this.listBoxInformCommentaryResolvedByUser.Name = "listBoxInformCommentaryResolvedByUser";
+            this.listBoxInformCommentaryResolvedByUser.Size = new System.Drawing.Size(210, 251);
+            this.listBoxInformCommentaryResolvedByUser.TabIndex = 16;
+            // 
+            // listBoxInformAllUsers
+            // 
+            this.listBoxInformAllUsers.FormattingEnabled = true;
+            this.listBoxInformAllUsers.Location = new System.Drawing.Point(90, 143);
+            this.listBoxInformAllUsers.Name = "listBoxInformAllUsers";
+            this.listBoxInformAllUsers.Size = new System.Drawing.Size(210, 251);
+            this.listBoxInformAllUsers.TabIndex = 15;
+            this.listBoxInformAllUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxInformAllUsers_SelectedIndexChanged);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(503, 127);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(158, 13);
+            this.label54.TabIndex = 14;
+            this.label54.Text = "Commentarys Resolved By User";
+            // 
             // BoardAplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1809,7 +1895,6 @@
         private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.ListBox listBoxTeamBoards;
         private System.Windows.Forms.Button buttonEnterBoard;
@@ -1834,6 +1919,15 @@
         private System.Windows.Forms.RadioButton radioButtonLogout;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.ListBox listBoxInformAllBoardsByTeam;
+        private System.Windows.Forms.ListBox listBoxInformAllTeams;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.ListBox listBoxInformCommentaryResolvedByUser;
+        private System.Windows.Forms.ListBox listBoxInformAllUsers;
+        private System.Windows.Forms.Label label54;
     }
 }
 

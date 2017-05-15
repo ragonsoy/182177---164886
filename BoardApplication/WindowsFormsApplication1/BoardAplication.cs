@@ -138,6 +138,10 @@ namespace WindowsFormsApplication1
         private void radioButtonInfor_CheckedChanged(object sender, EventArgs e)
         {
             tabControlPrincipal.SelectedTab = tabPage5;
+            label37.Hide();
+            listBoxInformAllBoardsByTeam.Hide();
+            this.listBoxInformAllTeams.Items.Clear();
+            this.listBoxInformAllTeams.Items.AddRange(managerUserAdministrator.GetAllTeam().ToArray());
         }
         
         private void radioButtonModifyUser_CheckedChanged(object sender, EventArgs e)
@@ -187,11 +191,19 @@ namespace WindowsFormsApplication1
         private void radioButtonBoardCreatedByTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlInforms.SelectedTab = tabPage12;
+            label54.Hide();
+            listBoxInformAllBoardsByTeam.Hide();
+            this.listBoxInformAllTeams.Items.Clear();
+            this.listBoxInformAllTeams.Items.AddRange(managerUserAdministrator.GetAllTeam().ToArray());
         }
 
         private void radioButtonCommentartResovedByUser_CheckedChanged(object sender, EventArgs e)
         {
             tabControlInforms.SelectedTab = tabPage13;
+            label38.Hide();
+            listBoxInformCommentaryResolvedByUser.Hide();
+            this.listBoxInformAllUsers.Items.Clear();
+            this.listBoxInformAllUsers.Items.AddRange(managerUserAdministrator.GetAllUser().ToArray());
         }
                 
         private void buttonUserToAddToATeam_Click(object sender, EventArgs e)
@@ -422,10 +434,10 @@ namespace WindowsFormsApplication1
 
         private void listBoxOfAllSystemTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            managerTeam.SetActualTeam(this.listBoxOfAllSystemTeams.SelectedItem.ToString());
             label28.Show();
             listBoxSelectedTeamBoards.Show();
             buttonDeleteSelectedBoardFromDeleteBoard.Hide();
+            managerTeam.SetActualTeam(this.listBoxOfAllSystemTeams.SelectedItem.ToString());
             this.listBoxSelectedTeamBoards.Items.Clear();
             this.listBoxSelectedTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
         }
@@ -565,6 +577,24 @@ namespace WindowsFormsApplication1
                 return false;
             }
             return true;
+        }
+
+        private void listBoxInformAllTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label37.Show();
+            listBoxInformAllBoardsByTeam.Show();
+            managerTeam.SetActualTeam(this.listBoxInformAllTeams.SelectedItem.ToString());
+            this.listBoxInformAllBoardsByTeam.Items.Clear();
+            this.listBoxInformAllBoardsByTeam.Items.AddRange(managerTeam.GetBoards().ToArray());
+        }
+
+        private void listBoxInformAllUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label54.Show();
+            listBoxInformCommentaryResolvedByUser.Show();
+            string usuarioSeleccionado = this.listBoxInformAllUsers.SelectedItem.ToString();
+            this.listBoxInformCommentaryResolvedByUser.Items.Clear();
+            // cargar info de comentarios resuletos por este usuario, pasando el email del usuario seleccionado.
         }
     }
 }
