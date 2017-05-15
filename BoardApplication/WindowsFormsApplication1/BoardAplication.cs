@@ -150,24 +150,7 @@ namespace WindowsFormsApplication1
         private void radioButtonNewUser_CheckedChanged(object sender, EventArgs e)
         {
             tabControlUsers.SelectedTab = tabPage6;
-        }
-        
-        private void radioButtonAddUserToTeam_CheckedChanged(object sender, EventArgs e)
-        {
-            tabControlUsers.SelectedTab = tabPage8;
-            label21.Hide();
-            listBoxSelectedUserTeams.Hide();
-            label13.Hide();
-            label14.Hide();
-            listBoxAllSystemTeams.Hide();
-            label20.Hide();
-            buttonRemoveUserOfModifyList.Hide();
-            buttonAddUserOfModifyList.Hide();
-            this.listBoxAllSystemUsers.Items.Clear();
-            this.listBoxAllSystemUsers.Items.AddRange(managerUserAdministrator.GetAllUser().ToArray());
-            this.listBoxAllSystemTeams.Items.Clear();
-            this.listBoxAllSystemTeams.Items.AddRange(managerUserAdministrator.GetAllTeam().ToArray());
-        }               
+        }         
                 
         private void radioButtonNewTeam_CheckedChanged(object sender, EventArgs e)
         {
@@ -213,15 +196,7 @@ namespace WindowsFormsApplication1
                 
         private void buttonUserToAddToATeam_Click(object sender, EventArgs e)
         {
-            label21.Show();
-            listBoxSelectedUserTeams.Show();
-            label13.Show();
-            label14.Show();
-            listBoxAllSystemTeams.Show();
-            label20.Show();
-            buttonRemoveUserOfModifyList.Show();
-            buttonAddUserOfModifyList.Show();
-            RefreshListModifyUserToTeam();
+            
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -405,37 +380,7 @@ namespace WindowsFormsApplication1
                 string password = textBoxPasswordUserToModify.Text;
                 managerUserAdministrator.ModifyUser(name, lastName,email,birthDay,password);
             }
-        }
-
-        private void buttonAddUserOfModifyList_Click(object sender, EventArgs e)
-        {
-            if (!managerTeam.TeamIsFull(listBoxAllSystemTeams.SelectedItem.ToString()))
-            { 
-                managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString()), managerTeam.GetTeam(listBoxAllSystemTeams.SelectedItem.ToString()));
-                RefreshListModifyUserToTeam();
-            }
-            else
-                MessageBox.Show("El equipo esta completo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);            
-        }
-
-        private void buttonRemoveUserOfModifyList_Click(object sender, EventArgs e)
-        {
-            if (!managerTeam.UniqueUser(listBoxAllSystemTeams.SelectedItem.ToString()))
-            {
-                managerUserAdministrator.RemoveUserToTeam(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString()), managerTeam.GetTeam(listBoxAllSystemTeams.SelectedItem.ToString()));
-                RefreshListModifyUserToTeam();
-            }
-            else
-                MessageBox.Show("El equipo esta completo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void RefreshListModifyUserToTeam()
-        {
-            this.listBoxSelectedUserTeams.Items.Clear();
-            this.listBoxSelectedUserTeams.Items.AddRange(managerUserCollaborator.GetTeams(listBoxAllSystemUsers.SelectedItem.ToString()).ToArray());
-            this.listBoxAllSystemTeams.Items.Clear();
-            this.listBoxAllSystemTeams.Items.AddRange(managerUserAdministrator.GetAllTeamExceptTeamsUser(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString())).ToArray());
-        }
+        }       
 
         private void radioButtonLogout_CheckedChanged(object sender, EventArgs e)
         {
@@ -495,6 +440,85 @@ namespace WindowsFormsApplication1
             managerTeam.RemoveBoard(listBoxSelectedTeamBoards.SelectedItem.ToString());
             this.listBoxSelectedTeamBoards.Items.Clear();
             this.listBoxSelectedTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
+        }
+
+        private void radioButtonAddUserToTeam_CheckedChanged(object sender, EventArgs e)
+        {
+            tabControlUsers.SelectedTab = tabPage8;
+            label21.Hide();
+            listBoxSelectedUserTeams.Hide();
+            label13.Hide();
+            label14.Hide();
+            listBoxAllSystemTeams.Hide();
+            label20.Hide();
+            buttonRemoveUserOfModifyList.Hide();
+            buttonAddUserOfModifyList.Hide();
+            this.listBoxAllSystemUsers.Items.Clear();
+            this.listBoxAllSystemUsers.Items.AddRange(managerUserAdministrator.GetAllUser().ToArray());
+        }
+
+        private void listBoxAllSystemUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label21.Show();
+            listBoxSelectedUserTeams.Show();
+            
+            listBoxAllSystemTeams.Show();
+            label20.Show();
+            
+            managerUserCollaborator.SetActualUser(this.listBoxAllSystemUsers.SelectedItem.ToString());
+            RefreshListModifyUserToTeam();
+
+        }
+
+        private void buttonAddUserOfModifyList_Click(object sender, EventArgs e)
+        {
+            if (!managerTeam.TeamIsFull(listBoxAllSystemTeams.SelectedItem.ToString()))
+            {
+                managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString()), managerTeam.GetTeam(listBoxAllSystemTeams.SelectedItem.ToString()));
+                RefreshListModifyUserToTeam();
+            }
+            else
+                MessageBox.Show("El equipo esta completo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void buttonRemoveUserOfModifyList_Click(object sender, EventArgs e)
+        {
+            if (!managerTeam.UniqueUser(listBoxAllSystemTeams.SelectedItem.ToString()))
+            {
+                managerUserAdministrator.RemoveUserToTeam(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString()), managerTeam.GetTeam(listBoxAllSystemTeams.SelectedItem.ToString()));
+                RefreshListModifyUserToTeam();
+            }
+            else
+                MessageBox.Show("El equipo esta completo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void RefreshListModifyUserToTeam()
+        {
+            this.listBoxSelectedUserTeams.Items.Clear();
+            this.listBoxSelectedUserTeams.Items.AddRange(managerUserCollaborator.GetTeams().ToArray());
+            this.listBoxAllSystemTeams.Items.Clear();
+            this.listBoxAllSystemTeams.Items.AddRange(managerUserAdministrator.GetAllTeamExceptTeamsUser(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString())).ToArray());
+        }
+
+        private void listBoxSelectedUserTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label13.Show();
+            buttonRemoveUserOfModifyList.Show();
+            label14.Hide();            
+            buttonAddUserOfModifyList.Hide();
+        }
+
+        private void listBoxAllSystemTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label13.Hide();
+            buttonRemoveUserOfModifyList.Hide();
+            label14.Show();
+            buttonAddUserOfModifyList.Show();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

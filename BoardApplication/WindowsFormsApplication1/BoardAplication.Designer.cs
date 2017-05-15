@@ -75,7 +75,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.buttonUserToAddToATeam = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -127,7 +126,6 @@
             this.listBoxSelectedTeamBoards = new System.Windows.Forms.ListBox();
             this.buttonDeleteSelectedBoardFromDeleteBoard = new System.Windows.Forms.Button();
             this.listBoxOfAllSystemTeams = new System.Windows.Forms.ListBox();
-            this.button11 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.radioButtonCommentartResovedByUser = new System.Windows.Forms.RadioButton();
@@ -294,7 +292,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 66);
+            this.panel2.Size = new System.Drawing.Size(873, 65);
             this.panel2.TabIndex = 5;
             // 
             // radioButtonAddUserToTeam
@@ -671,7 +669,6 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.buttonUserToAddToATeam);
             this.tabPage8.Controls.Add(this.label14);
             this.tabPage8.Controls.Add(this.label13);
             this.tabPage8.Controls.Add(this.label20);
@@ -689,16 +686,6 @@
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // buttonUserToAddToATeam
-            // 
-            this.buttonUserToAddToATeam.Location = new System.Drawing.Point(47, 364);
-            this.buttonUserToAddToATeam.Name = "buttonUserToAddToATeam";
-            this.buttonUserToAddToATeam.Size = new System.Drawing.Size(211, 23);
-            this.buttonUserToAddToATeam.TabIndex = 49;
-            this.buttonUserToAddToATeam.Text = "Select User";
-            this.buttonUserToAddToATeam.UseVisualStyleBackColor = true;
-            this.buttonUserToAddToATeam.Click += new System.EventHandler(this.buttonUserToAddToATeam_Click);
             // 
             // label14
             // 
@@ -743,6 +730,7 @@
             this.listBoxAllSystemTeams.Name = "listBoxAllSystemTeams";
             this.listBoxAllSystemTeams.Size = new System.Drawing.Size(210, 251);
             this.listBoxAllSystemTeams.TabIndex = 44;
+            this.listBoxAllSystemTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxAllSystemTeams_SelectedIndexChanged);
             // 
             // buttonAddUserOfModifyList
             // 
@@ -761,6 +749,7 @@
             this.listBoxSelectedUserTeams.Name = "listBoxSelectedUserTeams";
             this.listBoxSelectedUserTeams.Size = new System.Drawing.Size(210, 251);
             this.listBoxSelectedUserTeams.TabIndex = 42;
+            this.listBoxSelectedUserTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxSelectedUserTeams_SelectedIndexChanged);
             // 
             // buttonRemoveUserOfModifyList
             // 
@@ -788,6 +777,7 @@
             this.listBoxAllSystemUsers.Name = "listBoxAllSystemUsers";
             this.listBoxAllSystemUsers.Size = new System.Drawing.Size(210, 251);
             this.listBoxAllSystemUsers.TabIndex = 38;
+            this.listBoxAllSystemUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxAllSystemUsers_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -1143,7 +1133,6 @@
             this.tabPage4.Controls.Add(this.listBoxSelectedTeamBoards);
             this.tabPage4.Controls.Add(this.buttonDeleteSelectedBoardFromDeleteBoard);
             this.tabPage4.Controls.Add(this.listBoxOfAllSystemTeams);
-            this.tabPage4.Controls.Add(this.button11);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -1206,15 +1195,6 @@
             this.listBoxOfAllSystemTeams.Size = new System.Drawing.Size(210, 251);
             this.listBoxOfAllSystemTeams.TabIndex = 7;
             this.listBoxOfAllSystemTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxOfAllSystemTeams_SelectedIndexChanged);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(107, 366);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(210, 23);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "Select Team";
-            this.button11.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
@@ -1790,7 +1770,6 @@
         private System.Windows.Forms.ListBox listBoxSelectedTeamBoards;
         private System.Windows.Forms.Button buttonDeleteSelectedBoardFromDeleteBoard;
         private System.Windows.Forms.ListBox listBoxOfAllSystemTeams;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label20;
@@ -1843,7 +1822,6 @@
         private System.Windows.Forms.RadioButton radioButtonHome;
         private System.Windows.Forms.DateTimePicker dateTimePickerNewUser;
         private System.Windows.Forms.DateTimePicker dateTimePickerModifyUser;
-        private System.Windows.Forms.Button buttonUserToAddToATeam;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label39;
