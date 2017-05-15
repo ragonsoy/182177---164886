@@ -125,7 +125,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.listBoxSelectedTeamBoards = new System.Windows.Forms.ListBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonDeleteSelectedBoardFromDeleteBoard = new System.Windows.Forms.Button();
             this.listBoxOfAllSystemTeams = new System.Windows.Forms.ListBox();
             this.button11 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -138,6 +138,7 @@
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.label38 = new System.Windows.Forms.Label();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.label49 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.textBoxWidthNewBoard = new System.Windows.Forms.TextBox();
@@ -150,14 +151,13 @@
             this.label34 = new System.Windows.Forms.Label();
             this.buttonCreateNewBoard = new System.Windows.Forms.Button();
             this.listBoxTeamsNewBoard = new System.Windows.Forms.ListBox();
-            this.button13 = new System.Windows.Forms.Button();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.label50 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.listBoxTeamBoards = new System.Windows.Forms.ListBox();
             this.buttonEnterBoard = new System.Windows.Forms.Button();
             this.buttonDeleteSelectedBoard = new System.Windows.Forms.Button();
             this.listBoxUserTeams = new System.Windows.Forms.ListBox();
-            this.buttonSelectTeam = new System.Windows.Forms.Button();
             this.radioButtonUser = new System.Windows.Forms.RadioButton();
             this.radioButtonTeam = new System.Windows.Forms.RadioButton();
             this.radioButtonBoards = new System.Windows.Forms.RadioButton();
@@ -294,7 +294,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 71);
+            this.panel2.Size = new System.Drawing.Size(873, 66);
             this.panel2.TabIndex = 5;
             // 
             // radioButtonAddUserToTeam
@@ -809,7 +809,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(873, 66);
+            this.panel3.Size = new System.Drawing.Size(873, 10);
             this.panel3.TabIndex = 6;
             // 
             // radioButtonModifyTeam
@@ -1141,7 +1141,7 @@
             this.tabPage4.Controls.Add(this.label28);
             this.tabPage4.Controls.Add(this.label27);
             this.tabPage4.Controls.Add(this.listBoxSelectedTeamBoards);
-            this.tabPage4.Controls.Add(this.button7);
+            this.tabPage4.Controls.Add(this.buttonDeleteSelectedBoardFromDeleteBoard);
             this.tabPage4.Controls.Add(this.listBoxOfAllSystemTeams);
             this.tabPage4.Controls.Add(this.button11);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -1186,15 +1186,17 @@
             this.listBoxSelectedTeamBoards.Name = "listBoxSelectedTeamBoards";
             this.listBoxSelectedTeamBoards.Size = new System.Drawing.Size(210, 251);
             this.listBoxSelectedTeamBoards.TabIndex = 10;
+            this.listBoxSelectedTeamBoards.SelectedIndexChanged += new System.EventHandler(this.listBoxSelectedTeamBoards_SelectedIndexChanged);
             // 
-            // button7
+            // buttonDeleteSelectedBoardFromDeleteBoard
             // 
-            this.button7.Location = new System.Drawing.Point(523, 366);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(210, 23);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "Delete Selected Board";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedBoardFromDeleteBoard.Location = new System.Drawing.Point(523, 366);
+            this.buttonDeleteSelectedBoardFromDeleteBoard.Name = "buttonDeleteSelectedBoardFromDeleteBoard";
+            this.buttonDeleteSelectedBoardFromDeleteBoard.Size = new System.Drawing.Size(210, 23);
+            this.buttonDeleteSelectedBoardFromDeleteBoard.TabIndex = 8;
+            this.buttonDeleteSelectedBoardFromDeleteBoard.Text = "Delete Selected Board";
+            this.buttonDeleteSelectedBoardFromDeleteBoard.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedBoardFromDeleteBoard.Click += new System.EventHandler(this.buttonDeleteSelectedBoardFromDeleteBoard_Click);
             // 
             // listBoxOfAllSystemTeams
             // 
@@ -1203,6 +1205,7 @@
             this.listBoxOfAllSystemTeams.Name = "listBoxOfAllSystemTeams";
             this.listBoxOfAllSystemTeams.Size = new System.Drawing.Size(210, 251);
             this.listBoxOfAllSystemTeams.TabIndex = 7;
+            this.listBoxOfAllSystemTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxOfAllSystemTeams_SelectedIndexChanged);
             // 
             // button11
             // 
@@ -1324,6 +1327,7 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.label49);
             this.tabPage11.Controls.Add(this.label47);
             this.tabPage11.Controls.Add(this.label35);
             this.tabPage11.Controls.Add(this.textBoxWidthNewBoard);
@@ -1336,7 +1340,6 @@
             this.tabPage11.Controls.Add(this.label34);
             this.tabPage11.Controls.Add(this.buttonCreateNewBoard);
             this.tabPage11.Controls.Add(this.listBoxTeamsNewBoard);
-            this.tabPage11.Controls.Add(this.button13);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -1344,6 +1347,15 @@
             this.tabPage11.TabIndex = 5;
             this.tabPage11.Text = "tabPage11";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(91, 87);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(177, 13);
+            this.label49.TabIndex = 38;
+            this.label49.Text = "Select Team to create a New Board";
             // 
             // label47
             // 
@@ -1443,24 +1455,16 @@
             this.listBoxTeamsNewBoard.Name = "listBoxTeamsNewBoard";
             this.listBoxTeamsNewBoard.Size = new System.Drawing.Size(210, 251);
             this.listBoxTeamsNewBoard.TabIndex = 7;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(94, 360);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(210, 23);
-            this.button13.TabIndex = 6;
-            this.button13.Text = "Select Team";
-            this.button13.UseVisualStyleBackColor = true;
+            this.listBoxTeamsNewBoard.SelectedIndexChanged += new System.EventHandler(this.listBoxTeamsNewBoard_SelectedIndexChanged);
             // 
             // tabPage14
             // 
+            this.tabPage14.Controls.Add(this.label50);
             this.tabPage14.Controls.Add(this.label48);
             this.tabPage14.Controls.Add(this.listBoxTeamBoards);
             this.tabPage14.Controls.Add(this.buttonEnterBoard);
             this.tabPage14.Controls.Add(this.buttonDeleteSelectedBoard);
             this.tabPage14.Controls.Add(this.listBoxUserTeams);
-            this.tabPage14.Controls.Add(this.buttonSelectTeam);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
@@ -1468,6 +1472,15 @@
             this.tabPage14.TabIndex = 6;
             this.tabPage14.Text = "tabPage14";
             this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(123, 118);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(67, 13);
+            this.label50.TabIndex = 38;
+            this.label50.Text = "Select Team";
             // 
             // label48
             // 
@@ -1513,16 +1526,7 @@
             this.listBoxUserTeams.Name = "listBoxUserTeams";
             this.listBoxUserTeams.Size = new System.Drawing.Size(210, 251);
             this.listBoxUserTeams.TabIndex = 6;
-            // 
-            // buttonSelectTeam
-            // 
-            this.buttonSelectTeam.Location = new System.Drawing.Point(126, 391);
-            this.buttonSelectTeam.Name = "buttonSelectTeam";
-            this.buttonSelectTeam.Size = new System.Drawing.Size(210, 23);
-            this.buttonSelectTeam.TabIndex = 5;
-            this.buttonSelectTeam.Text = "Select Team";
-            this.buttonSelectTeam.UseVisualStyleBackColor = true;
-            this.buttonSelectTeam.Click += new System.EventHandler(this.buttonSelectTeam_Click);
+            this.listBoxUserTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxUserTeams_SelectedIndexChanged);
             // 
             // radioButtonUser
             // 
@@ -1640,6 +1644,7 @@
             this.radioButtonLogout.TabIndex = 6;
             this.radioButtonLogout.Text = "Logout";
             this.radioButtonLogout.UseVisualStyleBackColor = true;
+            this.radioButtonLogout.CheckedChanged += new System.EventHandler(this.radioButtonLogout_CheckedChanged);
             // 
             // radioButtonHome
             // 
@@ -1783,7 +1788,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ListBox listBoxSelectedTeamBoards;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonDeleteSelectedBoardFromDeleteBoard;
         private System.Windows.Forms.ListBox listBoxOfAllSystemTeams;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label14;
@@ -1805,7 +1810,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonCreateNewBoard;
         private System.Windows.Forms.ListBox listBoxTeamsNewBoard;
-        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox textBoxWidthNewBoard;
         private System.Windows.Forms.TextBox textBoxHeightNewBoard;
@@ -1831,7 +1835,6 @@
         private System.Windows.Forms.Button buttonEnterBoard;
         private System.Windows.Forms.Button buttonDeleteSelectedBoard;
         private System.Windows.Forms.ListBox listBoxUserTeams;
-        private System.Windows.Forms.Button buttonSelectTeam;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.TextBox textBoxLoginPassword;
         private System.Windows.Forms.TextBox textBoxLoginEmail;
@@ -1850,6 +1853,8 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.RadioButton radioButtonLogout;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
     }
 }
 

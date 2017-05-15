@@ -26,12 +26,8 @@ namespace WindowsFormsApplication1
         public BoardAplication()
         {
             InitializeComponent();
-            radioButtonHome.Hide();
-            radioButtonNewBoard.Hide();
-            radioButtonUser.Hide();
-            radioButtonTeam.Hide();
-            radioButtonBoards.Hide();
-            radioButtonInfor.Hide();
+
+            ShowLoginFuntions();
 
             persistenceUserCollaborator = new PersistenceUserCollaborator();
             persistenceUserAdministrator = new PersistenceUserAdministration();
@@ -41,30 +37,74 @@ namespace WindowsFormsApplication1
             this.managerUserCollaborator = new ManagerUserCollaborator(persistenceUserCollaborator);
             this.managerTeam = new ManagerTeam(persistenceTeam);
 
-            DateTime birthDateUser = new DateTime();
-            DateTime.TryParse("1/1/2000", out birthDateUser);
-            managerUserAdministrator.CreateUserAdministrator("admim","admin","admin", birthDateUser,"admin");
-            managerUserAdministrator.CreateUserCollaborator("collaborator", "collaborator", "collaborator", birthDateUser, "collaborator");
-            managerUserAdministrator.CreateTeam("team", birthDateUser, "description", 10);
-            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"),managerTeam.GetTeam("team"));
-            managerUserAdministrator.CreateTeam("team2", birthDateUser, "description", 10);
-            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team2"));
-            managerUserAdministrator.CreateTeam("team3", birthDateUser, "description", 10);
-            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team3"));
-            managerUserAdministrator.CreateTeam("team4", birthDateUser, "description", 10);
-            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team4"));
-            managerUserAdministrator.CreateTeam("team5", birthDateUser, "description", 10);
-            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team5"));
-            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team"));
-            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team3"));
-            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team5"));
+            dataTest();
+           }
+
+        private void dataTest()
+        {
+            dataTestUsers();
+            dataTestTeams();
+            dataTestAddUsersToTeams();
+            dataTestAddBoardToTeams();
+        }
+
+        private void dataTestAddBoardToTeams()
+        {
             managerTeam.SetActualTeam("team");
             managerTeam.AddBoard(managerUserCollaborator.GetUserCollaborator("collaborator"), "board", "description", 100, 100);
+            managerTeam.AddBoard(managerUserCollaborator.GetUserCollaborator("c2"), "boardTest", "description", 100, 100);
+        }
+
+        private void dataTestUsers()
+        {
+            DateTime birthDateUser = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDateUser);
+            managerUserAdministrator.CreateUserAdministrator("admim", "admin", "admin", birthDateUser, "admin");
+            managerUserAdministrator.CreateUserCollaborator("collaborator", "collaborator", "collaborator", birthDateUser, "collaborator");
+            managerUserAdministrator.CreateUserCollaborator("c2", "c2", "c2", birthDateUser, "c2");
+        }
+        private void dataTestTeams()
+        {
+            DateTime birthDateUser = new DateTime();
+            DateTime.TryParse("1/1/2000", out birthDateUser);
+            managerUserAdministrator.CreateTeam("team", birthDateUser, "description", 10);
+            managerUserAdministrator.CreateTeam("team2", birthDateUser, "description", 10);
+            managerUserAdministrator.CreateTeam("team3", birthDateUser, "description", 10);
+            managerUserAdministrator.CreateTeam("team4", birthDateUser, "description", 10);
+            managerUserAdministrator.CreateTeam("team5", birthDateUser, "description", 10);
+        }
+
+        private void dataTestAddUsersToTeams()
+        {
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team2"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team3"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team4"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("admin"), managerTeam.GetTeam("team5"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("c2"), managerTeam.GetTeam("team"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team3"));
+            managerUserAdministrator.AddUserToTeam(managerUserCollaborator.GetUserCollaborator("collaborator"), managerTeam.GetTeam("team5"));
+
+        }
+
+        private void ShowLoginFuntions()
+        {
+            radioButtonHome.Hide();
+            radioButtonNewBoard.Hide();
+            radioButtonUser.Hide();
+            radioButtonTeam.Hide();
+            radioButtonBoards.Hide();
+            radioButtonInfor.Hide();
+            radioButtonLogout.Hide();
+            tabControlPrincipal.SelectedTab = tabPage1;
         }
 
         private void radioButtonHome_CheckedChanged(object sender, EventArgs e)
         {
             tabControlPrincipal.SelectedTab = tabPage14;
+            buttonEnterBoard.Hide();
+            listBoxTeamBoards.Items.Clear();
         }
 
         private void radioButtonUser_CheckedChanged(object sender, EventArgs e)
@@ -75,11 +115,24 @@ namespace WindowsFormsApplication1
         private void radioButtonTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlPrincipal.SelectedTab = tabPage3;
+            listAllUsersForNewTeam();
+        }
+
+        private void listAllUsersForNewTeam()
+        {
+            this.listBoxAllUsersForNewTeam.Items.Clear();
+            this.listBoxAllUsersForNewTeam.Items.AddRange(managerUserAdministrator.GetAllUser().ToArray());
         }
 
         private void radioButtonBoards_CheckedChanged(object sender, EventArgs e)
         {
             tabControlPrincipal.SelectedTab = tabPage4;
+            label28.Hide();
+            listBoxSelectedTeamBoards.Hide();
+            buttonDeleteSelectedBoardFromDeleteBoard.Hide();
+            this.listBoxOfAllSystemTeams.Items.Clear();
+            this.listBoxOfAllSystemTeams.Items.AddRange(managerUserAdministrator.GetAllTeam().ToArray());
+
         }
 
         private void radioButtonInfor_CheckedChanged(object sender, EventArgs e)
@@ -112,12 +165,14 @@ namespace WindowsFormsApplication1
             buttonAddUserOfModifyList.Hide();
             this.listBoxAllSystemUsers.Items.Clear();
             this.listBoxAllSystemUsers.Items.AddRange(managerUserAdministrator.GetAllUser().ToArray());
-        }
-               
+            this.listBoxAllSystemTeams.Items.Clear();
+            this.listBoxAllSystemTeams.Items.AddRange(managerUserAdministrator.GetAllTeam().ToArray());
+        }               
                 
         private void radioButtonNewTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlTeams.SelectedTab = tabPage9;
+            listAllUsersForNewTeam();
         }
 
         private void radioButtonModifyTeam_CheckedChanged(object sender, EventArgs e)
@@ -128,8 +183,24 @@ namespace WindowsFormsApplication1
         private void radioButtonNewBoard_CheckedChanged(object sender, EventArgs e)
         {
             tabControlPrincipal.SelectedTab = tabPage11;
+            this.listBoxTeamsNewBoard.Items.Clear();
+            this.listBoxTeamsNewBoard.Items.AddRange(managerUserCollaborator.GetTeams().ToArray());
+            HideNewBoardFormData();
         }
 
+        private void HideNewBoardFormData()
+        {
+            label34.Hide();
+            label33.Hide();
+            label32.Hide();
+            label31.Hide();
+            textBoxNameNewBoard.Hide();
+            textBoxDescriptionNewBoard.Hide();
+            textBoxHeightNewBoard.Hide();
+            textBoxWidthNewBoard.Hide();
+            buttonCreateNewBoard.Hide();
+        }     
+        
         private void radioButtonBoardCreatedByTeam_CheckedChanged(object sender, EventArgs e)
         {
             tabControlInforms.SelectedTab = tabPage12;
@@ -150,7 +221,6 @@ namespace WindowsFormsApplication1
             label20.Show();
             buttonRemoveUserOfModifyList.Show();
             buttonAddUserOfModifyList.Show();
-
             RefreshListModifyUserToTeam();
         }
 
@@ -188,21 +258,23 @@ namespace WindowsFormsApplication1
             radioButtonUser.Show();
             radioButtonTeam.Show();
             radioButtonInfor.Show();
+            radioButtonBoards.Show();
             ShowCollaboratorFrontendFuntions();
         }
         private void ShowCollaboratorFrontendFuntions()
         {
             radioButtonHome.Show();
             radioButtonNewBoard.Show();
+            radioButtonLogout.Show();
             buttonDeleteSelectedBoard.Hide();
-
+            buttonEnterBoard.Hide();
             tabControlPrincipal.SelectedTab = tabPage14;
-
             ShowTeamsActualUser();
         }
 
         private void ShowTeamsActualUser()
         {
+            this.listBoxUserTeams.Items.Clear();
             this.listBoxUserTeams.Items.AddRange(managerUserCollaborator.GetTeams().ToArray());
         }
 
@@ -215,6 +287,7 @@ namespace WindowsFormsApplication1
 
         private void listBoxTeamBoards_SelectedIndexChanged(object sender, EventArgs e)
         {
+            buttonEnterBoard.Show();
             if (managerUserAdministrator.ExistsUserAdministrator(managerUserCollaborator.GetIDActualUser()))
                 this.buttonDeleteSelectedBoard.Show();
             else
@@ -223,7 +296,6 @@ namespace WindowsFormsApplication1
                     this.buttonDeleteSelectedBoard.Show();
                 else
                     this.buttonDeleteSelectedBoard.Hide();
-
             }
         }
 
@@ -232,6 +304,7 @@ namespace WindowsFormsApplication1
             managerTeam.RemoveBoard(listBoxTeamBoards.SelectedItem.ToString());
             this.listBoxTeamBoards.Items.Clear();
             this.listBoxTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
+            buttonDeleteSelectedBoard.Hide();
         }
 
         private void buttonAddNewUser_Click(object sender, EventArgs e)
@@ -342,8 +415,7 @@ namespace WindowsFormsApplication1
                 RefreshListModifyUserToTeam();
             }
             else
-                MessageBox.Show("El equipo esta completo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
+                MessageBox.Show("El equipo esta completo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);            
         }
 
         private void buttonRemoveUserOfModifyList_Click(object sender, EventArgs e)
@@ -355,18 +427,74 @@ namespace WindowsFormsApplication1
             }
             else
                 MessageBox.Show("El equipo esta completo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
         }
 
         private void RefreshListModifyUserToTeam()
         {
-
             this.listBoxSelectedUserTeams.Items.Clear();
             this.listBoxSelectedUserTeams.Items.AddRange(managerUserCollaborator.GetTeams(listBoxAllSystemUsers.SelectedItem.ToString()).ToArray());
-
             this.listBoxAllSystemTeams.Items.Clear();
             this.listBoxAllSystemTeams.Items.AddRange(managerUserAdministrator.GetAllTeamExceptTeamsUser(managerUserCollaborator.GetUserCollaborator(listBoxAllSystemUsers.SelectedItem.ToString())).ToArray());
-            
+        }
+
+        private void radioButtonLogout_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowLoginFuntions();
+        }
+
+        private void buttonSelectTeamNewBoard_Click(object sender, EventArgs e)
+        {
+            ShowNewBoardFormData();
+        }
+
+        private void ShowNewBoardFormData()
+        {
+            label34.Show();
+            label33.Show();
+            label32.Show();
+            label31.Show();
+            textBoxNameNewBoard.Show();
+            textBoxDescriptionNewBoard.Show();
+            textBoxHeightNewBoard.Show();
+            textBoxWidthNewBoard.Show();
+            buttonCreateNewBoard.Show();
+        }
+
+        private void listBoxUserTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonEnterBoard.Hide();
+            buttonDeleteSelectedBoard.Hide();
+            this.listBoxTeamBoards.Items.Clear();
+            this.listBoxTeamBoards.Items.Clear();
+            managerTeam.SetActualTeam(this.listBoxUserTeams.SelectedItem.ToString());
+            this.listBoxTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
+        }
+
+        private void listBoxTeamsNewBoard_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowNewBoardFormData();
+        }
+
+        private void listBoxOfAllSystemTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            managerTeam.SetActualTeam(this.listBoxOfAllSystemTeams.SelectedItem.ToString());
+            label28.Show();
+            listBoxSelectedTeamBoards.Show();
+            buttonDeleteSelectedBoardFromDeleteBoard.Hide();
+            this.listBoxSelectedTeamBoards.Items.Clear();
+            this.listBoxSelectedTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
+        }
+
+        private void listBoxSelectedTeamBoards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonDeleteSelectedBoardFromDeleteBoard.Show();
+        }
+
+        private void buttonDeleteSelectedBoardFromDeleteBoard_Click(object sender, EventArgs e)
+        {
+            managerTeam.RemoveBoard(listBoxSelectedTeamBoards.SelectedItem.ToString());
+            this.listBoxSelectedTeamBoards.Items.Clear();
+            this.listBoxSelectedTeamBoards.Items.AddRange(managerTeam.GetBoards().ToArray());
         }
     }
 }

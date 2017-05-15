@@ -8,9 +8,7 @@ namespace BoardApplicationBusinessLogic
 {
     public class UserAdministrator : User
     {
-
-        private List<Team> teams;
-
+        
         public UserAdministrator(string name, string lastName, string email, DateTime birthDate, string password) 
             : base (name, lastName, email, birthDate, password)
         {
