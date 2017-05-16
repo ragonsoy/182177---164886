@@ -19,7 +19,7 @@ namespace BoardApplicationFacade
 
         public void SetActualTeam(string name)
         {
-            this.team = GetTeam(name);
+                this.team = GetTeam(name);                           
         }
         public bool ExistsTeam(string name)
         {

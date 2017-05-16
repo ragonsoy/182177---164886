@@ -37,12 +37,7 @@ namespace BoardApplicationBusinessLogic
         {
             return new UserAdministrator(name, lastName, email, birthDate, password);
         }
-        
-        
-        
-        
-        
-                
+               
         public void ChangePassword(User user, string password)
         {
             user.setPassword(password);
