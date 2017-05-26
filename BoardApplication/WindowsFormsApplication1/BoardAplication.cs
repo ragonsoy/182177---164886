@@ -133,6 +133,7 @@ namespace WindowsFormsApplication1
             tabControlPrincipal.SelectedTab = tabPage14;
             buttonEnterBoard.Hide();
             listBoxTeamBoards.Items.Clear();
+            listBoxTeamBoards.Items.Clear();
         }
 
         private void radioButtonUser_CheckedChanged(object sender, EventArgs e)
@@ -544,6 +545,7 @@ namespace WindowsFormsApplication1
 
         private void radioButtonLogout_CheckedChanged(object sender, EventArgs e)
         {
+            radioButtonHome.Select();
             ShowLoginFuntions();
         }        
 
